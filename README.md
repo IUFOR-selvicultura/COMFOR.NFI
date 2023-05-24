@@ -2,7 +2,7 @@
 
 This repository has been build to 
  and store the simulations developed in the framework of 
-![COMFOR-SUDOE project](https://github.com/simanfor-dask/CrossForest-simulations/blob/main/logos/COMFOR LOGO EN ERDF.jpg)
+![COMFOR-SUDOE project](https://github.com/simanfor-dask/CrossForest-simulations/blob/main/logos/COMFOR_LOGO_ERDF.jpg)
 
 funded by EU program.
 

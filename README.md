@@ -2,15 +2,15 @@
 
 This repository has been build to 
  and store the simulations developed in the framework of 
-![COMFOR-SUDOE project](https://github.com/simanfor-dask/CrossForest-simulations/blob/main/logos/COMFOR_LOGO_ERDF.jpg)
+![COMFOR-SUDOE project](https://github.com/IUFOR-selvicultura/COMFOR.NFI/blob/main/logos/COMFOR_LOGO_ERDF.jpg)
 
 funded by EU program.
 
 This simulations have been made in Silviculture Group of 
-![iuFOR](https://github.com/simanfor-dask/CrossForest-simulations/blob/main/logos/iuFOR.png)
+![iuFOR](https://github.com/IUFOR-selvicultura/COMFOR.NFI/blob/main/logos/iuFOR.png)
 
 with the simulator 
-![SIMANFOR](https://github.com/simanfor-dask/CrossForest-simulations/blob/main/logos/sm4_ancho.png)
+![SIMANFOR](https://github.com/IUFOR-selvicultura/COMFOR.NFI/blob/main/logos/sm4_ancho.png)
 
 ## CrossForest-simulations
 simulations performed at Caléndula HPC - scripts and notes

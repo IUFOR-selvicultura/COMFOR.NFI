@@ -1,13 +1,25 @@
 # COMFOR.NFI
+<h1><center>COMFOR SUDOE Project </center></h1>
+<center>
+<img src="./logos/COMFOR_LOGO_ERDF.jpg" width="300"/>
+<img src="./logos/iuFOR.png" width="150"/>
+<img src="./logos/uva.png" width="150"/>
+</center>
+<center>
+Mobility week contents
+
+</center>
+
+---
 
 This repository has been build to 
  and store the simulations developed in the framework of 
-![COMFOR-SUDOE project](https://github.com/IUFOR-selvicultura/COMFOR.NFI/blob/main/logos/COMFOR_LOGO_ERDF.jpg)
+![COMFOR-SUDOE project](https://github.com/IUFOR-selvicultura/COMFOR.NFI/blob/main/logos/)
 
 funded by EU program.
 
 This simulations have been made in Silviculture Group of 
-![iuFOR](https://github.com/IUFOR-selvicultura/COMFOR.NFI/blob/main/logos/iuFOR.png)
+![iuFOR](https://github.com/IUFOR-selvicultura/COMFOR.NFI/blob/main/logos/.png)
 
 with the simulator 
 ![SIMANFOR](https://github.com/IUFOR-selvicultura/COMFOR.NFI/blob/main/logos/sm4_ancho.png)

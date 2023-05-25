@@ -1,39 +1,22 @@
 # COMFOR SUDOE Project
 <right>
-<img src="./logos/COMFOR_LOGO_ERDF.jpg" width="400"/>
-<img src="./logos/iuFOR.png" width="350"/>
-<img src="./logos/uva.png" width="150"/>
+<img src="./logos/COMFOR_LOGO_ERDF.jpg" width="500"/>
+<img src="./logos/iuFOR.png" width="310"/>
+<img src="./logos/uva.png" width="100"/>
 </right>
 
-Mobility week contents
----
-
-This repository has been build to 
- and store the simulations developed in the framework of 
-![COMFOR-SUDOE project](https://github.com/IUFOR-selvicultura/COMFOR.NFI/blob/main/logos/)
 
 funded by EU program.
+---
 
-This simulations have been made in Silviculture Group of 
-![iuFOR](https://github.com/IUFOR-selvicultura/COMFOR.NFI/blob/main/logos/.png)
+This repository has been build to share and store the script prepared along COMFOR SUDOE Project in the framework of WP 1 () to analyse National Forest Inventory data and distinguis complex forest from non clomplex stands, i.e. plots which holds pluriespecific composition or with plurimodal composition in terms of total tree heigth and diameter at breast height.
 
-with the simulator 
-![SIMANFOR](https://github.com/IUFOR-selvicultura/COMFOR.NFI/blob/main/logos/sm4_ancho.png)
+## Build NFI data into RData format files
 
-## CrossForest-simulations
-simulations performed at Caléndula HPC - scripts and notes
+## Load of NFI databases
 
-## Simulations with randomly generated plots
-All plots has been randomly generated with an R script `PlotsGenerator.R` in which number of trees per plot, number of plots per file and average dimension of trees is predefined.
+## Calculus for discriminate complex forest plots 
 
-There are a set of 10 simulations, from sim001 to sim010, with a raising number of total plots.
+## Maps of NFI plots by clases of complexity
 
-[Go to test simulations](./test.simulations/test.simulations.md)
-
-
-## Simulations with NFI plots
-
-After testing HPC and SIMANFOR performance, we run simulations with all possible plots from Spanish NFI with 5 different scenarios
-
-[Go to real simulations](./real.simulations/real.simulations.md)
 

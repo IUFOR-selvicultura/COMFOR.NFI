@@ -1,15 +1,11 @@
-# COMFOR.NFI
-<h1><center>COMFOR SUDOE Project </center></h1>
-<center>
-<img src="./logos/COMFOR_LOGO_ERDF.jpg" width="300"/>
-<img src="./logos/iuFOR.png" width="150"/>
+# COMFOR SUDOE Project
+<right>
+<img src="./logos/COMFOR_LOGO_ERDF.jpg" width="400"/>
+<img src="./logos/iuFOR.png" width="350"/>
 <img src="./logos/uva.png" width="150"/>
-</center>
-<center>
+</right>
+
 Mobility week contents
-
-</center>
-
 ---
 
 This repository has been build to 

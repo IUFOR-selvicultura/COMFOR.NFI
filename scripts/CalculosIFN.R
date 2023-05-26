@@ -23,11 +23,11 @@ library(plotly)
 ## work folder
 getwd()
 ## change to data folder
-## setwd("/home/cristobal/github.R/COMFOR.NFI/data/")
+setwd("../../../NFI-data-raw/")
 ## setwd("/home/cristobal/Downloads")
 ## setwd("C:/Users/Irene/Documents/INF COMFOR/")
 ## setwd("~/comfor/")
-setwd("C:/Users/Irene/Documents/INF COMFOR/Entrega/")
+## setwd("C:/Users/Irene/Documents/INF COMFOR/Entrega/")
 dir()
 ls()
 

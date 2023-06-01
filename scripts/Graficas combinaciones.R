@@ -25,20 +25,20 @@ combiIFN4100<-combiIFN4[combiIFN4$Freq>100,]
 ##
 ################################################################################
 
+graficoIndividual<-function(datos,IFN){
+  plot_ly(y=datos$Freq,x=(datos$Var1),type="bar",
+          marker=list(color="lightgreen"))%>%
+    layout(title=paste0("Combinaciones mas frecuentes en el ",IFN))
+}
+
 ###################################IFN2#########################################
-plot_ly(y=combiIFN2100$Freq,x=(combiIFN2100$Var1),type="bar",
-        marker=list(color="lightgreen"))%>%
-  layout(title="Combinaciones mas frecuentes IFN2")
+graficoIndividual(combiIFN2100,"IFN2")
 
 ###################################IFN3#########################################
-plot_ly(y=combiIFN3100$Freq,x=(combiIFN3100$Var1),type="bar",
-        marker=list(color="lightblue"))%>%
-  layout(title="Combinaciones mas frecuentes IFN3")
+graficoIndividual(combiIFN3100,"IFN3")
 
 ###################################IFN4#########################################
-plot_ly(y=combiIFN4100$Freq,x=(combiIFN4100$Var1),type="bar",
-        marker=list(color="pink"))%>%
-  layout(title="Combinaciones mas frecuentes IFN4")
+graficoIndividual(combiIFN2100,"IFN4")
 
 
 ################################################################################
@@ -54,7 +54,7 @@ barCombi<-ggplot(combi,aes(x=Var1,y=Freq,fill=factor(IFN)))+
   #geom_text(aes(label = Cont), vjust = -0.5) +
   labs(title = "Combinaciones más frecuentes",
        x = "Combinaciones",
-       y = "Contador",
+       y = "Repeticiones",
        fill="INF") +
   theme_minimal()
 barCombi

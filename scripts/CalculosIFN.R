@@ -57,10 +57,10 @@ if(is.null(arboles$Cla)){
 }
 
 ## PlotID identify each plot with province and form / Añadimos un indice, para saber cual nos interesa
-arboles$PlotIDC<-with(arboles,paste0(PlotID,".",Cla,".",Subclase))
+arboles$PlotID <- with(arboles,paste0(PlotID0,".",Cla,".",Subclase))
 
 ## Seleccion de variables que nos interesan
-arboles<-arboles[,c("Estadillo","Cla","Subclase","NumOrden","Rumbo","Distanci",
+arboles<-arboles[,c("Estadillo","Cla","Subclase","NumOrden","Rumbo","Distancia",
                     "DRed", "Especie","Diametro1","Diametro2", "Altura","Calidad",
                     "Forma","Origen","OrdenIFAnterior","OrdenIFActual","PlotID")]
 
@@ -154,7 +154,7 @@ origenExpan<-with(arboles,rep(Origen,expan))
 plot_ly(y=table(origenExpan),x=names(table(origenExpan)),type="bar",
         marker=list(color="pink"))%>%
   layout(title="Numero de arboles en cada provincia")
-
+head(origenExpan)
 ## Especies
 especiesExpan<-with(arboles,rep(Especie,expan))
 plot_ly(y=table(especiesExpan),x=names(table(especiesExpan)),type="bar",

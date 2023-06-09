@@ -2,7 +2,7 @@
 ##    
 ##  MAIN AUTHOR - Irene ARROYO  
 ##    
-##  CHECK & COMENTS - Cristobal ORDOÑEZ 
+##  CHECK  - Cristobal ORDOÑEZ 
 ##    
 ##    File name: Mod crecimiento 72
 ##    Purpose: Modelo para obtener la ecuacion de crecimiento de la especie 72

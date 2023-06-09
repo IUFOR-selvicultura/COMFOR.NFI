@@ -1,3 +1,18 @@
+# Depuracion datos modelo
+Se necesitan los datos del IFN2, IFN3 y IFN4 y la mezcla entre ellos, por tanto los inputs necesarios serán "arbolesCombi4172.csv" y "of_plotsPluriSP.csv" de cada uno de los inventarios para unir los datos de árboles con los de parcelas. El output sera "crecimientoTO.csv", necesario para la obtencion de modelos
+
+Inicialmente es importante eliminar las parcelas 3E, ya que no nos interesan en este estudio
+
+Se crean uniones de los data frames IFN2 con IFN3  y IFN3 con IFN4 y en ellas se añaden las variables binarias crecDiam, que es 1 cuando el dbh.x es menor que el dbh.y, crecAlt, que es q cuando altura.x es mayor que altura.y, incoporación, que es 1 cuando se ha planatado un arbol que no estaba en el anterior inventario y mortalidad que es 1 cuando un árbol ha muerto.
+
+Nos vamos a centrar en este scrip en el crecimiento, por lo que solo nos importan las especies que coincidan en ambos inventarios para así estudiar como crecen. De forma teórica se toma que pasan 10 años entre inventario e inventario, pero en realidad no es este valor, por lo que se tiene que calcular cuantos años pasan en cada uno de los estadillos, ya que esta diferencia suele ser distinta. 
+
+Hay que añadir otras variables como son Dg, SDI, BAL, altura dominante, índice de Hart e índice de Hart Becking. 
+
+Lo que realmente queremos estudiar es la medida del árbol pero teneindo en cuanta los años que han pasado, y por ello creamos una nueva variable respuesta que sea: 
+g.x+(g.y-g.x)*(10/diferenciaAños)
+
+
 # Mod crecimiento 41
 Como input se necesita el fichero de crecimientoTO del script "Depuracion de datos modelos", que es su output, en el que se recogen todas las especies.
 

@@ -1,8 +1,8 @@
 # COMFOR SUDOE Project
-<right>
-<img src="./logos/COMFOR_LOGO_ERDF.jpg" width="400"/>
+
+[COMFOR logo](./logos/COMFOR_LOGO_ERDF.jpg" width="400")
 Format: ![Comfor-sudoe EU project](https://www.comfor-sudoe.eu/)
-</right>
+
 <left>
 <img src="./logos/iuFOR.png" width="210"/>
 <img src="./logos/uva.png" width="75"/>

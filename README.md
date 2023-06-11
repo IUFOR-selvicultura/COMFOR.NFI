@@ -4,13 +4,13 @@
 
 <img 
       src="./logos/COMFOR_LOGO_ERDF.jpg" 
-      width="466"/>
+      width="500"/>
 <img 
       src="./logos/iuFOR.png" 
-      width="330"/>
+      width="300"/>
 <img 
       src="./logos/uva.png" 
-      width="129"/>
+      width="120"/>
 
 funded by EU program.
 
@@ -90,16 +90,18 @@ With this scripts, a model growth of mixed plots including Chestnut and Oak has 
 
 ---
 
-
+<center>
 [![COMFOR](./logos/COMFOR_LOGO_ERDF.jpg)](https://www.comfor-sudoe.eu/)
 [![iuFOR](./logos/iuFOR.png)](https://iufor.uva.es)
 [![UVa](./logos/uva.png)](https://uva.es)
+</center>
 
-
+<!--
 ---
 
 <left>
 <img src="./logos/COMFOR_LOGO_ERDF.jpg" width="466"/>
 <img src="./logos/iuFOR.png" width="330"/>
 <img src="./logos/uva.png" width="129"/>
-<left>
+</left>
+ -->

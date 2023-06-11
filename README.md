@@ -3,9 +3,18 @@
 ---
 
 <left>
-[<img src="./logos/COMFOR_LOGO_ERDF.jpg" width="466"/>](https://www.comfor-sudoe.eu/)
-[<img src="./logos/iuFOR.png" width="330"/>](https://iufor.uva.es)
-[<img src="./logos/uva.png" width="129"/>](https://uva.es)
+[<img 
+      src="./logos/COMFOR_LOGO_ERDF.jpg" 
+      width="466"/>]
+  (https://www.comfor-sudoe.eu/)
+[<img 
+      src="./logos/iuFOR.png" 
+      width="330"/>]
+  (https://iufor.uva.es)
+[<img 
+      src="./logos/uva.png" 
+      width="129"/>]
+  (https://uva.es)
 <left>
 
 funded by EU program.

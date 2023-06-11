@@ -3,9 +3,9 @@
 ---
 
 <left>
-[<img src="./logos/COMFOR_LOGO_ERDF.jpg" width="466"/>](https://www.comfor-sudoe.eu/)
-[<img src="./logos/iuFOR.png" width="330"/>](https://iufor.uva.es)
-[<img src="./logos/uva.png" width="129"/>](https://uva.es)
+<img src="./logos/COMFOR_LOGO_ERDF.jpg" width="466"/>
+<img src="./logos/iuFOR.png" width="330"/>
+<img src="./logos/uva.png" width="129"/>
 <left>
 
 funded by EU program.
@@ -83,3 +83,10 @@ This folder holds scripts aiming to make graphical representation of all calculu
 
 With this scripts, a model growth of mixed plots including Chestnut and Oak has been prepared as an example.
 
+
+---
+
+
+[![COMFOR](./logos/COMFOR_LOGO_ERDF.jpg)](https://www.comfor-sudoe.eu/)
+[![iuFOR](./logos/iuFOR.png)](https://iufor.uva.es)
+[![UVa](./logos/uva.png)](https://uva.es)

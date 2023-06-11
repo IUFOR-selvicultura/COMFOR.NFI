@@ -78,6 +78,8 @@ result of multimodality test for non-normal distributions for diameter
 
 This folder holds scripts aiming to make graphical representation of all calculus made previously, including maps at diferent levels and plots of evolution along different editions of NFI.
 
+There are also scripts for revise species composition, mixed species combinations, selection of plots with especific combinations and graphs of this combinations
+
 - NFIComplexForMap.r
 
 

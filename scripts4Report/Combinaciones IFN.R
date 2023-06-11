@@ -9,12 +9,18 @@ rm(list=ls())
 ls()
 
 ## Leemos los datos
-#setwd("C:/Users/Irene/Documents/INF COMFOR/General/General/comfor-NFI/of_spain/of_spain/completo")
-#setwd("C:/Users/Irene/Documents/INF COMFOR/Entrega/IFN3 Prueba")
-setwd("C:/Users/Irene/Documents/INF COMFOR/Entrega/IFN3 Prueba")
-dir()
-datos<-read.csv("of_plotsPluriSP_sps.csv")
-arboles<-read.csv("arboles.csv")
+## #setwd("C:/Users/Irene/Documents/INF COMFOR/General/General/comfor-NFI/of_spain/of_spain/completo")
+## #setwd("C:/Users/Irene/Documents/INF COMFOR/Entrega/IFN3 Prueba")
+## setwd("C:/Users/Irene/Documents/INF COMFOR/Entrega/IFN3 Prueba")
+getwd()
+od_calculus <- '../data/'
+dir(path=od_calculus)
+datos<-read.csv(paste0(od_calculus,"of_if4_plotsPluriSP_sps.csv"))
+
+d_nfi <- '../../../../../NFI-data-raw/' ## directorio en el que tenemos descargados los RData del IFN
+dir(path=d_nfi) ## comprobamos que efectivamente esta el fichero que deseamos cargar
+load(paste0(d_nfi,'if2.RData')) ## cargamos el fichero RData que contiene la edición con la que queremos trabajar
+arboles <- tree.if2 ## asignamos el dataframe cargado, tree.if# a arboles (en este caso la segunda edición)
 
 ## Las diferentes parcelas que tenemos 
 plots<-unique(datos$PlotID)
@@ -35,7 +41,7 @@ combinaciones<-sort(combinaciones);combinaciones
 ## Realmente nos van a interesar las combinaciones que aparecen varias veces
 combinaciones[combinaciones>10]
 
-write.table(combinaciones,"C:/Users/Irene/Documents/INF COMFOR/Entrega/Combi/combinaciones4.txt")
+write.table(combinaciones,"combinaciones.if2.txt")
 
 ## Buscamos los indices de las parcelas que coinciden con la especie deseada, 
 ## es decir, en este caso queremos la combinación del 21 con el 43, para poder 
@@ -66,8 +72,9 @@ for(i in 1:length(listaTotal)){
 }
 cont
 idplot
+write.csv(idplot, 'plots.41.72.csv')
 
-## Buscamos los valores de los paramtros para las parcelas que contienen esa 
+## Buscamos los valores de los parametros para las parcelas que contienen esa 
 ## combinacion
 posicion <- which( arboles$PlotID %in% idplot )
 arbolesCombi4172 <- as.data.frame( arboles[ posicion, ])
@@ -92,6 +99,7 @@ for(i in 1:length(listaTotal)){
 }
 cont
 idplot
+write.csv(idplot, 'plots.21.71.csv')
 
 ## Buscamos los valores de los paramtros para las parcelas que contienen esa 
 ## combinacion
@@ -115,6 +123,7 @@ for(i in 1:length(listaTotal)){
 }
 cont
 idplot
+write.csv(idplot, 'plots.21.43.csv')
 
 ## Buscamos los valores de los paramtros para las parcelas que contienen esa 
 ## combinacion
@@ -138,6 +147,7 @@ for(i in 1:length(listaTotal)){
 }
 cont
 idplot
+write.csv(idplot, 'plots.21.25.csv')
 
 ## Buscamos los valores de los paramtros para las parcelas que contienen esa 
 ## combinacion
@@ -162,6 +172,7 @@ for(i in 1:length(listaTotal)){
 }
 cont
 idplot
+write.csv(idplot, 'plots.21.26.csv')
 
 ## Buscamos los valores de los paramtros para las parcelas que contienen esa 
 ## combinacion
@@ -185,6 +196,7 @@ for(i in 1:length(listaTotal)){
 }
 cont
 idplot
+write.csv(idplot, 'plots.23.26.csv')
 
 ## Buscamos los valores de los paramtros para las parcelas que contienen esa 
 ## combinacion
@@ -208,6 +220,7 @@ for(i in 1:length(listaTotal)){
 }
 cont
 idplot
+write.csv(idplot, 'plots.24.26.csv')
 
 ## Buscamos los valores de los paramtros para las parcelas que contienen esa 
 ## combinacion

@@ -90,11 +90,10 @@ With this scripts, a model growth of mixed plots including Chestnut and Oak has 
 
 ---
 
-[//]: # <center>
 [![COMFOR](./logos/COMFOR_LOGO_ERDF.jpg)](https://www.comfor-sudoe.eu/)
 [![iuFOR](./logos/iuFOR.png)](https://iufor.uva.es)
 [![UVa](./logos/uva.png)](https://uva.es)
-[//]: # </center>
+
 
 <!--
 ---

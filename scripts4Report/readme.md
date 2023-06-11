@@ -29,7 +29,7 @@ Para el de las comunidades autónomas se utiliza un diagrama de barras múltiple
 
 
 
-# Combinaciones IFN
+## Combinaciones IFN
 
 'Combinaciones IFN.R'
 
@@ -41,7 +41,7 @@ Se obtienen tablas que asocian cada combinación con el número de repeticiones 
 
 
 
-# Gráficas combinaciones
+## Gráficas combinaciones
 
 'Graficas combinaciones.R'
 

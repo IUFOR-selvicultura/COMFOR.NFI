@@ -23,11 +23,11 @@ library(leaflet)
 ## work folder
 getwd()
 ## change to data folder
-## setwd("/home/cristobal/github.R/COMFOR.NFI/data/")
+## setwd("/home/cristobal/github/COMFOR.NFI/data/")
 ## setwd("/home/cristobal/Downloads")
 ## setwd("C:/Users/Irene/Documents/INF COMFOR/")
 ## setwd("~/comfor/")
-setwd("C:/Users/Irene/Documents/INF COMFOR/Entrega/IFN3 Prueba")
+## setwd("C:/Users/Irene/Documents/INF COMFOR/Entrega/IFN3 Prueba")
 dir()
 ls()
 
@@ -96,16 +96,18 @@ datosCCAA<-function(cProvincias,datos){
   return(dat)
 }
 
-resultMD <- read.csv('of_resultHeightPlurimodal.csv', row.names = 1)
+dir(path='../data')
+dir_edition <- '../data/of_if3'
+resultMD <- read.csv(paste0(dir_edition,'_resultHeightPlurimodal.csv'), row.names = 1)
 resultMD<-datosCCAA(cProvincias,resultMD)
 
-resultMDiamF<-read.csv('of_resultDiamPlurimodal.csv', row.names = 1)
+resultMDiamF<-read.csv(paste0(dir_edition,'_resultDiamPlurimodal.csv'), row.names = 1)
 resultMDiamF<-datosCCAA(cProvincias,resultMDiamF)
 
-plotsPluriSP<-read.csv("of_plotsPluriSP.csv",row.names=1)
+plotsPluriSP<-read.csv(paste0(dir_edition,"_plotsPluriSP.csv"),row.names=1)
 plotsPluriSP<-datosCCAA(cProvincias,plotsPluriSP)
 
-plotsMonoSP <- read.csv('of_plotsMonoSP.csv', row.names = 1)
+plotsMonoSP <- read.csv(paste0(dir_edition,'_plotsMonoSP.csv'), row.names = 1)
 plotsMonoSP <- datosCCAA(cProvincias,plotsMonoSP)
 
 ################################################################################
@@ -114,7 +116,7 @@ plotsMonoSP <- datosCCAA(cProvincias,plotsMonoSP)
 ################################################################################
 
 ## Plot coordinates from 3rd NFI edition
-PlotCoord <- read.csv("if_plot.coord.if3.csv")
+PlotCoord <- read.csv("../data/pcdatosmap.csv")
 PlotCoord$PlotID <- paste0(PlotCoord$Provincia,".",PlotCoord$Estadillo)
 names(PlotCoord)[c(7,8)]<-c('lng','lat') ## change coordinate label to use leaflet pkg
 tail(PlotCoord); head(PlotCoord)
@@ -192,6 +194,10 @@ PlotID_restofplots <- plotsMonoSP[ !(plotsMonoSP$PlotID0 %in% plotsPluriMod$Plot
                                    'PlotID0']
 PlotsCoord_mono <- PlotCoord[PlotCoord$PlotID %in% PlotID_restofplots, ]
 head(PlotsCoord_mono)
+
+names(PlotCoord)
+summary(PlotCoord$lat)
+summary(PlotCoord$lng)
 
 #Mapa de España
 spain <- ne_states(country = "spain",returnclass = "sf")

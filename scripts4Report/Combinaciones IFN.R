@@ -14,14 +14,18 @@ ls()
 ## setwd("C:/Users/Irene/Documents/INF COMFOR/Entrega/IFN3 Prueba")
 getwd()
 od_calculus <- '../data/'
+if_ed <- 'if4' ## elegimos la edición del inventario con la que trabajar
 dir(path=od_calculus)
-datos<-read.csv(paste0(od_calculus,"of_if4_plotsPluriSP_sps.csv"))
+datos<-read.csv(paste0(od_calculus,"of_",if_ed,"_plotsPluriSP_sps.csv"))
 
 d_nfi <- '../../../../../NFI-data-raw/' ## directorio en el que tenemos descargados los RData del IFN
 dir(path=d_nfi) ## comprobamos que efectivamente esta el fichero que deseamos cargar
-load(paste0(d_nfi,'if2.RData')) ## cargamos el fichero RData que contiene la edición con la que queremos trabajar
-arboles <- tree.if2 ## asignamos el dataframe cargado, tree.if# a arboles (en este caso la segunda edición)
-
+load(paste0(d_nfi,if_ed,'.RData')) ## cargamos el fichero RData que contiene la edición con la que queremos trabajar
+switch(if_ed,
+       'if2'={arboles <- trees.if2},
+       'if3'={arboles <- trees.if3},
+       'if4'={arboles <- trees.if4} ) ## asignamos el dataframe cargado, tree.if# a arboles (en este caso la segunda edición)
+head(arboles)
 ## Las diferentes parcelas que tenemos 
 plots<-unique(datos$PlotID)
 
@@ -40,8 +44,8 @@ combinaciones<-sort(combinaciones);combinaciones
 
 ## Realmente nos van a interesar las combinaciones que aparecen varias veces
 combinaciones[combinaciones>10]
-
-write.table(combinaciones,"combinaciones.if2.txt")
+file_name <- paste0(od_calculus, "combinaciones.", if_ed, ".txt")
+write.table(combinaciones, file_name)
 
 ## Buscamos los indices de las parcelas que coinciden con la especie deseada, 
 ## es decir, en este caso queremos la combinación del 21 con el 43, para poder 

@@ -1,0 +1,19 @@
+\newpage
+\pagenumbering{gobble}
+I hereby declare that the work in this \MakeLowercase{\AssignmentName} 
+\vspace{0,25 em}
+\begin{center} 
+\textbf{\Title} \\
+%\vspace{0,25 em}
+%\Subtitle
+\end{center}
+\vspace{0,25 em}
+was carried out in accordance with the requirements of the university's regulations and that it has not been submitted for any other academic award. Except where indicated by specific references in the text, the work is the candidate's own work. Work done in collaboration with, or with the assistance of others, is indicated as such. Any views expressed in the \MakeLowercase{\AssignmentName} are those of the author.
+
+\vspace{1,3 cm}
+\IfFileExists{Unterschrift.png}{\hspace{1 em} \includegraphics[width=0.3\textwidth]{Unterschrift.png}\\}
+
+\begin{tabular}{ll} 
+\makebox[0.4\textwidth]{\hrulefill} \\
+\Place, \Date
+\end{tabular}

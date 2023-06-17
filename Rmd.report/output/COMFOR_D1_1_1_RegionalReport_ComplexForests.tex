@@ -1,0 +1,559 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+%%% Configuración del idioma
+% \documentclass{book} %%  report
+\usepackage{float}
+\usepackage{longtable}
+\usepackage[spanish]{babel}
+\usepackage{titling}
+\usepackage{eurosym}
+% \floatsetup[table]{capposition=top}
+
+\begin{titlepage}
+  \begin{center}
+
+    \begin{spacing}{0.51}
+      % \textbf{\huge The Title of Image Comes Here}
+      \textbf{\huge Regional report on complex forest characterization with NFI} 
+      \vspace*{\fill}
+    \end{spacing}
+    
+    \begin{spacing}{0.51}
+      % \textbf
+      {\large Spanish report}
+      \vspace*{\fill}
+    \end{spacing}
+
+    \begin{figure}[ht]
+      \centering      
+      \includegraphics[scale=0.21]{./imagenes/COMFOR-logo.jpg}
+    \end{figure}
+    
+    \begin{spacing}{0.51}
+      \textcolor{other}
+      iuFOR (Cristóbal Ordóñez, Irene Arrollo, Felipe Bravo  \\ [0.5cm]
+      \vspace*{\fill}
+    \end{spacing}
+      
+    \begin{spacing}{0.51}
+      Marzo de 2018 \\
+      \vspace*{\fill}
+    \end{spacing}
+
+  \end{center}
+
+  \begin{figure}[]
+    
+    \centering
+    \includegraphics[scale=0.273]{./imagenes/iuFOR.png}  
+    \includegraphics[scale=1.5]{./imagenes/etsiiaa.png}
+  \end{figure}
+
+\end{titlepage}
+
+
+% linestretch: 1.5                 # get some spacing between the lines you write
+% bibliography: report.bib         # this is your bibliography file... it can be exported with Zotero, Medeley...
+% biblio-style: apalike            # citations style
+% link-citations: yes              # make your links clickable
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+\tableofcontents
+
+\hypertarget{introducciuxf3n-y-marco-del-informe}{%
+\section{Introducción y marco del
+informe}\label{introducciuxf3n-y-marco-del-informe}}
+
+En el presente informe se muestra el resultado de la valoración
+económica de diversas alternativas selvícolas planteadas para masas de
+\emph{Pinus pinaster} en el marco del proyecto del Grupo Operativo SIGCA
+para madera de calidad de esta especie.
+
+\hypertarget{objetivos}{%
+\subsection{Objetivos}\label{objetivos}}
+
+\begin{center}\includegraphics[width=300px]{./imagenes/UVa_logo_color_conLetras} \end{center}
+
+El objetivo principal de este trabajo es describir la rentabilidad de
+cuatro alternatívas selvícolas, con diferentes productos potenciales y
+teniendo en cuenta la zona de plantación (interior o costa) y la calidad
+de estación, bajo dos escenarios de precios del dinero y dos escenarios
+de precios de los productos madereros.
+
+\hypertarget{alternativas-selvuxedcolas}{%
+\subsection{Alternativas selvícolas}\label{alternativas-selvuxedcolas}}
+
+A continuación se describen las características de las cuatro
+alternativas selvícolas teóricas que se han comparado.
+
+\hypertarget{simulaciones-selvuxedcolas}{%
+\subsection{Simulaciones selvícolas}\label{simulaciones-selvuxedcolas}}
+
+Los escenarios descritos se han simulado según el modelo de crecimiento
+elaborado por @Dieguez2009, y dentro del trabajo del Grupo Operativo
+SIGCA. Los resultados de la simulación parten del año 0 de la planta y
+tienen en cuenta la calidad de estación, tomada como la altura dominante
+en metros a la edad de 20 años, y el área geográfica de Galicia en el
+que se desarrolla, interior o costa.
+
+A continuación se muestran los datos de las simulaciones, representados
+por la evolución de volumen de madera producida, para cada uno de los
+escenarios selvícolas, zona y calidad de estación.
+
+\hypertarget{evoluciuxf3n-de-volumen-producido-de-madera-de-calidad.}{%
+\subsubsection{Evolución de volumen producido de madera de
+calidad.}\label{evoluciuxf3n-de-volumen-producido-de-madera-de-calidad.}}
+
+Dado que el objetivo del grupo operativo esta centrado en la producción
+de madera de calidad, se ha simulado de forma separada la que puede
+destinarse a industrias que suponen un mayor valor añadido, considerando
+como tal el volumen, en m\textsuperscript{3}/ha, de madera procedente de
+trozas de más de 20 cm de diámetro en punta delgada.
+
+El marco de la presente evaluación ha considerado los siguientes
+factores: i) diferentes destinos de la madera según calidad y dimensión,
+ii) diferentes alternativas de gestión, iii) diferentes escenarios de
+precios de la madera considerando cinco destinos del producto, iv)
+gastos fijos de plantación y clareos, y gastos variables en función de
+las operaciones realizadas, y v) distintos precios del dinero.
+
+\hypertarget{destinos-posibles-de-la-madera}{%
+\subsubsection{Destinos posibles de la
+madera}\label{destinos-posibles-de-la-madera}}
+
+Para la clasificación de la madera según su uso potencial y por lo tanto
+el precio que se puede conseguir por la madera, se ha utilizado la
+adaptación realizada por AGRESTA S.Coop. de la la norma UNE EN
+1927-2:2008. Basandose en criterios de dimensiones mínimas, se
+distinguen 5 calidades de madera posibles:
+
+\hypertarget{calidad-a}{%
+\paragraph{Calidad A}\label{calidad-a}}
+
+Trozas de calidad elevada cuyo destino habitual es chapa o carpintería
+de alta calidad. Las dimensiones mínimas son 3 m de longitud y 45 cm de
+diámetro.
+
+\hypertarget{calidad-b}{%
+\paragraph{Calidad B}\label{calidad-b}}
+
+Trozas de buena calidad cuyo destino habitual es sierra de calidad alta,
+carpintería de segunda calidad o tabla. Las dimensiones mínimas son 2,5
+m de longitud y 40 cm de diámetro.
+
+\hypertarget{calidad-c}{%
+\paragraph{Calidad C}\label{calidad-c}}
+
+Trozas rectas con nudos (no demasiados) y hasta 30 cm de diámetro cuyo
+destino habitual es sierra de calidad media: vigas, viguetas, machones y
+tablas. Las dimensiones mínimas son 2,5 m de longitud y 25 cm de
+diámetro.
+
+\hypertarget{calidad-d}{%
+\paragraph{Calidad D}\label{calidad-d}}
+
+Trozas curvadas y con nudos cuyo destino habitual es sierra de baja
+calidad, encofrado y canter. Las dimensiones mínimas son 2 m de longitud
+y 20 cm de diámetro (18 para canter).
+
+\hypertarget{calidad-e}{%
+\paragraph{Calidad E}\label{calidad-e}}
+
+Trozas no aptas para sierra por defectos graves o diámetro insuficiente
+cuyo destino habitual es combustible o trituración. No hay dimensiones
+mínimas.
+
+\hypertarget{precios-de-la-madera}{%
+\subsubsection{Precios de la madera}\label{precios-de-la-madera}}
+
+Para el precio de la madera se han considerado 2 escenarios diferentes,
+dependientes de las calidades de los diferentes tipos de producto que
+permitan hacer una evaluación de los diferentes itinerarios selvícolas
+planteados en proyecto SIGCA:
+
+\hypertarget{escenario-1}{%
+\paragraph{Escenario 1}\label{escenario-1}}
+
+Los precios de la madera de ``baja calidad'', similares a los actuales o
+suben ligeramente, los precios de madera de calidad bajan a medida que
+ascendemos de calidad
+
+\hypertarget{escenario-2}{%
+\paragraph{Escenario 2}\label{escenario-2}}
+
+Los precios de la madera de ``baja calidad'' suben y los de madera de
+calidad también suben.
+
+Precios estimados medios de madera en pie que se han testado son:
+
+En cargadero habría que sumar unos 12 /Mg. Hay que tener en cuenta que
+cuanto más delgada es la madera que se aproveche más cara será la corta
+y el desembosque, pero también hay que tener en cuenta que en las
+primeras claras se cuenta con la ventaja de abrir calles lo que permiten
+ahorrar costes. Por este motivo podemos suponer este coste como valor
+medio para todas. Si tenemos en cuenta que las unidades con las que
+vamos a trabajar, por la simulación realizada, son m\textsuperscript{3},
+necesitamos estimar la densidad de madera verde. Vamos a suponer que
+está en valores de 0,88 Mg/m\textsuperscript{3}, por lo que el precio en
+cargadero debería aumentarse en 10,56 /m\textsuperscript{3}.
+
+\hypertarget{gastos-de-gestiuxf3n}{%
+\subsubsection{Gastos de gestión}\label{gastos-de-gestiuxf3n}}
+
+En el presente estudio se han tenido en cuenta dos tipos de gastos, los
+fijos que dependen de la superficie tratada y los variables que dependen
+de la producción obtenida. Para estos dos tipos de gastos se suponen las
+siguientes cuantías:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Gastos fijos. Son así considerados los que dependen de la superficie y
+  pueden ser:
+\end{enumerate}
+
+\begin{itemize}
+\item
+  Gasto de plantación, que supone un unos 2200 /ha plantada, y se asigna
+  al año 1, ya que suponemos que la planta es de 1 savia. Habría que
+  sumar entre 250 y 300 /ha si se utilizase planta mejorada
+  genéticamente.
+\item
+  Gasto de clareos, que incluye el calleado, clareo manual y trituración
+  de restos, y supone unos 1100 /ha tratada. La apertura de calles (roza
+  mecanizada tractor de cadenas) en el año cuarto o quinto suponen 268
+  /ha y la selección de pies en las calles (clareo o rareo) manual con
+  motodesborzadora hasta ajustar denisdades a 1100 pies/ha supone 837
+  /ha (inlcuye posterior triturado de restos en las calles, mecanizado
+  mediante martillos)
+\end{itemize}
+
+\hypertarget{subvenciones}{%
+\subsubsection{Subvenciones}\label{subvenciones}}
+
+Para soportar la inversión inicial de establecimiento y tratamientos no
+autofinanciados es habitual que se puedan solicitar ayudas a las
+entidades autonómicas correspondientes. En el caso que nos atañe, por
+ser donde son más habituales estas plantaciones, nos vamos a fijar en
+las bases de ayudas de Galicia en 2019 (@xunta2019). Según los
+tratamientos realizados se pueden solicitar ayudas por:
+
+\begin{itemize}
+\tightlist
+\item
+  plantación: coniferas 1100 pies/ha dificultades medias: 1527 /ha
+\item
+  poda: poda baja hasta 2,20 m en 800 pies/ha: 650 /Ha
+\item
+  Clareos: reducción de densidad 30\%, selección de pies menos
+  desarrollados, sin apertura de calles ni saca, mediante motosierra.
+  850 /ha
+\item
+  otras actuaciones posibles por las que se puede solicitar subvención:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    desbroces por calles: 268 /ha
+  \item
+    perimetros de cortafuegos: 350 /ha
+  \item
+    fajas auxiliares de desbroce frente a incendios: 378 /ha
+  \end{itemize}
+\end{itemize}
+
+En el estudio realizado se van a suponer dos ingresos posibles por
+subvención:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  El que corresponde por plantación. Se supone un ingreso por subvención
+  en el año 3, dos años después de la solicitud, y una cuantía de 1527
+  /ha plantada que se aplica a todos los escenarios selvícolas salvo a
+  MG2 con regeneración natural.
+\item
+  El que corresponde por clareos precomerciales. Este tratamiento solo
+  se realiza en masas con regeneración natural, y que corresponde
+  exclusivamente a MG2rn. En este escenario se incluye el ingreso de
+  subvención por clara, que se realiza en el año 5 y tiene efecto dos
+  años después de solicitarla, en el año 7, y por una cuantía de 850 /ha
+  aclarada.
+\end{enumerate}
+
+\hypertarget{tasa-de-descuento-e-interuxe9s-aplicado.}{%
+\subsubsection{Tasa de descuento e interés
+aplicado.}\label{tasa-de-descuento-e-interuxe9s-aplicado.}}
+
+Además se va a realizar una comparación del valor esperado del suelo
+(@DiazBalteiro1998) para cada una de las alternativas.
+
+Según el @BE\_sf, el precio del dinero o interés legal desde 2016 hasta
+2020 se ha mantenido en un 3\%, en los últimos debido a la prórroga de
+los Presupuestos Generales. En el análisis de una inversión se analizan
+los flujos de ingresos y gastos futuros con sus valores en el momento
+actual, para lo que hay que utilizar una tasa de descuento o coste del
+capital. El valor que se utiliza para esta tasa es muy controvertido
+(Ver @DiazBalteiro1998) y afecta de forma muy importante en el resultado
+del análisis de una inversión.
+
+y escenarios de precio del dinero
+
+según el @BE\_sf, el precio del dinero o interés legal desde 2016 hasta
+2020 se ha mantenido en un 3\%, en los últimos debido a la prórroga de
+los Presupuestos Generales.
+
+En el análisis económico se prevé que pueda existir una variación por lo
+que se analizará para el caso de que suba o baje en un punto el precio
+del dinero, mostrando la actualización de las rentas suponiendo que sea
+un 2\% y un 4\%.
+
+\hypertarget{anuxe1lisis-econuxf3mico}{%
+\section{Análisis económico}\label{anuxe1lisis-econuxf3mico}}
+
+Este análisis pretende comparar el rendimiento económico de las
+distintas alternativas selvícolas planteadas, y para intentar
+conseguirlo vamos a seguir dos enfoques; El primero comparará el valor
+actual de ingresos y gastos generados en un único turno, presentado de
+forma gráfica para facilitar las comparaciones. En segundo lugar se
+realizará una valoración del monte, suponiendo que se van a realizar
+plantaciones de manera indefinida, lo que permitira obtener una renta
+que será independiente del turno y podremos comparar mediante una serie
+de tablas.
+
+Para todo el anális tendremos en cuenta el valor de mercado del vuelo,
+prescindiendo del valor del suelo, y solo el relativo a la producción
+primaria directa (Principalmente madera, y madera de pequeño tambaño o
+leñas). Además se considerará un caso genérico, con valores medios para
+todas las variables, y el valor económico estará siempre referido a la
+hectárea. Para todo el anális tendremos en cuenta el valor de mercado
+del vuelo, actualizado al momento de la plantación, prescindiendo del
+valor del suelo, y solo el relativo a la producción primaria directa
+(Principalmente madera, y madera de pequeño tambaño o leñas). Además se
+considerará un caso genérico, con valores medios para todas las
+variables, y el valor económico estará siempre referido a la hectárea.
+
+\hypertarget{descripciuxf3n-cuantitativa-de-las-alternativas-selvuxedcolas}{%
+\subsection{Descripción cuantitativa de las alternativas
+selvícolas}\label{descripciuxf3n-cuantitativa-de-las-alternativas-selvuxedcolas}}
+
+De forma complementaria se ha realizado una comparación del Valor
+Esperado del Suelo (@DiazBalteiro1998) para cada una de las alternativas
+selvícolas y condiciones de la estación. En esta valoración, indicada
+para masas regulares no ordenadas, nos va a permitir comparar las
+distintas opciones selvícolas independientemente del turno de las
+mismas.
+
+\hypertarget{alternativas-selvuxedcolas-1}{%
+\subsection{Alternativas
+selvícolas}\label{alternativas-selvuxedcolas-1}}
+
+Se han considerado las cuatro alternativas de gestión descritas
+anteriormente. Para cada una de ellas se ha supuesto que hay un
+porcentage de madera que puede ir destinado a cada calidad en cada una
+de las intervenciones previstas. Se supone que toda la madera que se
+aproveche y tenga entre 7 y 20 cm en punta delgada será considerada de
+calidad E.
+
+Con las proporciones de cada calidad se puede calcular el precio medio
+que tendrá la madera, suponiendo que su destino es el mejor de los
+posibles. Podemos calcular, para cada escenario de precios, el precio de
+la madera gruesa (VCC20) y el de la madera fina (VCC7).
+
+\hypertarget{escenario-selvuxedcola-estuxe1ndar-habitual-m2}{%
+\subsubsection{Escenario selvícola estándar habitual
+(M2)}\label{escenario-selvuxedcola-estuxe1ndar-habitual-m2}}
+
+En el escenario selvícola M2 tendremos aprovechamiento de madera en 3
+claras y en la corta final. Se indica en el Cuadro 2.1 la proporción de
+volumen de madera esperable para cada calidad y en el Cuadro 2.2 los
+precios según cada escenario.
+
+En el escenario selvícola M4 tendremos aprovechamiento de madera en 1
+claras y en la corta final. En el Cuadro 2.3 se pueden ver las
+proporciones de madera por destinos en porcentaje y en el Cuadro 2.4 el
+precio medio que puede obtenerse por la madera aprovechada si va a la
+mejor opción de las posibles por su tamaño.
+
+\hypertarget{escenario-selvuxedcola-sin-gestiuxf3n-m8}{%
+\subsubsection{Escenario selvícola sin gestión
+(M8)}\label{escenario-selvuxedcola-sin-gestiuxf3n-m8}}
+
+El escenario selvícola de no gestión a partir de la plantación inicial,
+con una densidad de 1250 pies/ha, debe presuponer que hay mortalidad
+natural, al menos en las calidades de estación más pobres. Este efecto
+puede ser del orden del 10-20 \% en número de pies de alre
+
+A continuación se muestra el volumen total acumulado que se aprovecha,
+para cada uno de los escenarios selvícolas, zona y calidad de estación,
+en m\textsuperscript{3}/ha de madera. Se presentan las gráficas de
+volumen total de más de 7 y 20 cm de diámetro en punta delgada y el
+volumen de madera delgada, entre 7 y 20 cm, de forma que se pueda tener
+una idea clara de cual es el volumen aprovechado que se va a
+contabilizar en el análisis económico posterior.
+
+\hypertarget{volumen-total-de-muxe1s-de-7-cm-en-punta-delgada}{%
+\subsubsection{Volumen total de más de 7 cm en punta
+delgada}\label{volumen-total-de-muxe1s-de-7-cm-en-punta-delgada}}
+
+Se muestra a continuación en la Figura @ref(fig:plotVACAR) la
+distribución del volumen acumulado aprovechado de más de 7 cm en punta
+delgada, comparando las calidades de estación para cada régimen de
+clara:
+
+En segundo lugar, se muestra la misma variable, volumen acumulado
+aprovechado de más de 7 cm en punta delgada, pero comparando los
+regimenes de clara para cada calidad de estación:
+
+\hypertarget{volumen-total-de-muxe1s-de-20-cm-en-punta-delgada}{%
+\subsubsection{Volumen total de más de 20 cm en punta
+delgada}\label{volumen-total-de-muxe1s-de-20-cm-en-punta-delgada}}
+
+Se muestra a continuación la distribución del volumen acumulado
+aprovechado de más de 20 cm en punta delgada, comparando las calidades
+de estación para cada régimen de clara:
+
+Igual que para la variable anterior, se muestra el volumen acumulado
+aprovechado de más de 20 cm en punta delgada, pero comparando los
+regimenes de clara para cada calidad de estación:
+
+\hypertarget{valor-esperado-del-suelo}{%
+\subsection{Valor esperado del suelo}\label{valor-esperado-del-suelo}}
+
+Para poder hacer comparables de forma directa los escenarios debemos
+hacer una valoración que tiene en cuenta un escenario de infinitos
+ciclos con las mismas condiciones ecologicas y económicas. Esta
+valoración se conoce como Valor Esperado del Suelo y su cálculo está
+detallado en @DiazBalteiro1998.
+
+A continuación se muestra el resultado para cada calidad de estación y
+zona.
+
+La principal conclusión que podemos obtener del presente análisis
+económico es que la calidad de estación mínima que asegura beneficio
+económico es en estaciones medias (altura dominante de 16 m a 20 años)
+para cualquier escenario selvícola de precios y de interés del dinero.
+En estaciones de calidades más bajas solo es posible obtener
+rentabilidad si es posible obtener una buena regeneración natural y con
+la ayuda de subvenciones para tratamientos no autofinanciables.
+
+La siguiente conclusión es que el escenario selvícola MG2 es el mejor en
+todas las calidades y escenarios, salvo para calidad 7 m con un interés
+del 2\%. Con este régimen selvícola se consigue una mayor rentabilidad
+que en el escenario M2, el segundo mejor en todos los casos, pero con la
+ventaja de necesitar 5 años menos para conseguirlo y además se consigue
+con una actuación selvícola menos.
+
+Si comparamos los escenarios MG2 con y sin plantación, muestra que la
+regeneración natural es más rentable, principalmente por el ahorro que
+supone no tener que hacer la plantación, que es más cara que el clareo
+que hay que hacer con regeneración natural. Esto supone que, sobre todo
+para zonas de calidades altas, la plantación podría ser una mejor opción
+si se utiliza planta mejorada genéticamente. Lamentablemente no existen
+modelos de crecimiento que tengan en cuenta esta opción, pero el escaso
+margen de diferencia que hay en este análisis hace suponer que el
+incremento de precio de esa planta mejorada puede traducirse en una
+mejora de la rentabilidad, si bien no podemos cuantificar esa mejora.
+
+En zonas de alta calidad de estación parece que las previsiones de
+volumen aprovechable son muy buenas, quizá excesivas, sobre todo para el
+escenario M8 sin ninguna intervención selvícola. Esto puede hacer pensar
+que es necesaria una simulación selvícola más precisa, sobre todo en
+este escenario sin selvicultura en el que incluir el efecto de la
+mortalidad natural parece obligado.
+
+En todo caso, es necesario tener en cuenta que para este análisis se han
+tenido en cuenta valores medios en cuanto a la distribución y producción
+del vuelo, y costes medios de los aprovechamientos, sin tener en cuenta
+la proximidad a la industria destino ni la dificultad de acceso al monte
+o la facilidad de mecanización del propio aprovechamiento. Estas
+consideraciones pueden hacer que un sitio de baja calidad de estación
+pueda convertirse en una buena opción para hacer una plantación de
+\emph{Pinus pinaster} que no lo sería en una ubicación o con unas
+condiciones de pendiente o accesibilidad muy adversas.
+
+Por el mismo motivo también es importante tener en cuenta que un área
+con buena calidad de estación pero condiciones de accesibilidad o
+topográficas adversas, pueden hacer que una plantación que tiene una
+previsión de rentabilidad excelente, se convierta en una explotación que
+finalmente vea disminuidas las rentas a final de turno.
+
+Siempre deberemos tener en cuenta que el análisis de rentabilidad
+realizado se ha hecho con con datos medios, tanto los relativos a la
+productividad como los costes y precios del producto final, por lo que
+los resultados deben tratarse con precaución; se ofrecen conclusiones
+que sirve para un caso genérico, y se pueden tener en cuenta como una
+primera aproximación, pero en inversiones con excaso margen de beneficio
+como son las explotaciones forestales, es necesario estudiar cada monte
+concreto para asegurar en la medida de lo posible la inversión que se
+realize.
+
+\hypertarget{referencias}{%
+\section{Referencias}\label{referencias}}
+
+\end{document}

@@ -1,0 +1,33 @@
+% latex packages
+\usepackage{setspace}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{eurosym}
+
+% commands for document metadata
+\newcommand{\University}{Universidad de Valladolid}
+\newcommand{\StudyProgramme}{Instituto Universitario de Gestión Forestal Sostenible}
+\newcommand{\Class}{Grupo Operativo Sigca}
+\newcommand{\AssignmentName}{Informe solicitado}
+\newcommand{\Title}{Evaluación económica de alternativas selvícolas para masas de *Pinus pinaster* subsp. _atlantica_}
+
+\setlength{\abovedisplayskip}{-15pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+
+\newcommand{\Name}{Felipe Bravo y Cristóbal Ordóñez}
+%\newcommand{\MatriculationNumber}{123456789}
+\newcommand{\Date}{Agosto 2020}
+%\newcommand{\Place}{Friedrichshafen}
+%\newcommand{\Semester}{Spring 20xx}
+%\newcommand{\Supervisor}{Prof Dr X}
+
+% let figures and tables be placed exactly where they are created in the rmarkdown document
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
+}

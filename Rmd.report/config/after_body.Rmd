@@ -1,0 +1,18 @@
+\newpage
+\pagenumbering{gobble}
+I hereby declare that the work in this \MakeLowercase{\AssignmentName} 
+\vspace{0,25 em}
+\begin{center} 
+\textbf{\Title} \\
+%\vspace{0,25 em}
+%\Subtitle
+\end{center}
+\vspace{0,25 em}
+
+\vspace{1,3 cm}
+\IfFileExists{Unterschrift.png}{\hspace{1 em} \includegraphics[width=0.3\textwidth]{Unterschrift.png}\\}  
+
+\begin{tabular}{ll} 
+\makebox[0.4\textwidth]{\hrulefill} \\
+\Place, \Date
+\end{tabular}

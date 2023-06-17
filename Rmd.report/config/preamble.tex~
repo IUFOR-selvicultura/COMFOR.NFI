@@ -1,0 +1,49 @@
+%%% Configuración del idioma
+\usepackage{float}
+\usepackage{longtable}
+\usepackage[spanish]{babel}
+\usepackage{eurosym}
+
+\begin{titlepage}
+  \begin{center}
+
+    \begin{spacing}{0.51}
+      % \textbf{\huge The Title of Image Comes Here}
+      \textbf{\huge Evaluación económica de alternativas selvícolas para masas de *Pinus pinaster* subsp. _atlantica_  } 
+      \vspace*{\fill}
+    \end{spacing}
+    
+    \begin{spacing}{0.51}
+      % \textbf
+      {\large   Informe técnico para el grupo operativo SIGCA }
+      \vspace*{\fill}
+    \end{spacing}
+
+    \begin{figure}[ht]
+      \centering      
+      \includegraphics[scale=0.21]{./imagenes/sm4_logo.png}
+    \end{figure}
+    
+    \begin{spacing}{0.51}
+      \textcolor{other}
+      Felipe Bravo, Cristóbal Ordóñez  \\ [0.5cm]
+      \vspace*{\fill}
+    \end{spacing}
+      
+    \begin{spacing}{0.51}
+      Marzo de 2018 \\
+      \vspace*{\fill}
+    \end{spacing}
+
+  \end{center}
+
+  \begin{figure}[]
+    
+    \centering
+    \includegraphics[scale=0.273]{./imagenes/iuFOR.png}  
+    \includegraphics[scale=1.5]{./imagenes/etsiiaa.png}
+  \end{figure}
+
+
+\end{titlepage}
+

@@ -1,0 +1,370 @@
+---
+# Pandoc header, everything that is inserted here is only for the computer to know what and how to compile the output. 
+title: |
+  ![](./imagenes/COMFOR-logo.jpg){width=1.5in}
+  Regional report on complex forests characterization
+shorttitle: 'Spanish report'
+author: "iuFOR"
+date: |
+  "`r Sys.Date()`"
+  ·
+  ![](./imagenes/etsiiaa.png){width=2in}
+  ![](./imagenes/iuFOR.png){width=2in}
+linestretch: 1.5                 # get some spacing between the lines you write
+bibliography: report.bib         # this is your bibliography file... it can be exported with Zotero, Medeley...
+biblio-style: apalike            # citations style
+link-citations: yes              # make your links clickable
+output: 
+  bookdown::pdf_document2:       # bookdown::pdf_document2 provides more features than pdf_document
+    number_sections: true        # chapters will be assigned numbers automatically
+    fig_caption: yes
+    tab_caption: yes
+    keep_tex: true
+#    includes:
+#      in_header: preamble.tex    # here goes the tex file for first page and othe latex options (your name, university, ..., and LaTex packages)
+#      before_body: before_body.Rmd # include pages before the main part of the document in the following order 
+documentclass: book
+header-includes:
+  - \usepackage{float}
+  - \usepackage{longtable}
+  - \usepackage[spanish]{babel}
+  - \usepackage{eurosym}
+#  - \floatsetup[table]{capposition=top}
+---
+
+\tableofcontents
+
+# Introducción y marco del informe
+En el presente informe se muestra el resultado de la valoración económica de diversas alternativas selvícolas planteadas para masas de *Pinus pinaster* en el marco del proyecto del Grupo Operativo SIGCA para madera de calidad de esta especie.
+
+```{r, include=FALSE}
+## before you compile the document. This may show additional messages to help you debug the problem. If you are using R Markdown and the Knit button in RStudio, you should set the option in a code chunk in the R Markdown document.
+options(tinytex.verbose = TRUE)
+```
+
+```{r setup, include=FALSE}
+## setup options and library loading
+knitr::opts_chunk$set(echo = FALSE, cache=FALSE)
+libraries <- c('plyr','pander','ggplot2','reshape2','ggforce','dplyr','viridis')
+
+panderOptions('table.alignment.default', 'right')
+panderOptions('table.alignment.rownames', 'left')
+
+## colors
+# The palette with grey:---->>>> cbPalette <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+# The palette with black:---->>>> cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+# To use for fills, add: ---->>>> scale_fill_manual(values=cbPalette)
+# To use for line and point colors, add: ---->>>> scale_colour_manual(values=cbbPalette)
+## colors
+```
+
+```{r read.data, include=FALSE}
+## read simulation data
+rm(list=ls())
+## options(width=280)
+## setwd('/home/cristobal/Disk.IUGFS/proyectos/2019.go.sigca/evaluacionEconomica')
+data.simul <- read.csv('./simulaciones.2.csv')
+data.simul$Calidad <- as.factor(data.simul$Calidad)
+data.simul$Zona <- with(data.simul, ifelse(Zona==0, 'zona interior', 'zona costera') )
+```
+
+## Objetivos
+
+```{r img.pinaster, fig.align='center', out.width="750px"}
+knitr::include_graphics("./imagenes/pinares_92f650725ebb0a7b902f15aebd658059.jpg")
+```
+
+El objetivo principal de este trabajo es describir la rentabilidad de cuatro alternatívas selvícolas, con diferentes productos potenciales y teniendo en cuenta la zona de plantación (interior o costa) y la calidad de estación, bajo dos escenarios de precios del dinero y dos escenarios de precios de los productos madereros.
+
+## Alternativas selvícolas
+
+A continuación se describen las características de las cuatro alternativas selvícolas teóricas que se han comparado.
+
+  1. M2 - Estándar habitual
+ * Objetivo de gestión: Troncos de 1 a 1,2 m^3^
+ * Preparación del terreno: Laboreo en líneas. Fertilización.
+ * Composición del rodal: Monoespecífica
+ * Estructura del rodal: Masa regular
+ * Material genético: Plantas genéticamente mejoradas.
+ * Tipo de regeneración: Plantación a 1250 pies/ha
+ * Clareo y control de la competencia: Desbroce completo a los 5 años y siempre que haya una intervención (4-5 veces con las claras)
+ * Claras/Podas: 3 claras. Sin podas.
+ * Aprovechamiento: 40 años; 300 pies/ha
+
+2. M4 - Turno corto con subsídios
+ * Objetivo de gestión: Troncos pequeños de 0,3 a 0,4 m^3^
+ * Preparación del terreno: Laboreo completo. Fertilización.
+ * Composición del rodal: Monoespecífica
+ * Estructura del rodal: Masa regular
+ * Material genético: Plantas genéticamente mejoradas
+ * Tipo de regeneración: Plantación a 1250 pies/ha
+ * Clareo y control de la competencia: Desbroce completo a los 5 años.
+ * Claras/Podas: 1 clara. Sin podas.
+ * Aprovechamiento: 25 años; 700 pies/ha
+
+  3. M8 - Sin gestión
+ * Objetivo de gestión: Sin objetivos productivos
+ * Preparación del terreno: No
+ * Composición del rodal: Mixta
+ * Estructura del rodal: Masa irregular
+ * Material genético: No.
+ * Tipo de regeneración: Regeneración natural.
+ * Clareo y control de la competencia: No
+ * Claras/Podas: No
+ * Aprovechamiento: Errático.
+
+  4. MG2-Madera para trituración, sierra y chapa
+ 
+ * Objetivo de gestión: Optimizar la producción económica del monte 400-500 pies de calidad para madera sólida en la corta final
+ 
+ * Preparación del terreno: Ahoyado mecanizado o subsolado lineal en máxima pendiente levantando el subsolador en la linea para evitar surcos de escorrentía. Ejecución en tiempo seco, dos meses de antelación a la plantación. Raspas picadas de 40x40x20 cm
+ 
+ * Composición del rodal: Monoespecífico
+ 
+ * Estructura del rodal: Masa regular
+ 
+ * Material genético: Preferiblemente mejorado o rodal selecto de origen la región de procedencia en que se incluya el monte a repoblar y excepcionalmente de otras regiones de procedencias si tiene algún nivel de mejora.
+ 
+ * Tipo de regeneración: Plantación a raíz desnuda a savia parada (finales de octubre a marzo) y con envase hasta mayo si hay tempero. Plantación con barra para asegurarse la colocación de la planta recta. Fertilizado NPK bajo en nitrógeno y liberación gradual. También se plantea la opción de regeneración natural.
+ 
+ * Clareo y control de la competencia: 8-10 años. dejar 1000-1200 pies/ha por lo bajo (sobre árboles dominados y con defectos), o si es regenerado natural a 2-5 años clareo-desbroce sistemático por fajas y selectivo dentro de la faja que queda hasta densidad de 1000 a 1400 pies/ha, de forma escalonada si hay problema de viento fuerte o densidad inicial muy elevada. Y mantenimiento entre líneas de plantación y manual o químico en las plantas, o con ganado.
+ 
+ * Claras/Podas: 1ª Clara hasta dejar 1000 pies/ha a 15-20 años. 2ª clara a  20-30 años  hasata dejar 400-500 pies/ha y 700 pies/ha si hay otra clara. Poda baja (3 m) cuando la altura es de 5-7 m y el diámetro normal medio de 10 cm en los 100-1200 pies/ha  restantes tras clareo. Poda alta hasta 6 m (si no hay poda natural) cuando los pies alcancen 12-15 m y diámetro normal de 18 cm sobre 400-500 pies/ha que se dejarán en la corta final. Intensidades de poda entre 1/3 y 1/2 de la altura total del árbol. 3ª Clara opcional hasta dejar 400-500 pies/ha (25-35 años)
+ 
+ * Aprovechamiento: A 30-35 años a hecho o en 2 tiempos (árboles madre 20-25 pies/ha) durante 5-10 años sin hacer corta a hecho en superficies superiores a 5 ha. Trituración de restos mecanizado (no mayores de 50 cm) y esparcimiento dejando un mínimo del 30% de restos para impactar en el ciclo de nutrientes.
+
+## Simulaciones selvícolas
+
+Los escenarios descritos se han simulado según el modelo de crecimiento elaborado por @Dieguez2009, y dentro del trabajo del Grupo Operativo SIGCA. 
+Los resultados de la simulación parten del año 0 de la planta y tienen en cuenta la calidad de estación, tomada como la altura dominante en metros a la edad de 20 años, y el área geográfica de Galicia en el que se desarrolla, interior o costa.
+
+A continuación se muestran los datos de las simulaciones, representados por la evolución de volumen de madera producida, para cada uno de los escenarios selvícolas, zona y calidad de estación. 
+
+### Evolución de volumen producido de madera de calidad.
+
+Dado que el objetivo del grupo operativo esta centrado en la producción de madera de calidad, se ha simulado de forma separada la que puede destinarse a industrias que suponen un mayor valor añadido, considerando como tal el volumen, en m^3^/ha, de madera procedente de trozas de más de 20 cm de diámetro en punta delgada. 
+
+## gráficas volumen madera total por calidades y escenarios de gestión
+ggplot(data = data.simul[data.simul$RegimenClara=='M4',],
+       aes( x= Edad, y=VCC20,
+           group = Calidad, colour = Calidad )) +
+## Marco del análisis
+
+El marco de la presente evaluación ha considerado los siguientes factores: i) diferentes destinos de la madera según calidad y dimensión, ii) diferentes alternativas de gestión, iii) diferentes escenarios de precios de la madera considerando cinco destinos del producto, iv) gastos fijos de plantación y clareos, y gastos variables en función de las operaciones realizadas, y v) distintos precios del dinero.
+
+### Destinos posibles de la madera
+Para la clasificación de la madera según su uso potencial y por lo tanto el precio que se puede conseguir por la madera, se ha utilizado la adaptación realizada por AGRESTA S.Coop. de la la norma UNE EN 1927-2:2008. Basandose en criterios de dimensiones mínimas, se distinguen 5 calidades de madera posibles:
+
+#### Calidad A
+Trozas de calidad elevada cuyo destino habitual es chapa o carpintería de alta calidad. Las dimensiones mínimas son 3 m de longitud y 45 cm de diámetro.
+
+#### Calidad B
+Trozas de buena calidad cuyo destino habitual es sierra de calidad alta, carpintería de segunda calidad o tabla. Las dimensiones mínimas son 2,5 m de longitud y 40 cm de diámetro.
+
+#### Calidad C
+Trozas rectas con nudos (no demasiados) y hasta 30 cm de diámetro cuyo destino habitual es sierra de calidad media: vigas, viguetas, machones y tablas. Las dimensiones mínimas son 2,5 m de longitud y 25 cm de diámetro.
+
+#### Calidad D
+Trozas curvadas y con nudos cuyo destino habitual es sierra de baja calidad, encofrado y canter. Las dimensiones mínimas son 2 m de longitud y 20 cm de diámetro (18 para canter).
+
+#### Calidad E
+Trozas no aptas para sierra por defectos graves o diámetro insuficiente cuyo destino habitual es combustible o trituración. No hay dimensiones mínimas.
+
+### Precios de la madera
+Para el precio de la madera se han considerado 2 escenarios diferentes, dependientes de las calidades de los diferentes tipos de producto que permitan hacer una evaluación de los diferentes itinerarios selvícolas planteados en proyecto SIGCA:
+
+#### Escenario 1
+Los precios de la madera de “baja calidad”, similares a los actuales o suben ligeramente, los precios de madera de calidad bajan a medida que ascendemos de calidad
+
+#### Escenario 2
+Los precios de la madera de “baja calidad” suben y los de madera de calidad también suben.
+
+Precios estimados medios de madera en pie que se han testado son:
+
+```{r prices}
+calidad_A <- c( 120, 0, 150, 0 )
+calidad_B <- c(  50, 0,  65, 0 )
+calidad_C <- c(  28, 0,  40, 0 )
+calidad_D <- c(  20, 0,  24, 0 )
+calidad_E <- c(  12, 0,  18, 0 )
+Escenario <- c(  'Esc.1', 'Esc.2', 'Esc.3', 'Esc.4' )
+df.precios <- data.frame( calidad_A, calidad_B, calidad_C, calidad_D, calidad_E )
+row.names(df.precios) <- Escenario
+df.precios.A2D <- df.precios[,c(1:4)]
+df.precios.E <- df.precios[,c(5)]
+
+pander(df.precios[c(1, 3),], caption='Precios de los diferentes destinos en Eur')
+```
+
+En cargadero habría que sumar unos 12 \euro/Mg. Hay que tener en cuenta que cuanto más delgada es la madera que se aproveche más cara será la corta y el desembosque, pero también hay que tener en cuenta que en las primeras claras se cuenta con la ventaja de abrir calles lo que permiten ahorrar costes. Por este motivo podemos suponer este coste como valor medio para todas. Si tenemos en cuenta que las unidades con las que vamos a trabajar, por la simulación realizada, son m^3^, necesitamos estimar la densidad de madera verde. Vamos a suponer que está en valores de 0,88 Mg/m^3^, por lo que el precio en cargadero debería aumentarse en 10,56 \euro/m^3^.
+
+### Gastos de gestión
+
+En el presente estudio se han tenido en cuenta dos tipos de gastos, los fijos que dependen de la superficie tratada y los variables que dependen de la producción obtenida. Para estos dos tipos de gastos se suponen las siguientes cuantías:
+
+1. Gastos fijos. Son así considerados los que dependen de la superficie y pueden ser:
+
+* Gasto de plantación, que supone un unos 2200 \euro/ha plantada, y se asigna al año 1, ya que suponemos que la planta es de 1 savia. Habría que sumar entre 250 y 300 \euro/ha si se utilizase planta mejorada genéticamente.
+
+* Gasto de clareos, que incluye el calleado, clareo manual y trituración de restos, y supone unos 1100 \euro/ha tratada. La apertura de calles (roza mecanizada tractor de cadenas) en el año cuarto o quinto suponen 268 \euro/ha y la selección de pies en las calles (clareo o rareo) manual con motodesborzadora hasta ajustar denisdades a 1100 pies/ha supone 837 \euro/ha (inlcuye posterior triturado de restos en las calles, mecanizado mediante martillos)
+
+2. Gastos variables. Son los que dependen de la cantidad de madera aprovechada. Se supone que el gasto medio del aprovechamiento es de 12 \euro/Mg que suponiendo que tiene un densidad de unos 0,88 Mg/m^3^ tiene un coste de 10,56 \euro/m^3^ 
+
+
+```{r Densidad de la madera}
+## https://www.forestalmaderero.com/articulos/item/tabla-de-densidad-de-maderas.html -->
+## Nombre vulgar  Nombre científico       Madera verde Madera seca -->
+##  Pino marítimo  Pinus pinaster                  ~880         540 -->
+##  Palo de leche  Sebastinia brasiliensis          890         545 -->
+```
+
+### Subvenciones
+
+Para soportar la inversión inicial de establecimiento y tratamientos no autofinanciados es habitual que se puedan solicitar ayudas a las entidades autonómicas correspondientes. En el caso que nos atañe, por ser donde son más habituales estas plantaciones, nos vamos a fijar en las bases de ayudas de Galicia en 2019 (@xunta2019). Según los tratamientos realizados se pueden solicitar ayudas por:
+
+* plantación: coniferas 1100 pies/ha dificultades medias: 1527 \euro/ha
+* poda: poda baja hasta 2,20 m en 800 pies/ha: 650 \euro/Ha
+* Clareos: reducción de densidad 30%, selección de pies menos desarrollados, sin apertura de calles ni saca, mediante motosierra. 850 \euro/ha
+* otras actuaciones posibles por las que se puede solicitar subvención: 
+	+ desbroces por calles: 268 \euro/ha
+	+ perimetros de cortafuegos: 350 \euro/ha
+	+ fajas auxiliares de desbroce frente a incendios: 378 \euro/ha
+
+En el estudio realizado se van a suponer dos ingresos posibles por subvención:
+
+1. El que corresponde por plantación. Se supone un ingreso por subvención en el año 3, dos años después de la solicitud, y una cuantía de 1527 \euro/ha plantada que se aplica a todos los escenarios selvícolas salvo a MG2 con regeneración natural.
+
+2. El que corresponde por clareos precomerciales. Este tratamiento solo se realiza en masas con regeneración natural, y que corresponde exclusivamente a MG2rn. En este escenario se incluye el ingreso de subvención por clara, que se realiza en el año 5 y tiene efecto dos años después de solicitarla, en el año 7, y por una cuantía de 850 \euro/ha aclarada.
+
+
+### Tasa de descuento e interés aplicado.
+
+Además se va a realizar una comparación del valor esperado del suelo (@DiazBalteiro1998) para cada una de las alternativas.
+
+Según el @BE_sf, el precio del dinero o interés legal desde 2016 hasta 2020 se ha mantenido en un 3%, en los últimos debido a la prórroga de los Presupuestos Generales. 
+En el análisis de una inversión se analizan los flujos de ingresos y gastos futuros con sus valores en el momento actual, para lo que hay que utilizar una tasa de descuento o coste del capital. El valor que se utiliza para esta tasa es muy controvertido (Ver @DiazBalteiro1998) y afecta de forma muy importante en el resultado del análisis de una inversión.
+
+y escenarios de precio del dinero
+
+según el @BE_sf, el precio del dinero o interés legal desde 2016 hasta 2020 se ha mantenido en un 3%, en los últimos debido a la prórroga de los Presupuestos Generales. 
+
+En el análisis económico se prevé que pueda existir una variación por lo que se analizará para el caso de que suba o baje en un punto el precio del dinero, mostrando la actualización de las rentas suponiendo que sea un 2% y un 4%.
+
+```{r interes.rate, include=FALSE}
+
+# Análisis económico
+
+Este análisis pretende comparar el rendimiento económico de las distintas alternativas selvícolas planteadas, y para intentar conseguirlo vamos a seguir dos enfoques; El primero comparará el valor actual de ingresos y gastos generados en un único turno, presentado de forma gráfica para facilitar las comparaciones. En segundo lugar se realizará una valoración del monte, suponiendo que se van a realizar plantaciones de manera indefinida, lo que permitira obtener una renta que será independiente del turno y podremos comparar mediante una serie de tablas.
+
+Para todo el anális tendremos en cuenta el valor de mercado del vuelo, prescindiendo del valor del suelo, y solo el relativo a la producción primaria directa (Principalmente madera, y madera de pequeño tambaño o leñas). Además se considerará un caso genérico, con valores medios para todas las variables, y el valor económico estará siempre referido a la hectárea. 
+Para todo el anális tendremos en cuenta el valor de mercado del vuelo, actualizado al momento de la plantación, prescindiendo del valor del suelo, y solo el relativo a la producción primaria directa (Principalmente madera, y madera de pequeño tambaño o leñas). Además se considerará un caso genérico, con valores medios para todas las variables, y el valor económico estará siempre referido a la hectárea. 
+
+
+## Descripción cuantitativa de las alternativas selvícolas
+De forma complementaria se ha realizado una comparación del Valor Esperado del Suelo (@DiazBalteiro1998) para cada una de las alternativas selvícolas y condiciones de la estación. En esta valoración, indicada para masas regulares no ordenadas, nos va a permitir comparar las distintas opciones selvícolas independientemente del turno de las mismas.
+
+
+
+##  Alternativas selvícolas
+
+Se han considerado las cuatro alternativas de gestión descritas anteriormente. Para cada una de ellas se ha supuesto que hay un porcentage de madera que puede ir destinado a cada calidad en cada una de las intervenciones previstas. Se supone que toda la madera que se aproveche y tenga entre 7 y 20 cm en punta delgada será considerada de calidad E.
+
+Con las proporciones de cada calidad se puede calcular el precio medio que tendrá la madera, suponiendo que su destino es el mejor de los posibles. Podemos calcular, para cada escenario de precios, el precio de la madera gruesa (VCC20) y el de la madera fina (VCC7).
+
+### Escenario selvícola estándar habitual (M2)
+
+En el escenario selvícola M2 tendremos aprovechamiento de madera en 3 claras y en la corta final. Se indica en el  Cuadro 2.1 
+la proporción de volumen de madera esperable  para cada calidad y en el  Cuadro 2.2 los precios según cada escenario.
+
+################################## simulación M4 ##################################
+### se supone planta de 1 año
+### 1 plantacion 1250
+### 3 cobro subvención por plantación
+### 15 clara 700
+### 25 corta final
+
+edad.int <- c( 1, 3, 15, 25)
+turno <- max(edad.int)
+
+costes.fijos <-  c( 2200, 0, 0, 0 ) # \Eur/ha
+costes.variables <- c( 0, 0, 0, 1 ) # \Eur/m3
+costes.variables <- costes.variables * gasto.clara
+ing.fijos <- c( 0, 1527, 0, 0 ) # \Eur/ha plantada
+df.M4.i.fijos <- data.frame( 'M4', edad.int, ing.fijos )
+names(df.M4.i.fijos)[c(1)] <- "RegimenClara"
+
+proporcion_A <- c( 0, 0, 0, 0 )
+proporcion_B <- c( 0, 0, 0, 0 )
+proporcion_C <- c( 0, 0, 0, 0 )
+proporcion_D <- c( 0, 0, 1, 1 ) # proporcion de VCC20
+
+proporcion_E <- c( 0, 0, 1, 1) # Todo VCC7
+
+df.M4.c.fijos <- data.frame( "M4", edad.int, costes.fijos )
+names(df.M4.c.fijos)[c(1)] <- "RegimenClara"
+
+df.M4.c.variables <- data.frame( "M4", edad.int, costes.variables )
+names(df.M4.c.variables)[c(1)] <- "RegimenClara"
+
+df.M4.proporcion <- data.frame( proporcion_A, proporcion_B, proporcion_C, proporcion_D)
+
+M4.i.variables.Esc1.VCC20 <- as.matrix( df.M4.proporcion ) %*% t( as.matrix( df.precios[c(1), c(1:4)] ) )
+M4.i.variables.Esc1.VCC7  <- as.matrix( proporcion_E     ) %*% t( as.matrix( df.precios[c(1), c(5)] ) )
+M4.i.variables.Esc2.VCC20 <- as.matrix( df.M4.proporcion ) %*% t( as.matrix( df.precios[c(3), c(1:4)] ) )
+M4.i.variables.Esc2.VCC7  <- as.matrix( proporcion_E     ) %*% t( as.matrix( df.precios[c(3), c(5)] ) )
+
+df.M4.i.variables <- data.frame( "M4", edad.int, M4.i.variables.Esc1.VCC20, M4.i.variables.Esc1.VCC7, M4.i.variables.Esc2.VCC20, M4.i.variables.Esc2.VCC7, turno)
+
+names(df.M4.i.variables)[c(1,3:7)] <- c( "RegimenClara", "E1_VCC20", "E1_VCC7", "E3_VCC20", "E3_VCC7", "turno")
+rownames(df.M4.i.variables) <- c('plantacion', 'subvención', 'clara 700', 'corta final')
+rownames(df.M4.proporcion) <- c('plantacion', 'subvención', 'clara 700', 'corta final')
+```
+
+En el escenario selvícola M4 tendremos aprovechamiento de madera en 1 claras y en la corta final. 
+En el  Cuadro 2.3 se pueden ver las proporciones de madera por destinos en porcentaje y en el  Cuadro 2.4 el precio medio que puede obtenerse por la madera aprovechada si va a la mejor opción de las posibles por su tamaño.
+
+### Escenario selvícola sin gestión (M8)
+
+El escenario selvícola de no gestión a partir de la plantación inicial, con una densidad de 1250 pies/ha, debe presuponer que hay mortalidad natural, al menos en las calidades de estación más pobres. Este efecto puede ser del orden del 10-20 % en número de pies de alre
+
+
+A continuación se muestra el volumen total acumulado que se aprovecha, para cada uno de los escenarios selvícolas, zona y calidad de estación, en m^3^/ha de madera. Se presentan las gráficas de volumen total de más de 7 y 20 cm de diámetro en punta delgada y el volumen de madera delgada, entre 7 y 20 cm, de forma que se pueda tener una idea clara de cual es el volumen aprovechado que se va a contabilizar en el análisis económico posterior.
+
+
+### Volumen total de más de 7 cm en punta delgada
+
+Se muestra a continuación en la Figura \@ref(fig:plotVACAR) la distribución del volumen acumulado aprovechado de más de 7 cm en punta delgada, comparando las calidades de estación para cada régimen de clara:
+
+En segundo lugar, se muestra la misma variable, volumen acumulado aprovechado de más de 7 cm en punta delgada, pero comparando los regimenes de clara para cada calidad de estación: 
+
+### Volumen total de más de 20 cm en punta delgada
+
+Se muestra a continuación la distribución del volumen acumulado aprovechado de más de 20 cm en punta delgada, comparando las calidades de estación para cada régimen de clara:
+
+
+Igual que para la variable anterior, se muestra el volumen acumulado aprovechado de más de 20 cm en punta delgada, pero comparando los regimenes de clara para cada calidad de estación: 
+
+
+
+## Valor esperado del suelo
+
+Para poder hacer comparables de forma directa los escenarios debemos hacer una valoración que tiene en cuenta un escenario de infinitos ciclos con las mismas condiciones ecologicas y económicas. Esta valoración se conoce como Valor Esperado del Suelo y su cálculo está detallado en @DiazBalteiro1998.
+
+A continuación se muestra el resultado para cada calidad de estación y zona.
+
+La principal conclusión que podemos obtener del presente análisis económico es que la calidad de estación mínima que asegura beneficio económico es en estaciones medias (altura dominante de 16 m a 20 años) para cualquier escenario selvícola de precios y de interés del dinero. En estaciones de calidades más bajas solo es posible obtener rentabilidad si es posible obtener una buena regeneración natural y con la ayuda de subvenciones para tratamientos no autofinanciables.
+
+La siguiente conclusión es que el escenario selvícola MG2 es el mejor en todas las calidades y escenarios, salvo para calidad 7 m con un interés del 2%. Con este régimen selvícola se consigue una mayor rentabilidad que en el escenario M2, el segundo mejor en todos los casos, pero con la ventaja de necesitar 5 años menos para conseguirlo y además se consigue con una actuación selvícola menos.
+
+Si comparamos los escenarios MG2 con y sin plantación, muestra que la regeneración natural es más rentable, principalmente por el ahorro que supone no tener que hacer la plantación, que es más cara que el clareo que hay que hacer con regeneración natural. 
+Esto supone que, sobre todo para zonas de calidades altas, la plantación podría ser una mejor opción si se utiliza planta mejorada genéticamente. Lamentablemente no existen modelos de crecimiento que tengan en cuenta esta opción, pero el escaso margen de diferencia que hay en este análisis hace suponer que el incremento de precio de esa planta mejorada puede traducirse en una mejora de la rentabilidad, si bien no podemos cuantificar esa mejora.
+
+En zonas de alta calidad de estación parece que las previsiones de volumen aprovechable son muy buenas, quizá excesivas, sobre todo para el escenario M8 sin ninguna intervención selvícola. Esto puede hacer pensar que es necesaria una simulación selvícola más precisa, sobre todo en este escenario sin selvicultura en el que incluir el efecto de la mortalidad natural parece obligado.
+
+En todo caso, es necesario tener en cuenta que para este análisis se han tenido en cuenta valores medios en cuanto a la distribución y producción del vuelo, y costes medios de los aprovechamientos, sin tener en cuenta la proximidad a la industria destino ni la dificultad de acceso al monte o la facilidad de mecanización del propio aprovechamiento. Estas consideraciones pueden hacer que un sitio de baja calidad de estación pueda convertirse en una buena opción para hacer una plantación de *Pinus pinaster* que no lo sería en una ubicación o con unas condiciones de pendiente o accesibilidad muy adversas.
+
+Por el mismo motivo también es importante tener en cuenta que un área con buena calidad de estación pero condiciones de accesibilidad o topográficas adversas, pueden hacer que una plantación que tiene una previsión de rentabilidad excelente, se convierta en una explotación que finalmente vea disminuidas las rentas a final de turno.
+
+Siempre deberemos tener en cuenta que el análisis de rentabilidad realizado se ha hecho con con datos medios, tanto los relativos a la productividad como los costes y precios del producto final, por lo que los resultados deben tratarse con precaución; se ofrecen conclusiones que sirve para un caso genérico, y se pueden tener en cuenta como una primera aproximación, pero en inversiones con excaso margen de beneficio como son las explotaciones forestales, es necesario estudiar cada monte concreto para asegurar en la medida de lo posible la inversión que se realize.
+
+# Referencias

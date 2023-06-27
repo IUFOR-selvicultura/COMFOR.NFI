@@ -13,7 +13,16 @@ library(rmarkdown)
 ## help(browseURL)
 ## browseURL(url = render( rep[1] ))
 ## help(render)
+getwd()
+setwd('./Rmd.report')
+dir()
 
-render( "report_docx.Rmd", output_format = "word_document", output_file='../output.go_sigca/report.eval.7.2.docx' )
-## q()
-## n
+render( "report_docx.Rmd",
+       # "report_docx_temp.Rmd",
+       output_format = "word_document",
+       # output_file='./config/template.docx'
+       output_file='./output/COMFOR_D1_1_1_RegionalReport_ComplexForests.docx'
+       )
+
+q()
+n

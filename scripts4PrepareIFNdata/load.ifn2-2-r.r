@@ -5,7 +5,7 @@ rm(list=ls())
 getwd()
 dir()
 ls()
-load(file='../if2.RData')
+load(file='../../../NFI-data-raw/if2.RData')
 
 ls()
 str(trees.if2)

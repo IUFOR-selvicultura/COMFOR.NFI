@@ -23,7 +23,9 @@ Posteriormente, realizamos un análisis en componentes principales que nos permi
 La varible forma también es relevante pues los árboles son muy diferentes entre ellos según la forma que tengan. Nos qudamos con las formas 2 y 5 que son las mayoritarias y añadimos una variable dummy para que se difereciem.
 
 Una vez tenemos las variables posibles del modelo probamos con modelos lineales y mixtos hasta quedarnos con el modelo que más conviene, que es un modelo lineal con solo las variables significativas que resultan ser: 
-sqrt(vRes)~dbh.x+esbeltez.x+Dg+(G.x)+SDI+BAL+BALTotal+porcentajeG+AlturaDominante+HartB+dummyF2 haciendose una transformación en la variable respuest para que así los residuales en el test de Kolmogorov asuman normalidad y con un R^2 del 96.72%, es decir, parece un modelo muy completo.
+vRes~dbh.x+esbeltez.x+Dg+(G.x)+porcentajeG+dummyF2
+El R^2 de este modelo es 91.54%
+Además de la significacion de las variables, y el R^2 también hay que tener en cuenta la colinealidad y el test de independencia. Respecto la normalidad no se ha encontrado ningún modelo que la verifique.
 
 # Mod crecimiento 72
 Es muy similar al de la especie 41, pero para la 72

@@ -179,3 +179,9 @@ shapiro.test(resL_72)
 qqnorm(resL_72)
 qqline(resL_72)
 ## No se distribuye normalmente
+
+par(mfrow=c(2,2))
+plot(modL2_72)
+
+vif(modL2_72)
+1/vif(modL2_72)

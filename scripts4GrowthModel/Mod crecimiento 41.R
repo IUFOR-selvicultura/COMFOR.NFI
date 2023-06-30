@@ -147,7 +147,7 @@ crecimientoTO41$Forma.x<-as.factor(crecimientoTO41$Forma.x)
 crecimientoTO41$dummyF2<-with(crecimientoTO41,ifelse(crecimientoTO41$Forma.x==2,1,0))
 
 ## Por tanto, las variables que vamos a incluir en el modelo son 
-## vRes / g.x / dbh.x / esbeltez / Dg / G.x / SDI / BALTOTAL / BAL /HartB / porcentajeG / dummyF2
+## vRes / dbh.x / esbeltez / Dg / G.x / SDI / BALTOTAL / BAL /HartB / porcentajeG / dummyF2
 
 
 ################################################################################
@@ -167,6 +167,65 @@ ks.test(resLS,"pnorm")
 shapiro.test(resLS)
 qqnorm(resLS)
 qqline(resLS)
+par(mfrow=c(2,2))
+plot(modL2S)
 
 ## Aunque en shapiro test se rechace la normalidad, el test de Kolmogorov si
 ## la acepta ya que es un test menos rígio, pero igualmente válido
+
+## Analisis de colinealidad
+## Tolerarnaci => Tiene que estar por debajo de 0.1
+## Def => 1/Tolerancia =  Infalcion de varianza. Si es mas de 10 quiere decir que la
+## varianza esta inflada, es malo
+
+
+## Factor de inflacion de la varianza
+library(car)
+vif(modL2S)
+## Tolerancia
+tolerancia<-1/vif(modL2S);tolerancia
+
+## Indice de condicion
+
+## Proporcion de variación
+
+## Test de indep de Bubin-Watson
+durbinWatsonTest(modL2S)
+## Tiene que ser mayor de 1.8 
+
+## DCook
+cooks.distance(modL2S)
+# Identificación de los puntos influyentes
+umbral_cook <- 4/(nrow(crecimientoTO41) - length(modL2S$coefficients) - 1) # Umbral sugerido
+puntos_influyentes_cook <- which(cooks.distance(modL2S) > umbral_cook)
+
+## Residuales
+residuals(modL2S)
+
+## Coeficiente de autocorrelacion
+acf(residuals(modL2S), lag.max = nrow(crecimientoTO41)-1, plot = FALSE)$acf
+
+## Podemos ver como en el modelo propuesto hay colinealidad por tanto no se 
+## acepta. Vamos a formular un nuevo modelo en el que se evite esto
+mod<-lm((vRes)~dbh.x+esbeltez.x+Dg+(G.x)+SDI+BAL+BALTotal+porcentajeG+dummyF2,data=crecimientoTO41)
+stepAIC(mod)
+
+mod1<-lm((vRes)~dbh.x+esbeltez.x+Dg+G.x+porcentajeG+dummyF2, data = crecimientoTO41)
+summary(mod1)
+
+## Estudiamos la distribución de los residuales
+res1<-rstudent(mod1)
+ks.test(res1,"pnorm")
+shapiro.test(res1)
+qqnorm(res1)
+qqline(res1)
+par(mfrow=c(2,2))
+plot(modL2S)
+
+## Estudiamos la colinealidad
+#Inflacion de la varianza
+vif(mod1)
+#Tolerancia
+1/vif(mod1)
+## Test de indep de Bubin-Watson
+durbinWatsonTest(mod1)

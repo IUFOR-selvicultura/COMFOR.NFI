@@ -22,8 +22,13 @@ dir(path=d_nfi) ## comprobamos que efectivamente esta el fichero que deseamos ca
 
 if_ed <- 'if4' ## elegimos la edición del inventario con la que trabajar
 
+##### Ediciones del IFN español  #############################################################
 ediciones <- c('if2', 'if3', 'if4')
 
+##### Mixtures ###############################################################################
+mezclas <- list( c(41, 72), c(21, 71), c(21, 43), c(21, 25), c(21, 26), c(23, 26), c(24, 26) )
+
+## se recorren las 3 ediciones del IFN español para seleccionar distintas combinaciones de especies
 for (j in 1:length(ediciones)) {
     if_ed <- ediciones[j]
 
@@ -76,38 +81,35 @@ for (j in 1:length(ediciones)) {
     }
     head(listaTotal)
 
-##### Mixtures #################################################################
-mezclas <- list( c(41,72), c(21,71), c(21,43),c(21,25),c(21,26),c(23,26),c(24, 26) )
-################################################################################
-for (i in 1:length(mezclas)){
-    especies<-mezclas[[i]]
-    combinacion<-paste0(especies[1],'.',especies[2])
-    idplot<-c()
-    cont<-0
-    comb<-paste(c(especies[1],especies[2]),collapse=" ")
-    for(i in 1:length(listaTotal)){
-        if(paste(listaTotal[[i]]$especies,collapse=" ")==comb){
-            id<-listaTotal[[i]]$parcelas
-            idplot<-c(idplot,id)
-            cont=cont+1
+    for (i in 1:length(mezclas)){
+        especies<-mezclas[[i]]
+        combinacion<-paste0(especies[1],'.',especies[2])
+        idplot<-c()
+        cont<-0
+        comb<-paste(c(especies[1],especies[2]),collapse=" ")
+        for(i in 1:length(listaTotal)){
+            if(paste(listaTotal[[i]]$especies,collapse=" ")==comb){
+                id<-listaTotal[[i]]$parcelas
+                idplot<-c(idplot,id)
+                cont=cont+1
+                }
             }
-        }
-    cont
-    idplot
-    file_idplot <- paste0('plots.',combinacion,'.',if_ed,'.csv')
-    write.csv(idplot, file_idplot)
+        cont
+        idplot
+        file_idplot <- paste0('plots.',combinacion,'.',if_ed,'.csv')
+        write.csv(idplot, file_idplot)
+        
+        ## Buscamos los valores de los parametros para las parcelas que contienen esa combinacion
+        posicion <- which( arboles$PlotID %in% idplot )
+        arbolesCombi <- as.data.frame( arboles[ posicion, ])
+        head(arbolesCombi); tail(arbolesCombi); str(arbolesCombi)
+        file_arboles <- paste0("arboles.",combinacion,'.',if_ed,'.csv')
+        write.csv(arbolesCombi,file_arboles)
     
-    ## Buscamos los valores de los parametros para las parcelas que contienen esa combinacion
-    posicion <- which( arboles$PlotID %in% idplot )
-    arbolesCombi <- as.data.frame( arboles[ posicion, ])
-    head(arbolesCombi); tail(arbolesCombi); str(arbolesCombi)
-    file_arboles <- paste0("arboles.",combinacion,'.',if_ed,'.csv')
-    write.csv(arbolesCombi,file_arboles)
-
-    ## Buscamos los valores de los parametros para las parcelas que contienen esa combinacion
-    posicion <- which( parcelas$PlotID %in% idplot )
-    parcelasCombi <- as.data.frame( parcelas[ posicion, ])
-    file_parcela <- paste0('parcelas.',combinacion,'.',if_ed,'.csv')
-    write.csv(parcelasCombi,file_parcela)
+        ## Buscamos los valores de los parametros para las parcelas que contienen esa combinacion
+        posicion <- which( parcelas$PlotID %in% idplot )
+        parcelasCombi <- as.data.frame( parcelas[ posicion, ])
+        file_parcela <- paste0('parcelas.',combinacion,'.',if_ed,'.csv')
+        write.csv(parcelasCombi,file_parcela)
     }
-}
+}    

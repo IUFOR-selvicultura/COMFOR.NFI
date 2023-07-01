@@ -85,7 +85,7 @@ There are also scripts for revise species composition, mixed species combination
 
 ---
 
-## [build growth model for complex forest](./scripts4GrowthModel/readme.md)
+## [Growth model build example for a complex forest](./scripts4GrowthModel/readme.md)
 
 With this scripts, a model growth of mixed plots including Chestnut and Oak has been prepared as an example.
 

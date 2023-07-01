@@ -4,7 +4,7 @@ getwd()
 ls()
 dir()
 rm(list= ls() )
-load(file='../../if3.RData')
+load(file='../../../if3.RData')
 
 ls()
 str(trees.if3); str(plots.if3); str(maps.if3); str(plots.sp.if3)

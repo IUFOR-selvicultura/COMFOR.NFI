@@ -14,6 +14,7 @@ rm(list=ls())
 
 getwd()
 od_calculus <- '../data/'
+od_mixtures <- '../data/mixtures/'
 dir(path=od_calculus)
 
 d_nfi <- '../../../../../NFI-data-raw/' ## directorio en el que tenemos descargados los RData del IFN
@@ -33,22 +34,22 @@ for (j in 1:length(ediciones)) {
     if_ed <- ediciones[j]
 
     ## Leemos los datos
-
     datos<-read.csv(paste0(od_calculus,"of_",if_ed,"_plotsPluriSP_sps.csv"))
-
-
-    load(paste0(d_nfi,if_ed,'.RData')) ## cargamos el fichero RData que contiene la edición con la que queremos trabajar
-
+    
+    ## cargamos el fichero RData que contiene la edición con la que queremos trabajar
+    load(paste0(d_nfi,if_ed,'.RData'))
+    
+    ## asignamos el dataframe cargado, tree.if# a arboles
     switch(if_ed,
        'if2'={arboles <- trees.if2},
        'if3'={arboles <- trees.if3},
-       'if4'={arboles <- trees.if4} ) ## asignamos el dataframe cargado, tree.if# a arboles (en este caso la segunda edición)
-    head(arboles)
-
+       'if4'={arboles <- trees.if4} )
+    
+    ## asignamos el dataframe cargado, plots.if# a parcelas
     switch(if_ed,
        'if2'={parcelas <- plots.if2},
        'if3'={parcelas <- plots.if3},
-       'if4'={parcelas <- plots.if4} ) ## asignamos el dataframe cargado, tree.if# a arboles (en este caso la segunda edición)
+       'if4'={parcelas <- plots.if4} ) 
 
     ## Las diferentes parcelas que tenemos 
     plots<-unique(datos$PlotID)
@@ -68,7 +69,7 @@ for (j in 1:length(ediciones)) {
 
     ## Realmente nos van a interesar las combinaciones que aparecen varias veces
     combinaciones[combinaciones>10]
-    file_name <- paste0(od_calculus, "combinaciones.", if_ed, ".txt")
+    file_name <- paste0(od_mixtures, "combinaciones.", if_ed, ".txt")
     write.table(combinaciones, file_name)
 
     ## Buscamos los indices de las parcelas que coinciden con la especie deseada, es decir, en este caso queremos la combinación del 21 con el 43, para poder obtener los datos que correponsen y así hallar la ecuación de crecimiento que deseamos
@@ -96,20 +97,20 @@ for (j in 1:length(ediciones)) {
             }
         cont
         idplot
-        file_idplot <- paste0('plots.',combinacion,'.',if_ed,'.csv')
+        file_idplot <- paste0(od_mixtures,'plots.',combinacion,'.',if_ed,'.csv')
         write.csv(idplot, file_idplot)
         
         ## Buscamos los valores de los parametros para las parcelas que contienen esa combinacion
         posicion <- which( arboles$PlotID %in% idplot )
         arbolesCombi <- as.data.frame( arboles[ posicion, ])
         head(arbolesCombi); tail(arbolesCombi); str(arbolesCombi)
-        file_arboles <- paste0("arboles.",combinacion,'.',if_ed,'.csv')
+        file_arboles <- paste0(od_mixtures,"arboles.",combinacion,'.',if_ed,'.csv')
         write.csv(arbolesCombi,file_arboles)
     
         ## Buscamos los valores de los parametros para las parcelas que contienen esa combinacion
         posicion <- which( parcelas$PlotID %in% idplot )
         parcelasCombi <- as.data.frame( parcelas[ posicion, ])
-        file_parcela <- paste0('parcelas.',combinacion,'.',if_ed,'.csv')
+        file_parcela <- paste0(od_mixtures,'parcelas.',combinacion,'.',if_ed,'.csv')
         write.csv(parcelasCombi,file_parcela)
     }
-}    
+}

@@ -149,7 +149,8 @@ barMono<-ggplot(datosCCAAMono,aes(x=CCAA,y=Cont,fill=factor(id)))+
        x = "Comunidad",
        y = "Contador",
        fill="INF") +
-  theme_minimal()
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
 barMono
 ggplotly(barMono)
 
@@ -162,7 +163,8 @@ barPluri<-ggplot(datosCCAAPluri,aes(x=CCAA,y=Cont,fill=factor(id)))+
        x = "Comunidad",
        y = "Numero",
        fill="INF") +
-  theme_minimal()
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
 barPluri
 ggplotly(barPluri)
 
@@ -175,6 +177,7 @@ barPluriMod<-ggplot(datosCCAAPluriMod,aes(x=CCAA,y=Cont,fill=factor(id)))+
        x = "Comunidad",
        y = "Numero",
        fill="INF") +
-  theme_minimal()
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
 barPluriMod
 ggplotly(barPluriMod)

@@ -2,14 +2,12 @@ rm(list=ls())
 ls()
 library(ggplot2)
 library(plotly)
-getwd()
-dir()
-dir <- '../data/'
+
 ## Leemos los datos
-## setwd("C:/Users/Irene/Documents/INF COMFOR/Entrega/Combi")
-combiIFN2<-read.table(paste0(dir,"combinaciones.if2.txt"))
-combiIFN3<-read.table(paste0(dir,"combinaciones.if3.txt"))
-combiIFN4<-read.table(paste0(dir,"combinaciones.if4.txt"))
+setwd("C:/Users/Irene/Documents/INF COMFOR/Entrega/Combi")
+combiIFN2<-read.table("combinaciones2.txt")
+combiIFN3<-read.table("combinaciones3.txt")
+combiIFN4<-read.table("combinaciones4.txt")
 
 ## En realidad nos interesan las que tengan bastante representación, es decir, 
 ## que la combinacion no haya ocurrido por casualidad en una parcela, si no que
@@ -28,9 +26,11 @@ combiIFN4100<-combiIFN4[combiIFN4$Freq>100,]
 ################################################################################
 
 graficoIndividual<-function(datos,IFN){
-  plot_ly(y=datos$Freq,x=(datos$Var1),type="bar",
-          marker=list(color="lightgreen"))%>%
-    layout(title=paste0("Combinaciones mas frecuentes en el ",IFN))
+  title=paste0("Combinaciones mas frecuentes en el ",IFN)
+  ggplot(data=datos, aes( y=Freq, x=Var1 )) +
+    geom_bar(stat = "identity", color = "lightgreen") +
+    theme_grey()+
+    theme(axis.text.x = element_text(angle = 90, hjust = 1))
 }
 
 ###################################IFN2#########################################
@@ -40,7 +40,7 @@ graficoIndividual(combiIFN2100,"IFN2")
 graficoIndividual(combiIFN3100,"IFN3")
 
 ###################################IFN4#########################################
-graficoIndividual(combiIFN4100,"IFN4")
+graficoIndividual(combiIFN2100,"IFN4")
 
 
 ################################################################################
@@ -58,6 +58,8 @@ barCombi<-ggplot(combi,aes(x=Var1,y=Freq,fill=factor(IFN)))+
        x = "Combinaciones",
        y = "Repeticiones",
        fill="INF") +
-  theme_minimal()
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
 barCombi
 ggplotly(barCombi)

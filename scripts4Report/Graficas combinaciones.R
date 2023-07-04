@@ -26,11 +26,11 @@ combiIFN4100<-combiIFN4[combiIFN4$Freq>100,]
 ################################################################################
 
 graficoIndividual<-function(datos,IFN){
-  title=paste0("Combinaciones mas frecuentes en el ",IFN)
   ggplot(data=datos, aes( y=Freq, x=Var1 )) +
     geom_bar(stat = "identity", color = "lightgreen") +
     theme_grey()+
-    theme(axis.text.x = element_text(angle = 90, hjust = 1))
+    theme(axis.text.x = element_text(angle = 90, hjust = 1))+ 
+    labs(title=paste0("Combinaciones mas frecuentes en el ",IFN))
 }
 
 ###################################IFN2#########################################

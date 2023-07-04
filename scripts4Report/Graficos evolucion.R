@@ -116,7 +116,9 @@ datosT4<-numPlotsIF(setwd=setwd4,4);datosT4
 datosT<-rbind(datosT2,datosT3,datosT4)
 
 todos<-ggplot(datosT,aes(x=tipo,y=num,fill=factor(id)))+
-  geom_bar(stat="identity")
+  geom_bar(stat="identity")+
+  geom_text(aes(label=num),position = position_stack(vjust = 0.5))+
+  labs(title="Numero de parcelas de cada tipo")
 todos
 ggplotly(todos)
 

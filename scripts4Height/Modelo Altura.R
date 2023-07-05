@@ -4,7 +4,7 @@
 ##    
 ##  CHECK - Cristobal ORDOÑEZ 
 ##    
-##    File name: Depuracion datos modelos 
+##    File name: Modelo altura
 ##    Purpose: Depurar y completar los datos para obtener las ecuaciones de los
 ##             posteriores modelos
 ##    

@@ -157,20 +157,6 @@ summary(modL1)
 ## Seleccionamos las variables significativas
 modL2<-lm(Altura~dbh+esbeltez+HartB+Dg+G+SDI+AlturaDominante+BALTotal+porcentejeN+porcentajeG+dummyF2,data=alturaDiam41)
 summary(modL2)
-coef(modL2)
-
-## Estudiamos la distribución de los residuales
-resLS<-rstudent(modL2)
-ks.test(resLS,"pnorm")
-shapiro.test(resLS)
-
-qqnorm(resLS)
-qqline(resLS)
-par(mfrow=c(2,2))
-plot(modL2)
-
-## Aunque en shapiro test se rechace la normalidad, el test de Kolmogorov si
-## la acepta ya que es un test menos rígio, pero igualmente válido
 
 ## Analisis de colinealidad
 ## Tolerarnaci => Tiene que estar por debajo de 0.1
@@ -182,78 +168,37 @@ vif(modL2)
 
 ## Podemos ver como en el modelo propuesto hay colinealidad por tanto no se 
 ## acepta. Vamos a formular un nuevo modelo en el que se evite esto
+modL3<-lm(Altura~dbh+esbeltez+HartB+Dg+SDI+AlturaDominante+BALTotal+porcentejeN+porcentajeG+dummyF2,data=alturaDiam41)
+summary(modL3)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-mod<-lm((vRes)~dbh.x+esbeltez.x+Dg+(G.x)+SDI+BAL+BALTotal+porcentajeG+dummyF2,data=alturaDiam41)
-stepAIC(mod)
-
-mod1<-lm((vRes)~dbh.x+esbeltez.x+Dg+G.x+porcentajeG+dummyF2, data = alturaDiam41)
-summary(mod1)
-
-## Estudiamos la distribución de los residuales
-res1<-rstudent(mod1)
-ks.test(res1,"pnorm")
-shapiro.test(res1)
-qqnorm(res1)
-qqline(res1)
-par(mfrow=c(2,2))
-plot(modL2S)
-
-## Estudiamos la colinealidad
-#Inflacion de la varianza
-vif(mod1)
-#Tolerancia
-1/vif(mod1)
-## Test de indep de Dubin-Watson
-durbinWatsonTest(mod1)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## Factor de inflacion de la varianza
+vif(modL3)
 
 ## Tolerancia
-tolerancia<-1/vif(modL2);tolerancia
+tolerancia<-1/vif(modL3);tolerancia
 
-## Indice de condicion
-
-## Proporcion de variación
+## Estudiamos la distribución de los residuales
+res3<-rstudent(modL3)
+ks.test(res3,"pnorm")
+shapiro.test(res3)
+qqnorm(res3)
+qqline(res3)
+par(mfrow=c(2,2))
+plot(modL3)
 
 ## Test de indep de Bubin-Watson
-durbinWatsonTest(modL2S)
-## Tiene que ser mayor de 1.8 
+durbinWatsonTest(modL3)
 
 ## DCook
-cooks.distance(modL2S)
+cooks.distance(modL3)
 # Identificación de los puntos influyentes
-umbral_cook <- 4/(nrow(alturaDiam41) - length(modL2S$coefficients) - 1) # Umbral sugerido
-puntos_influyentes_cook <- which(cooks.distance(modL2S) > umbral_cook)
-
-## Residuales
-residuals(modL2S)
+umbral_cook <- 4/(nrow(alturaDiam41) - length(modL3$coefficients) - 1) # Umbral sugerido
+puntos_influyentes_cook <- which(cooks.distance(modL3) > umbral_cook)
 
 ## Coeficiente de autocorrelacion
-acf(residuals(modL2S), lag.max = nrow(alturaDiam41)-1, plot = FALSE)$acf
+acf(residuals(modL3), lag.max = nrow(alturaDiam41)-1, plot = FALSE)$acf
+
+## He probado realizando transformaciones a la variable respuesta para intenatar
+## mejorar el modelo y que se asumiera normalidad, pero al no conseguirse, nos
+## quedamos con el modelo más sencillo disponible. También he probado con los 
+## modelos mixtos pero tampoco han mejorado

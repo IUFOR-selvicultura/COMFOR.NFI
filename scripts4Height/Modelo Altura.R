@@ -51,13 +51,6 @@ parcelas2$PlotID0<-gsub(" ","",parcelas2$PlotID)
 ## Eliminamos las columnas innecesarias
 parcelas2<-parcelas2[,-c(1,6,7)]
 
-## Unimos los 2 data frames
-merge(combi4172_2, parcelas2,by="PlotID0")
-
-pos<-which((arboles_3$PlotID2)%in% (parcelas2$PlotID0))
-arboles_3S<-arboles_3[pos,]
-
-
 
 ################################################################################
 #     Añadimos variables que serán de interés para los modelos de regresión
@@ -115,22 +108,24 @@ for(i in 1:length(unique(combi4172_2$PlotID0))){
 }
 combi4172_2$AlturaDominante<-alturaDominante
 
-########################################################
-####          CORREGIR
-########################################################
-alturaDiam<-left_join(combi4172_2,parcelas2,by="PlotID0")
+alturaDiam<-merge(combi4172_2, parcelas2)
 
 ## ((6)) Indice Hart BecKing
-alturaDiam$HartB<-with(alturaDiam,(10000/(sqrt((sqrt(3)*N.x)/2)*AlturaDominante)))
+alturaDiam$HartB<-with(alturaDiam,(10000/(sqrt((sqrt(3)*N)/2)*AlturaDominante)))
 
 ## ((7)) Indice Hart 
-alturaDiam$Hart<-with(alturaDiam,(10000/(sqrt(N.x)*AlturaDominante)))
+alturaDiam$Hart<-with(alturaDiam,(10000/(sqrt(N)*AlturaDominante)))
 
 ################################################################################
 #                    Reescalamos las variables
 ################################################################################
 ## Pasamos de mm^2 a cm^2
 alturaDiam$g<-alturaDiam$g/100
+
+################################################################################
+#
+################################################################################
+write.csv(alturaDiam,"C:/Users/Irene/Documents/INF COMFOR/Regresion/Mod Altura/alturaDiam.csv")
 
 
 

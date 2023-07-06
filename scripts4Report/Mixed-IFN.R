@@ -6,9 +6,11 @@
 ## 
 ################################################################################
 
+library(tidyverse)
+
 rm(list=ls())
 
-options(width=134)
+options(width=154)
 
 setwd("./")
 
@@ -24,10 +26,9 @@ dir(path=d_nfi) ## comprobamos que efectivamente esta el fichero que deseamos ca
 
 ##### Ediciones del IFN español  #############################################################
 ediciones <- c('if2', 'if3', 'if4')
-
+j<-2
 ##### Mixtures ###############################################################################
-mezclas <- list( c(41, 72),
-                c(21, 71), c(21, 43), c(21, 25), c(21, 26), ## c(23, 26), 
+mezclas <- list( c(41, 72), c(21, 71), c(21, 43), c(21, 25), c(21, 26), ## c(23, 26), 
     c(24, 26) )
 
 ## se recorren las 3 ediciones del IFN español para seleccionar distintas combinaciones de especies
@@ -123,7 +124,7 @@ ls()
 ## head(plots.comb.if4,30)
 ## names(plots.comb.if4)
 ## combinacion
-## i=6
+## i=3
 
 ## buscamos las parcelas comunes en el ifn2 y el ifn3 para cada combinación
 for (i in 1 : length( mezclas ) ) {
@@ -131,23 +132,37 @@ for (i in 1 : length( mezclas ) ) {
     combinacion <- paste0(especies[1], '.', especies[2])
 
     ## comparación IFN2 <-> IFN3
-    file_idplot <- paste0(od_mixtures, 'parcelas.', combinacion, '.if2.csv'); plots.comb.if2 <- read.csv( file_idplot )[, c('PlotID0', 'CoorX', 'CoorY', 'ANO', 'FECHGR', 'FECHAVE') ]
-    file_idplot <- paste0(od_mixtures,'parcelas.',combinacion,'.if3.csv'); plots.comb.if3 <- read.csv( file_idplot )[, c('PlotID0', 'PlotID', 'CoorX', 'CoorY', 'FechaIni', 'FechaFin', "Cla", "Subclase") ]
+    file_idplot <- paste0(od_mixtures, 'parcelas.', combinacion, '.if2.csv'); plots.comb.if2 <- read.csv( file_idplot )[, c('PlotID0', 'FECHGR') ]
+    plots.comb.if2$anno.gr <- with(plots.comb.if2, as.numeric(as.character(substr(FECHGR,1,2) ) )+1900)
+    plots.comb.if2$mes.gr <- with(plots.comb.if2, as.numeric(as.character(substr(FECHGR,3,4) ) ) )    
+    
+    file_idplot <- paste0(od_mixtures,'parcelas.',combinacion,'.if3.csv'); plots.comb.if3 <- read.csv( file_idplot )[, c('PlotID0', 'PlotID', 'FechaIni', "Cla", "Subclase") ]
+    plots.comb.if3$anno.gr <- with( plots.comb.if3, as.numeric( substr( FechaIni, ifelse(nchar(FechaIni)>7, 7, 6), ifelse(nchar(FechaIni)>7, 8, 7) ) ) +
+                                                    ifelse( as.numeric( substr( FechaIni, ifelse(nchar(FechaIni)>7, 7, 6), ifelse(nchar(FechaIni)>7, 8, 7) ) ) > 50, 1900, 2000 ) )
+    plots.comb.if3$mes.gr <- with(plots.comb.if3, as.numeric( substr( FechaIni, 1, ifelse(nchar(FechaIni)>7, 2, 1)   ) ) )
+
+#nchar(plots.comb.if3$FechaIni)
+    
     if ( nrow(plots.comb.if2) * nrow(plots.comb.if3) > 0 ) {
         plots.comb <- merge(plots.comb.if2, plots.comb.if3, by = 'PlotID0')
+        plots.comb$diff.year <- with(plots.comb, round(anno.gr.y + mes.gr.y/10 - anno.gr.x - mes.gr.x/12, 0) )
         file_parcela <- paste0(od_mixtures, 'parcelas.', combinacion, '.if2.if3.csv')
         write.csv(plots.comb, file_parcela) }
     
     ## comparación IFN2 <-> IFN4
-    file_idplot <- paste0(od_mixtures, 'parcelas.', combinacion, '.if4.csv'); plots.comb.if4 <- read.csv(file_idplot)[, c('PlotID0', 'PlotID', 'FechaIni', 'FechaFin', "Cla", "Subclase") ]
+    file_idplot <- paste0(od_mixtures, 'parcelas.', combinacion, '.if4.csv'); plots.comb.if4 <- read.csv(file_idplot)[, c('PlotID0', 'PlotID', 'FechaIni', "Cla", "Subclase") ]
+    plots.comb.if4$anno.gr <- with( plots.comb.if4, as.numeric( substr( as.character(FechaIni), 1, 4) ) )
+    plots.comb.if4$mes.gr <- with(plots.comb.if4, as.numeric( substr( as.character(FechaIni), 6, 7) ) )
     if ( nrow(plots.comb.if2) * nrow(plots.comb.if4) > 0 ) {
         plots.comb <- merge(plots.comb.if2, plots.comb.if4, by = 'PlotID0')
+        plots.comb$diff.year <- with(plots.comb, round(anno.gr.y + mes.gr.y/10 - anno.gr.x - mes.gr.x/12, 0) )
         file_parcela <- paste0(od_mixtures, 'parcelas.', combinacion, '.if2.if4.csv')
         write.csv(plots.comb, file_parcela) }
     
     ## comparación IFN3 <-> IFN4
     if ( nrow(plots.comb.if3) * nrow(plots.comb.if4) > 0 ) {
         plots.comb <- merge(plots.comb.if3, plots.comb.if4, by = 'PlotID0')
+        plots.comb$diff.year <- with(plots.comb, round(anno.gr.y + mes.gr.y/10 - anno.gr.x - mes.gr.x/12, 0) )
         file_parcela <- paste0(od_mixtures, 'parcelas.', combinacion, '.if3.if4.csv')
         write.csv(plots.comb, file_parcela) }
 
@@ -155,21 +170,43 @@ for (i in 1 : length( mezclas ) ) {
 }
 
 
-names(plots.if2)
-plots.anno.if2 <- plots.if2[, c( "PlotID0",   "CoorX",     "CoorY",     "Origen", "FECHGR", "FECHAVE", 'ANO' )]
-plots.anno.if2$anno <- with(plots.anno.if2, as.numeric(as.character(ANO))+1900)
-plots.anno.if2$anno.gr <- with(plots.anno.if2, as.numeric(as.character(substr(FECHGR,1,2) ) )+1900)
-plots.anno.if2$anno.ve <- with(plots.anno.if2, as.numeric(as.character(substr(FECHAVE,1,2) ) ) +1900)
-plots.anno.if2$dia.gr <- with(plots.anno.if2, as.numeric(as.character(substr(FECHGR,5,6) ) ) )
-plots.anno.if2$mes.gr <- with(plots.anno.if2, as.numeric(as.character(substr(FECHGR,3,4) ) ) )
-plots.anno.if2$dia.ve <- with(plots.anno.if2, as.numeric(as.character(substr(FECHAVE,5,6) ) ) )
-plots.anno.if2$mes.ve <- with(plots.anno.if2, as.numeric(as.character(substr(FECHAVE,3,4) ) ) )
+## names(plots.if2)
+## plots.anno.if2 <- plots.if2[, c( "PlotID0",   "CoorX",     "CoorY",     "Origen", "FECHGR", "FECHAVE", 'ANO' )]
+## plots.anno.if2$anno <- with(plots.anno.if2, as.numeric(as.character(ANO))+1900)
+## plots.anno.if2$anno.gr <- with(plots.anno.if2, as.numeric(as.character(substr(FECHGR,1,2) ) )+1900)
+## plots.anno.if2$anno.ve <- with(plots.anno.if2, as.numeric(as.character(substr(FECHAVE,1,2) ) ) +1900)
+## plots.anno.if2$dia.gr <- with(plots.anno.if2, as.numeric(as.character(substr(FECHGR,5,6) ) ) )
+## plots.anno.if2$mes.gr <- with(plots.anno.if2, as.numeric(as.character(substr(FECHGR,3,4) ) ) )
+## plots.anno.if2$dia.ve <- with(plots.anno.if2, as.numeric(as.character(substr(FECHAVE,5,6) ) ) )
+## plots.anno.if2$mes.ve <- with(plots.anno.if2, as.numeric(as.character(substr(FECHAVE,3,4) ) ) )
 
-plots.anno.if2$anno.diff <- with(plots.anno.if2, - anno + anno.gr ) 
+## plots.anno.if2$anno.diff <- with(plots.anno.if2, - anno + anno.gr ) 
 
-plots.anno.if2.diff <- plots.anno.if2[plots.anno.if2$anno.diff>1, ]
+## plots.anno.if2.diff <- plots.anno.if2[plots.anno.if2$anno.diff>1, ]
 
-View(plots.anno.if2.diff)
+## View(plots.anno.if2.diff)
+
+## str(plots.comb.if3$FechaIni)
+
+## names(plots.if3)
+## plots.anno.if3 <- plots.if3[, c( "PlotID0",  "PlotID",  "Cla", "Subclase", "FechaIni")]
+## plots.anno.if3$FechaIni <- 
+
+## str_replace_all(plots.anno.if3$FechaIni, " ??:??:??", "")
+## ?gsub
+## plots.anno.if3$FechaIni <- gsub(" 00:00:00", "", plots.anno.if3$FechaIni)
+
+## plot.if.3 <-
+## plots.anno.if3 %>%
+##   mutate(across('FechaIni', str_replace, ' 00:00:00', ''))
+
+
+## plots.anno.if2$anno <- with(plots.anno.if2, as.numeric(as.character(ANO))+1900)
+## plots.anno.if2$anno.gr <- with(plots.anno.if2, as.numeric(as.character(substr(FECHGR,1,2) ) )+1900)
+
+
+
+
 
 q()
 n

@@ -201,15 +201,3 @@ acf(residuals(modL3), lag.max = nrow(alturaDiam72)-1, plot = FALSE)$acf
 ## mejorar el modelo y que se asumiera normalidad, pero al no conseguirse, nos
 ## quedamos con el modelo más sencillo disponible. También he probado con los 
 ## modelos mixtos pero tampoco han mejorado
-
-
-
-
-
-
-
-
-
-
-
-

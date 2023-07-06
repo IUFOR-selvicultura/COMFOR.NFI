@@ -96,3 +96,19 @@ summary(modelo3)
 PseudoR2(modelo3, which = "McFadden")
 vif(modelo3)
 1/vif(modelo3)
+
+################################################################################
+#
+#                      AGRUPAMOS DIAMETROS
+#
+################################################################################
+asignar_valor <- function(diametro) {
+  ifelse(diametro >= 75 & diametro < 125, 1,
+         ifelse(diametro >= 125 & diametro < 175, 2,
+                ifelse(diametro >= 175 & diametro < 225, 3, 4)))
+}
+
+arboles2_72$gruposDiam<-asignar_valor(arboles2_72$dbh)
+
+table(arboles2_72$gruposDiam)
+

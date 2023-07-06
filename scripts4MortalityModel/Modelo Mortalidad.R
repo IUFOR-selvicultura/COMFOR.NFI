@@ -88,7 +88,7 @@ arbolesMuertos<-arboles4172[which(arboles4172$ArbolID %in% arboles4172_3_muerto$
 arbolesMuertos$Mortalidad<-rep(1,dim(arbolesMuertos)[1])
 
 ## Seleccionamos únicamente las columnas de los arboles que nos interesan 
-arbolesMuertos<-arbolesMuertos[c("PlotID","Especie","Altura","PlotID0","expan","ArbolID","Mortalidad")]
+arbolesMuertos<-arbolesMuertos[c("PlotID","Especie","Altura","dbh","PlotID0","expan","ArbolID","Mortalidad")]
 
 ## Extraemos los arboles que han muerto para obtener los datos del IFN2
 arboles4172_3_vivo<-arboles4172_3[arboles4172_3$Mortalidad==0,]
@@ -99,7 +99,7 @@ arbolesVivos<-arboles4172[which(arboles4172$ArbolID %in% arboles4172_3_vivo$IDAr
 arbolesVivos$Mortalidad<-rep(0,dim(arbolesVivos)[1])
 
 ## Seleccionamos únicamente las columnas de los arboles que nos interesan 
-arbolesVivos<-arbolesVivos[c("PlotID","Especie","Altura","PlotID0","expan","ArbolID","Mortalidad")]
+arbolesVivos<-arbolesVivos[c("PlotID","Especie","Altura","dbh","PlotID0","expan","ArbolID","Mortalidad")]
 
 #Unimos los dos data frames
 arbolesMortalidad<-rbind(arbolesVivos,arbolesMuertos)

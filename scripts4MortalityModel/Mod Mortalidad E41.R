@@ -102,3 +102,20 @@ coefficients(modelo4)
 
 #Test de independencia
 durbinWatsonTest(modelo4)
+
+
+################################################################################
+#
+#                      AGRUPAMOS DIAMETROS
+#
+################################################################################
+asignar_valor <- function(diametro) {
+  ifelse(diametro >= 75 & diametro < 125, 1,
+         ifelse(diametro >= 125 & diametro < 175, 2,
+                ifelse(diametro >= 175 & diametro < 225, 3, 4)))
+}
+
+arbolesMortalidad_41$gruposDiam<-asignar_valor(arbolesMortalidad_41$dbh)
+
+table(arbolesMortalidad_41$gruposDiam)
+

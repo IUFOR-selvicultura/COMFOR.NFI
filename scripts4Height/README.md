@@ -17,10 +17,16 @@ Añadimos la variable BAL teniendo en cuanta solo la especie 41.
 Para seleccionar las variables realizamos un análisis en componentes principales, teniendo en cuenta que el dbh debe de aparecer siempre. Las variables seleccionadas son ProxVol ,perimetro, dbh, esbeltez, HartB, Dg, Altura, SDI, G, AlturaDominante, BALTOTAL, BAL, porcentajeN y porcentajeG, pero no seleccionamos ni Proxvol ni perimetro ya que son combinaciones de otras.
 Además añadimos la variable Dummy de forma, eliminanod las formas 3 y 6 que tienen poca representación, y agrupando el 4 y 5 por ser muy parecidas, y por el otro lado tendremos la forma 2.
 
-Para elegir que modelo es el adecuado, añadimos las variables seleccionadas anteriormene, y nso fijamos si son significativas o no, y en su factor de infación de la varainza (que no supere el 10). En primer lugar realizamos un modelo lineal, y se observa como los resiudales no asumen normalidad, por lo que se ha decidido probar con modelos lineale generalizados y mixtos, pero en ellos tampoco se asume normalidad, y por ello nos quedamos con el modelo lineal, que es más sencillo. El modelo elegido es: 
+Para elegir que modelo es el adecuado, añadimos las variables seleccionadas anteriormente, y nso fijamos si son significativas o no, y en su factor de infación de la varainza (que no supere el 10). En primer lugar realizamos un modelo lineal, y se observa como los resiudales no asumen normalidad, por lo que se ha decidido probar con modelos lineale generalizados y mixtos, pero en ellos tampoco se asume normalidad, y por ello nos quedamos con el modelo lineal, que es más sencillo. El modelo elegido es: 
 Altura~dbh+esbeltez+HartB+Dg+SDI+AlturaDominante+BALTotal+porcentejeN+porcentajeG+dummyF2
 con un R^2 del 75.86%
 
 # Mod Altura E72
-El procedimiento es similar al modelo para la especie 41
+El procedimiento es similar al modelo para la especie 41, pero para la especie 72.
 
+En este caso, en el ACP se selecciona ProxVol ,perimetro, dbh, esbeltez, HartB, Dg, N, Altura, SDI, G, AlturaDominante, BALTOTAL, BAL, porcentajeN y porcentajeG, pero no seleccionamos ni Proxvol ni perimetro ya que son combinaciones de otras.
+Además añadimos la variable Dummy de forma, eliminanod las formas 1, 3 y 6 que tienen poca representación, y agrupando el 4 y 5 por ser muy parecidas, y por el otro lado tendremos la forma 2.
+
+Para elegir que modelo es el adecuado, añadimos las variables seleccionadas anteriormente, y nso fijamos si son significativas, y en su factor de infación de la varainza. En primer lugar realizamos un modelo lineal, y se observa como los resiudales no asumen normalidad, por lo que se ha decidido probar con modelos lineale generalizados y mixtos, pero en ellos tampoco se asume normalidad, y por ello nos quedamos con el modelo lineal, que es más sencillo. El modelo elegido es: 
+Altura~dbh+esbeltez+Dg+N+SDI+AlturaDominante+BAL+porcentejeN+porcentajeG+dummyF2
+con un R^2 del 69.67%

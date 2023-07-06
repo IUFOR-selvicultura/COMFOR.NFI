@@ -21,3 +21,6 @@ Para elegir que modelo es el adecuado, añadimos las variables seleccionadas ant
 Altura~dbh+esbeltez+HartB+Dg+SDI+AlturaDominante+BALTotal+porcentejeN+porcentajeG+dummyF2
 con un R^2 del 75.86%
 
+# Mod Altura E72
+El procedimiento es similar al modelo para la especie 41
+

@@ -194,9 +194,9 @@ dir(path=dir)
 
 numPlotsIFCCAA<-function(setwd,id){
   plotsMonoSP<-read.csv(paste0(setwd,'of_if',as.character(id),'_plotsMonoSP.csv'), row.names = 1)
-  plotsPluri<-read.csv(paste0(setwd,'/of_if',as.character(id),'_plotsPluriSP.csv'),row.names=1)
-  resultMD<-read.csv(paste0(setwd,'/of_if',as.character(id),'_resultHeightPlurimodal.csv'), row.names = 1)
-  resultMDiamF<-read.csv(paste0(setwd,'/of_if',as.character(id),'_resultDiamPlurimodal.csv'), row.names = 1)
+  plotsPluri<-read.csv(paste0(setwd,'of_if',as.character(id),'_plotsPluriSP.csv'),row.names=1)
+  resultMD<-read.csv(paste0(setwd,'of_if',as.character(id),'_resultHeightPlurimodal.csv'), row.names = 1)
+  resultMDiamF<-read.csv(paste0(setwd,'of_if',as.character(id),'_resultDiamPlurimodal.csv'), row.names = 1)
   
   comunidades<-function(datos){
     origen<-c()

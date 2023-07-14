@@ -189,7 +189,7 @@ ggplot(datosT,aes(x=tipo,y=num,fill=factor(id)))+
 # Evolución del IFN por CCAA    
 ### Funciones
 ```{r EVOL por CCAA}
-dir <- './data/'
+dir <- '../data/'
 dir(path=dir)
 
 numPlotsIFCCAA<-function(setwd,id){
@@ -201,7 +201,7 @@ numPlotsIFCCAA<-function(setwd,id){
   comunidades<-function(datos){
     origen<-c()
     for(i in 1:dim(datos)[1]){
-      prov<-strsplit(datos$PlotID[i],split = "\\.")[[1]][1]
+      prov<-strsplit(as.character(datos$PlotID[i]),split = "\\.")[[1]][1]
       prov<-trimws(prov)
       origen<-c(origen,prov)
     }

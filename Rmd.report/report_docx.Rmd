@@ -189,10 +189,11 @@ ggplot(datosT,aes(x=tipo,y=num,fill=factor(id)))+
 # Evolución del IFN por CCAA    
 ### Funciones
 ```{r EVOL por CCAA}
-dir <- '../data/'
-dir(dir)
+dir <- './data/'
+dir(path=dir)
+
 numPlotsIFCCAA<-function(setwd,id){
-  plotsMonoSP<-read.csv(paste0(setwd,'/of_if',as.character(id),'_plotsMonoSP.csv'), row.names = 1)
+  plotsMonoSP<-read.csv(paste0(setwd,'of_if',as.character(id),'_plotsMonoSP.csv'), row.names = 1)
   plotsPluri<-read.csv(paste0(setwd,'/of_if',as.character(id),'_plotsPluriSP.csv'),row.names=1)
   resultMD<-read.csv(paste0(setwd,'/of_if',as.character(id),'_resultHeightPlurimodal.csv'), row.names = 1)
   resultMDiamF<-read.csv(paste0(setwd,'/of_if',as.character(id),'_resultDiamPlurimodal.csv'), row.names = 1)
@@ -254,6 +255,7 @@ numPlotsIFCCAA<-function(setwd,id){
   datos$id<-rep(id,dim(datos)[1])
   datosCCAA<-datos
   return(datosCCAA)
+}
 
 ### Representación
 ####################################IFN2########################################

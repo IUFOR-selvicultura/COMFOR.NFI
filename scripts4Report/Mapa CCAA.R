@@ -205,6 +205,12 @@ leaflet() %>%
   addCircles(data = PlotsCoord_plmo, radius = 10, color = "green") %>%
   addCircles(data = PlotsCoord_mix, radius = 10, color = "blue")
 
+
+
+
+
+
+
 # shape all Europe
 shp_0 <- get_eurostat_geospatial(resolution = 10, 
                                  nuts_level = 2, # big regions

@@ -311,6 +311,89 @@ ggplot(datosCCAAPluriMod,aes(x=CCAA,y=Cont,fill=factor(id)))+
 
 # Mapas de representación por tipo de parcela
 
+```{r}
+library(tidyverse)
+library(sp)
+library(ggplot2)
+library(rnaturalearth)
+library(tmap)
+library(leaflet)
+
+## change to data folder
+setwd("C:/Users/Irene/Documents/INF COMFOR/Entrega/IFN4 Prueba")
+
+
+################################################################################
+#Seleccion de la ccaa
+################################################################################
+#Nombre de ccaa
+ccaa="castillaLeon"
+
+cProvincias<-c()
+if(ccaa=="andalucia"){
+  cProvincias<-c("4","11","14","18","21","23","29","41")
+}else if(ccaa=="aragon"){
+  cProvincias<-c("22","44","50")
+}else if(ccaa=="asturias"){
+  cProvincias<-c("33")
+}else if(ccaa=="baleares"){
+  cProvincias<-c("7")
+}else if(ccaa=="canarias"){
+  cProvincias<-c("35","38")
+}else if(ccaa=="cantabria"){
+  cProvincias<-c("39")
+}else if(ccaa=="castillaLeon"){
+  cProvincias<-c("5","9","24","34","37","40","42","47","49")
+}else if(ccaa=="castillaLaMancha"){
+  cProvincias<-c("2","13","16","19","45")
+}else if(ccaa=="cataluña"){
+  cProvincias<-c("8","17","25","43")
+}else if(ccaa=="comunidadValenciana"){
+  cProvincias<-c("3","12","46")
+}else if(ccaa=="extremadura"){
+  cProvincias<-c("6","10")
+}else if(ccaa=="galicia"){
+  cProvincias<-c("15","27","32","36")
+}else if(ccaa=="madrid"){
+  cProvincias<-c("28")
+}else if(ccaa=="murcia"){
+  cProvincias<-c("30")
+}else if(ccaa=="navarra"){
+  cProvincias<-c("31")
+}else if(ccaa=="paisVasco"){
+  cProvincias<-c("1","48","20")
+}else if(ccaa=="laRioja"){
+  cProvincias<-c("26")
+}else if(ccaa=="ceuta"){
+  cProvincias<-c("51")
+}else if(ccaa=="melilla"){
+  cProvincias<-c("52")
+}
+
+
+################################################################################
+#Obtención únicamente de los datos de cada comunidad
+################################################################################
+datosCCAA<-function(cProvincias,datos){
+  #Obtenemos el origen a partir de el plotID
+  provincia<-c()
+  for(i in 1:dim(datos)[1]){
+    partes<-strsplit(datos$PlotID[i],"\\.")
+    provincia<-c(provincia,partes[[1]][1])
+  }
+  datos$Origen<-provincia
+  #Nos quedamos solo con las provincias pertenecientes a la ccaa que queremos representar
+  dat<-c()
+  for(i in 1:length(cProvincias)){
+    dat<-rbind(dat,datos[datos$Origen==cProvincias[i],]) 
+  }
+  return(dat)
+}
+
+
+```
+
+
 ```{r read.data.map, include=FALSE}
 ## read simulation data
 rm(list=ls())

@@ -44,7 +44,7 @@ options(tinytex.verbose = TRUE)
 ## setup options and library loading
 knitr::opts_chunk$set(echo = FALSE, cache=FALSE)
 
-libraries <- c('pander','ggplot2','reshape2','ggforce','tidyr','viridis','plotly')
+libraries <- c('pander','ggplot2','reshape2','ggforce','tidyr','viridis','plotly','stringr')
 lapply(libraries, library, character.only=TRUE)
 panderOptions('table.alignment.default', 'right')
 panderOptions('table.alignment.rownames', 'left')
@@ -75,11 +75,12 @@ rm(list=ls())
 ## options(width=280)
 ## setwd('../data')
 dir <- '../data/'
+dir_mixt <- '../data/mixtures/'
 ## Leemos los datos
 ## setwd("C:/Users/Irene/Documents/INF COMFOR/Entrega/Combi")
-combiIFN2<-read.table(paste0(dir,"combinaciones.if2.txt"))
-combiIFN3<-read.table(paste0(dir,"combinaciones.if3.txt"))
-combiIFN4<-read.table(paste0(dir,"combinaciones.if4.txt"))
+combiIFN2<-read.table(paste0(dir_mixt,"combinaciones.if2.txt"))
+combiIFN3<-read.table(paste0(dir_mixt,"combinaciones.if3.txt"))
+combiIFN4<-read.table(paste0(dir_mixt,"combinaciones.if4.txt"))
 ```
 
 ## Gráficas por edición
@@ -135,15 +136,15 @@ ggplot(combi,aes(x=Var1,y=Freq,fill=factor(IFN)))+
 
 # Evolución del IFN en conjunto
 ### Funciones
-```{r}
+```{r evolucion IFN}
 library(ggplot2)
 library(plotly)
 
 numPlotsIF<-function(setwd,id){
-  plotsMonoSP<-read.csv(paste0(setwd,'/of_plotsMonoSP.csv'), row.names = 1)
-  plotsPluri<-read.csv(paste0(setwd,"/of_plotsPluriSP.csv"),row.names=1)
-  resultMD<-read.csv(paste0(setwd,'/of_resultHeightPlurimodal.csv'), row.names = 1)
-  resultMDiamF<-read.csv(paste0(setwd,'/of_resultDiamPlurimodal.csv'), row.names = 1)
+  plotsMonoSP<-read.csv(paste0(setwd,'/of_if',as.character(id),'_plotsMonoSP.csv'), row.names = 1)
+  plotsPluri<-read.csv(paste0(setwd,'/of_if',as.character(id),'_plotsPluriSP.csv'),row.names=1)
+  resultMD<-read.csv(paste0(setwd,'/of_if',as.character(id),'_resultHeightPlurimodal.csv'), row.names = 1)
+  resultMDiamF<-read.csv(paste0(setwd,'/of_if',as.character(id),'_resultDiamPlurimodal.csv'), row.names = 1)
   
   ## Monoespecificas
   nMono<-dim(plotsMonoSP)[1]
@@ -166,18 +167,15 @@ numPlotsIF<-function(setwd,id){
 ```
 
 ### Representación
-```{r}
+```{r representacion evol}
 ####################################IFN2########################################
-setwd2<-("C:/Users/Irene/Documents/INF COMFOR/General/General/comfor-NFI/of_spain/of_spain/completo")
-datosT2<-numPlotsIF(setwd=setwd2,2);datosT2
+datosT2<-numPlotsIF(setwd=dir,2);datosT2
 
 ####################################IFN3########################################
-setwd3<-("C:/Users/Irene/Documents/INF COMFOR/Entrega/IFN3 Prueba")
-datosT3<-numPlotsIF(setwd=setwd3,3);datosT3
+datosT3<-numPlotsIF(setwd=dir,3);datosT3
 
 ####################################IFN4########################################
-setwd4<-("C:/Users/Irene/Documents/INF COMFOR/IFN4/España/Outputs/Outputs")
-datosT4<-numPlotsIF(setwd=setwd4,4);datosT4
+datosT4<-numPlotsIF(setwd=dir,4);datosT4
 
 ################################BARRAS APLIADAS#################################
 ## Juntamos los datos
@@ -190,14 +188,14 @@ ggplot(datosT,aes(x=tipo,y=num,fill=factor(id)))+
 
 # Evolución del IFN por CCAA    
 ### Funciones
-```{r}
+```{r EVOL por CCAA}
 dir <- '../data/'
 dir(dir)
 numPlotsIFCCAA<-function(setwd,id){
-  plotsMonoSP<-read.csv(paste0(setwd,'/of_plotsMonoSP.csv'), row.names = 1)
-  plotsPluri<-read.csv(paste0(setwd,"/of_plotsPluriSP.csv"),row.names=1)
-  resultMD<-read.csv(paste0(setwd,'/of_resultHeightPlurimodal.csv'), row.names = 1)
-  resultMDiamF<-read.csv(paste0(setwd,'/of_resultDiamPlurimodal.csv'), row.names = 1)
+  plotsMonoSP<-read.csv(paste0(setwd,'/of_if',as.character(id),'_plotsMonoSP.csv'), row.names = 1)
+  plotsPluri<-read.csv(paste0(setwd,'/of_if',as.character(id),'_plotsPluriSP.csv'),row.names=1)
+  resultMD<-read.csv(paste0(setwd,'/of_if',as.character(id),'_resultHeightPlurimodal.csv'), row.names = 1)
+  resultMDiamF<-read.csv(paste0(setwd,'/of_if',as.character(id),'_resultDiamPlurimodal.csv'), row.names = 1)
   
   comunidades<-function(datos){
     origen<-c()
@@ -256,30 +254,24 @@ numPlotsIFCCAA<-function(setwd,id){
   datos$id<-rep(id,dim(datos)[1])
   datosCCAA<-datos
   return(datosCCAA)
-}
-```
 
 ### Representación
-```{r}
 ####################################IFN2########################################
-setwd2<-("C:/Users/Irene/Documents/INF COMFOR/General/General/comfor-NFI/of_spain/of_spain/completo")
-datosCCAA2<-numPlotsIFCCAA(setwd=setwd2,2);datosCCAA2
+datosCCAA2<-numPlotsIFCCAA(setwd=dir,2);datosCCAA2
 
 ####################################IFN3########################################
-setwd3<-("C:/Users/Irene/Documents/INF COMFOR/Entrega/IFN3 Prueba")
-datosCCAA3<-numPlotsIFCCAA(setwd=setwd3,3);datosCCAA3
+datosCCAA3<-numPlotsIFCCAA(setwd=dir,3);datosCCAA3
 
 ####################################IFN4########################################
-setwd4<-("C:/Users/Irene/Documents/INF COMFOR/IFN4/España/Outputs/Outputs")
-datosCCAA4<-numPlotsIFCCAA(setwd=setwd4,4);datosCCAA4
+datosCCAA4<-numPlotsIFCCAA(setwd=dir,4);datosCCAA4
 
 ###########################BARRAS MULTIPLES#####################################
 datosCCAA<-rbind(datosCCAA2,datosCCAA3,datosCCAA4)
-```
 
 ## MONOESPECIFICAS
-```{r}
 datosCCAAMono<-datosCCAA[datosCCAA$Tipo=="Monoespecifica",]
+
+
 
 ggplot(datosCCAAMono,aes(x=CCAA,y=Cont,fill=factor(id)))+
   geom_bar(stat="identity",position = "dodge")+
@@ -289,10 +281,8 @@ ggplot(datosCCAAMono,aes(x=CCAA,y=Cont,fill=factor(id)))+
        y = "Contador",
        fill="INF") +
   theme_minimal()
-```
 
 ## PLURIESPECIFICAS
-```{r}
 datosCCAAPluri<-datosCCAA[datosCCAA$Tipo=="Pluriespecifica",]
 
 ggplot(datosCCAAPluri,aes(x=CCAA,y=Cont,fill=factor(id)))+
@@ -303,10 +293,8 @@ ggplot(datosCCAAPluri,aes(x=CCAA,y=Cont,fill=factor(id)))+
        y = "Numero",
        fill="INF") +
   theme_minimal()
-``` 
 
 ## PLURIMODALES
-```{r}
 datosCCAAPluriMod<-datosCCAA[datosCCAA$Tipo=="Plurimodal",]
 
 ggplot(datosCCAAPluriMod,aes(x=CCAA,y=Cont,fill=factor(id)))+

@@ -38,13 +38,15 @@ header-includes:
 En el presente informe se muestra el resultado de la valoración económica de diversas alternativas selvícolas planteadas para masas de *Pinus pinaster* en el marco del proyecto del Grupo Operativo SIGCA para madera de calidad de esta especie.
 
 ```{r setup, include=FALSE}
+
 ## before you compile the document. This may show additional messages to help you debug the problem. If you are using R Markdown and the Knit button in RStudio, you should set the option in a code chunk in the R Markdown document.
 options(tinytex.verbose = TRUE)
 
 ## setup options and library loading
 knitr::opts_chunk$set(echo = FALSE, cache=FALSE)
 
-libraries <- c('pander','ggplot2','reshape2','ggforce','tidyr','viridis','plotly','stringr')
+libraries <- c('pander', 'ggplot2', 'reshape2', 'ggforce', 'tidyr', 'viridis', 'plotly', 'stringr',
+               'tidyverse', 'sp', 'rnaturalearth', 'tmap', 'leaflet')
 lapply(libraries, library, character.only=TRUE)
 panderOptions('table.alignment.default', 'right')
 panderOptions('table.alignment.rownames', 'left')
@@ -55,12 +57,15 @@ panderOptions('table.alignment.rownames', 'left')
 # To use for fills, add: ---->>>> scale_fill_manual(values=cbPalette)
 # To use for line and point colors, add: ---->>>> scale_colour_manual(values=cbbPalette)
 ## colors
+
 ```
 
 # Objetivos
 
 ```{r img.pinaster, fig.align='center', out.width="750px"}
+
 #knitr::include_graphics("./imagenes/pinares_92f650725ebb0a7b902f15aebd658059.jpg")
+
 ```
 
 El objetivo principal de este entregable es describir la evolución de las masas complejas a lo largo de las distintas ediciones del Inventario Forestal Nacional Español. Para ello se presentarán distintos gráficos y mapas con las combinaciones de especies y porcentajes que representan.
@@ -81,32 +86,36 @@ dir_mixt <- '../data/mixtures/'
 combiIFN2<-read.table(paste0(dir_mixt,"combinaciones.if2.txt"))
 combiIFN3<-read.table(paste0(dir_mixt,"combinaciones.if3.txt"))
 combiIFN4<-read.table(paste0(dir_mixt,"combinaciones.if4.txt"))
+
 ```
 
 ## Gráficas por edición
 
 A continuación se muestra las gráficas con el número de ocurrencias de las combinaciones de especies presentes en cada edición del IFN. 
 
-
 ```{r plot.comb.01}
 
 ## seleccion de las combinaciones de especies más numerosas
-combiIFN2_30<-combiIFN2[combiIFN2$Freq>30,]
-combiIFN3_30<-combiIFN3[combiIFN3$Freq>30,]
+combiIFN2_100<-combiIFN2[combiIFN2$Freq>100,]
+combiIFN3_100<-combiIFN3[combiIFN3$Freq>100,]
 combiIFN4_30<-combiIFN4[combiIFN4$Freq>30,]
 graficoIndividual<-function(datos,IFN){
   ggplot(data=datos, aes( y=Freq, x=Var1 )) +
     geom_bar(stat = "identity", color = "lightgreen") +
     theme_grey()+
-    theme(axis.text.x = element_text(angle = 90, hjust = 1))+ 
-    labs(title=paste0("Combinaciones mas frecuentes en el ",IFN))
+    theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+    labs(title = paste0("Combinaciones mas frecuentes en el ",IFN),
+       x = "Combinaciones",
+       y = "Repeticiones",
+       fill="IFN")
 }
 ###################################IFN2#########################################
-graficoIndividual(combiIFN2_30,"IFN2")
+graficoIndividual(combiIFN2_100,"IFN2")
 ###################################IFN3#########################################
-graficoIndividual(combiIFN3_30,"IFN3")
+graficoIndividual(combiIFN3_100,"IFN3")
 ###################################IFN4#########################################
 graficoIndividual(combiIFN4_30,"IFN4")
+
 ```
 
 ## Gráfica conjunta
@@ -115,12 +124,13 @@ A continuación se muestra la gráfica conjunta para las combinacines de especie
 
 
 ```{r plot.comb.02}
-combiIFN2_90<-combiIFN2[combiIFN2$Freq>90,]
-combiIFN3_90<-combiIFN3[combiIFN3$Freq>90,]
+
+combiIFN2_100<-combiIFN2[combiIFN2$Freq>100,]
+combiIFN3_100<-combiIFN3[combiIFN3$Freq>100,]
 combiIFN4_40<-combiIFN4[combiIFN4$Freq>40,]
 
-combi<-rbind(combiIFN2_90,combiIFN3_90,combiIFN4_40)
-combi$IFN<-c(rep('IFN2',dim(combiIFN2_90)[1]),rep('IFN3',dim(combiIFN3_90)[1]),rep('IFN4',dim(combiIFN4_40)[1]))
+combi<-rbind(combiIFN2_100,combiIFN3_100,combiIFN4_40)
+combi$IFN<-c(rep('IFN2',dim(combiIFN2_100)[1]),rep('IFN3',dim(combiIFN3_100)[1]),rep('IFN4',dim(combiIFN4_40)[1]))
 
 ggplot(combi,aes(x=Var1,y=Freq,fill=factor(IFN)))+
   geom_bar(stat="identity",position = "dodge")+
@@ -128,18 +138,20 @@ ggplot(combi,aes(x=Var1,y=Freq,fill=factor(IFN)))+
   labs(title = "Combinaciones más frecuentes",
        x = "Combinaciones",
        y = "Repeticiones",
-       fill="INF") +
+       fill="IFN") +
   theme_minimal()+
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
 ```
 
 # Evolución del IFN en conjunto
-### Funciones
-```{r evolucion IFN}
-library(ggplot2)
-library(plotly)
 
+```{r evolucion IFN}
+
+### Funciones
+
+## library(ggplot2)
+## library(plotly)
 numPlotsIF<-function(setwd,id){
   plotsMonoSP<-read.csv(paste0(setwd,'/of_if',as.character(id),'_plotsMonoSP.csv'), row.names = 1)
   plotsPluri<-read.csv(paste0(setwd,'/of_if',as.character(id),'_plotsPluriSP.csv'),row.names=1)
@@ -164,20 +176,23 @@ numPlotsIF<-function(setwd,id){
   datosT<-data.frame(id,num,tipo)
   return(datosT)
 }
+
 ```
 
-### Representación
 ```{r representacion evol}
-####################################IFN2########################################
-datosT2<-numPlotsIF(setwd=dir,2);datosT2
 
-####################################IFN3########################################
-datosT3<-numPlotsIF(setwd=dir,3);datosT3
+### Representación
 
-####################################IFN4########################################
-datosT4<-numPlotsIF(setwd=dir,4);datosT4
+#################################### IFN2 ########################################
+datosT2<-numPlotsIF(setwd=dir,2); ## datosT2
 
-################################BARRAS APLIADAS#################################
+#################################### IFN3 ########################################
+datosT3<-numPlotsIF(setwd=dir,3); ## datosT3
+
+#################################### IFN4 ########################################
+datosT4<-numPlotsIF(setwd=dir,4); ## datosT4
+
+################################ BARRAS APLIADAS #################################
 ## Juntamos los datos
 datosT<-rbind(datosT2,datosT3,datosT4)
 
@@ -186,11 +201,14 @@ ggplot(datosT,aes(x=tipo,y=num,fill=factor(id)))+
 
 ```
 
-# Evolución del IFN por CCAA    
-### Funciones
+# Evolución del IFN por CCAA  
+
 ```{r EVOL por CCAA}
+
+### Funciones
+
 dir <- '../data/'
-dir(path=dir)
+## dir(path=dir)
 
 numPlotsIFCCAA<-function(setwd,id){
   plotsMonoSP<-read.csv(paste0(setwd,'of_if',as.character(id),'_plotsMonoSP.csv'), row.names = 1)
@@ -207,24 +225,43 @@ numPlotsIFCCAA<-function(setwd,id){
     }
     datos$Origen<-origen
     
-    datos$CCAA<-with(datos,ifelse(Origen=="4" | Origen=="11" | Origen=="14"| Origen=="18" | Origen=="21"| Origen=="23"| Origen=="29"| Origen=="41" ,"Andalucia",0))
-    datos$CCAA<-with(datos,ifelse(Origen=="22" | Origen=="44" | Origen=="50","Aragon",CCAA))
-    datos$CCAA<-with(datos,ifelse(Origen=="33","Asturias",CCAA))
-    datos$CCAA<-with(datos,ifelse(Origen=="7","Baleares",CCAA))
-    datos$CCAA<-with(datos,ifelse(Origen=="35" | Origen=="38" ,"Canarias",CCAA))
-    datos$CCAA<-with(datos,ifelse(Origen=="39","Cantabria",CCAA))
-    datos$CCAA<-with(datos,ifelse(Origen=="5" | Origen=="9" | Origen=="24"| Origen=="34"| Origen=="37"| Origen=="23"| Origen=="40"| Origen=="42" | Origen=="47" | Origen=="49" ,"CastillaLeon",CCAA))
-    datos$CCAA<-with(datos,ifelse(Origen=="4" | Origen=="2" | Origen=="13"| Origen=="16"| Origen=="19"| Origen=="45","CastillaLaMancha",CCAA))
-    datos$CCAA<-with(datos,ifelse(Origen=="8" | Origen=="17" | Origen=="25"| Origen=="43" ,"Cataluña",CCAA))
-    datos$CCAA<-with(datos,ifelse(Origen=="3" | Origen=="12" | Origen=="46" ,"ComunidadValenciana",CCAA))
-    datos$CCAA<-with(datos,ifelse(Origen=="6" | Origen=="10" ,"Extremadura",CCAA))
-    datos$CCAA<-with(datos,ifelse(Origen=="15" | Origen=="27" | Origen=="32" | Origen=="36" ,"Galicia",CCAA))
-    datos$CCAA<-with(datos,ifelse(Origen=="28","Madrid",CCAA))
-    datos$CCAA<-with(datos,ifelse(Origen=="30","Murcia",CCAA))
-    datos$CCAA<-with(datos,ifelse(Origen=="31","Navarra",CCAA))
-    datos$CCAA<-with(datos,ifelse(Origen=="1" | Origen=="48" | Origen=="20","PaisVasco",CCAA))
-    datos$CCAA<-with(datos,ifelse(Origen=="26","LaRioja",CCAA))
-    
+    datos$CCAA <- with( datos, case_when(
+                                   Origen=="4" |Origen=="11"|Origen=="14"|Origen=="18"|Origen=="21"|Origen=="23"|Origen=="29"|Origen=="41"                           ~ "Andalucía",
+                                   Origen=="22"|Origen=="44"|Origen=="50"                                                                                            ~ "Aragón",
+                                   Origen=="33"                                                                                                                      ~ "Asturias",
+                                   Origen=="7"                                                                                                                       ~ "Baleares",
+                                   Origen=="35"|Origen=="38"                                                                                                         ~ "Canarias",
+                                   Origen=="39"                                                                                                                      ~ "Cantabria",
+                                   Origen=="5" |Origen=="9" |Origen=="24"|Origen=="34"|Origen=="37"|Origen=="23"|Origen=="40"|Origen=="42"|Origen=="47"|Origen=="49" ~ "Cast-León",
+                                   Origen=="4" |Origen=="2" | Origen=="13"| Origen=="16"| Origen=="19"| Origen=="45"                                                 ~ "Cast-La Mancha",
+                                   Origen=="8" |Origen=="17" | Origen=="25"| Origen=="43"                                                                            ~ "Cataluña",
+                                   Origen=="3" |Origen=="12" | Origen=="46"                                                                                          ~ "C. Valenciana",
+                                   Origen=="6" |Origen=="10"                                                                                                         ~ "Extremadura",
+                                   Origen=="15"|Origen=="27"|Origen=="32"|Origen=="36"                                                                               ~ "Galicia",
+                                   Origen=="28"                                                                                                                      ~ "Madrid",
+                                   Origen=="30"                                                                                                                      ~ "Murcia",
+                                   Origen=="31"                                                                                                                      ~ "Navarra",
+                                   Origen=="1" |Origen=="48"|Origen=="20"                                                                                            ~ "Pais Vasco",
+                                   Origen=="26"                                                                                                                      ~ "La Rioja" ))
+
+    ## datos$CCAA<-with(datos,ifelse(Origen=="4" |Origen=="11"|Origen=="14"|Origen=="18"|Origen=="21"|Origen=="23"|Origen=="29"|Origen=="41","Andalucía",""))
+    ## datos$CCAA<-with(datos,ifelse(Origen=="22"|Origen=="44"|Origen=="50", "Aragón", CCAA))
+    ## datos$CCAA<-with(datos,ifelse(Origen=="33", "Asturias", CCAA))
+    ## datos$CCAA<-with(datos,ifelse(Origen=="7", "Baleares", CCAA))
+    ## datos$CCAA<-with(datos,ifelse(Origen=="35"|Origen=="38", "Canarias",CCAA))
+    ## datos$CCAA<-with(datos,ifelse(Origen=="39", "Cantabria", CCAA))
+    ## datos$CCAA<-with(datos,ifelse(Origen=="5" |Origen=="9" |Origen=="24"|Origen=="34"|Origen=="37"|Origen=="23"|Origen=="40"|Origen=="42"|Origen=="47"|Origen=="49", "Cast-León", CCAA))
+    ## datos$CCAA<-with(datos,ifelse(Origen=="4" |Origen=="2" | Origen=="13"| Origen=="16"| Origen=="19"| Origen=="45", "Cast-La Mancha", CCAA))
+    ## datos$CCAA<-with(datos,ifelse(Origen=="8" |Origen=="17" | Origen=="25"| Origen=="43", "Cataluña", CCAA))
+    ## datos$CCAA<-with(datos,ifelse(Origen=="3" |Origen=="12" | Origen=="46", "C. Valenciana", CCAA))
+    ## datos$CCAA<-with(datos,ifelse(Origen=="6" |Origen=="10", "Extremadura", CCAA))
+    ## datos$CCAA<-with(datos,ifelse(Origen=="15"|Origen=="27"|Origen=="32"|Origen=="36", "Galicia", CCAA))
+    ## datos$CCAA<-with(datos,ifelse(Origen=="28", "Madrid", CCAA))
+    ## datos$CCAA<-with(datos,ifelse(Origen=="30", "Murcia", CCAA))
+    ## datos$CCAA<-with(datos,ifelse(Origen=="31", "Navarra", CCAA))
+    ## datos$CCAA<-with(datos,ifelse(Origen=="1" |Origen=="48"|Origen=="20", "Pais Vasco", CCAA))
+    ## datos$CCAA<-with(datos,ifelse(Origen=="26","La Rioja",CCAA))
+
     return(datos)
   }
   
@@ -258,22 +295,21 @@ numPlotsIFCCAA<-function(setwd,id){
 }
 
 ### Representación
+
 ####################################IFN2########################################
-datosCCAA2<-numPlotsIFCCAA(setwd=dir,2);datosCCAA2
+datosCCAA2<-numPlotsIFCCAA(setwd=dir,2); ## datosCCAA2
 
 ####################################IFN3########################################
-datosCCAA3<-numPlotsIFCCAA(setwd=dir,3);datosCCAA3
+datosCCAA3<-numPlotsIFCCAA(setwd=dir,3); ## datosCCAA3
 
 ####################################IFN4########################################
-datosCCAA4<-numPlotsIFCCAA(setwd=dir,4);datosCCAA4
+datosCCAA4<-numPlotsIFCCAA(setwd=dir,4); ## datosCCAA4
 
 ###########################BARRAS MULTIPLES#####################################
 datosCCAA<-rbind(datosCCAA2,datosCCAA3,datosCCAA4)
 
 ## MONOESPECIFICAS
 datosCCAAMono<-datosCCAA[datosCCAA$Tipo=="Monoespecifica",]
-
-
 
 ggplot(datosCCAAMono,aes(x=CCAA,y=Cont,fill=factor(id)))+
   geom_bar(stat="identity",position = "dodge")+
@@ -282,7 +318,8 @@ ggplot(datosCCAAMono,aes(x=CCAA,y=Cont,fill=factor(id)))+
        x = "Comunidad",
        y = "Contador",
        fill="INF") +
-  theme_minimal()
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
 ## PLURIESPECIFICAS
 datosCCAAPluri<-datosCCAA[datosCCAA$Tipo=="Pluriespecifica",]
@@ -294,7 +331,8 @@ ggplot(datosCCAAPluri,aes(x=CCAA,y=Cont,fill=factor(id)))+
        x = "Comunidad",
        y = "Numero",
        fill="INF") +
-  theme_minimal()
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
 ## PLURIMODALES
 datosCCAAPluriMod<-datosCCAA[datosCCAA$Tipo=="Plurimodal",]
@@ -306,69 +344,44 @@ ggplot(datosCCAAPluriMod,aes(x=CCAA,y=Cont,fill=factor(id)))+
        x = "Comunidad",
        y = "Numero",
        fill="INF") +
-  theme_minimal()
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
 ```
 
 # Mapas de representación por tipo de parcela
 
-```{r}
-library(tidyverse)
-library(sp)
-library(ggplot2)
-library(rnaturalearth)
-library(tmap)
-library(leaflet)
-
-## change to data folder
-setwd("C:/Users/Irene/Documents/INF COMFOR/Entrega/IFN4 Prueba")
-
+```{r provincias en la comunidad autónoma}
 
 ################################################################################
 #Seleccion de la ccaa
 ################################################################################
-#Nombre de ccaa
-ccaa="castillaLeon"
 
-cProvincias<-c()
-if(ccaa=="andalucia"){
-  cProvincias<-c("4","11","14","18","21","23","29","41")
-}else if(ccaa=="aragon"){
-  cProvincias<-c("22","44","50")
-}else if(ccaa=="asturias"){
-  cProvincias<-c("33")
-}else if(ccaa=="baleares"){
-  cProvincias<-c("7")
-}else if(ccaa=="canarias"){
-  cProvincias<-c("35","38")
-}else if(ccaa=="cantabria"){
-  cProvincias<-c("39")
-}else if(ccaa=="castillaLeon"){
-  cProvincias<-c("5","9","24","34","37","40","42","47","49")
-}else if(ccaa=="castillaLaMancha"){
-  cProvincias<-c("2","13","16","19","45")
-}else if(ccaa=="cataluña"){
-  cProvincias<-c("8","17","25","43")
-}else if(ccaa=="comunidadValenciana"){
-  cProvincias<-c("3","12","46")
-}else if(ccaa=="extremadura"){
-  cProvincias<-c("6","10")
-}else if(ccaa=="galicia"){
-  cProvincias<-c("15","27","32","36")
-}else if(ccaa=="madrid"){
-  cProvincias<-c("28")
-}else if(ccaa=="murcia"){
-  cProvincias<-c("30")
-}else if(ccaa=="navarra"){
-  cProvincias<-c("31")
-}else if(ccaa=="paisVasco"){
-  cProvincias<-c("1","48","20")
-}else if(ccaa=="laRioja"){
-  cProvincias<-c("26")
-}else if(ccaa=="ceuta"){
-  cProvincias<-c("51")
-}else if(ccaa=="melilla"){
-  cProvincias<-c("52")
-}
+cNamesCCAA <- c("Andalucia", "Aragon"        , "Asturias", "Baleares"     , "canarias"   , "Cantabria"     ,
+                "Cast-León", "Cast-La Mancha", "Cataluña", "C. Valenciana", "Extremadura", "Galicia"       ,
+                "Madrid"   , "Murcia"        , "Navarra" , "País Vasco"   , "La Rioja"   ) 
+
+cProvinciasCCAA <- list(c("4" ,"11","14","18","21","23","29","41"),                    
+                    c("22","44","50"),
+                    c("33"),
+                    c("7"),
+                    c("35","38"),
+                    c("39"),
+                    c("5","9","24","34","37","40","42","47","49"),
+                    c("2","13","16","19","45"),
+                    c("8","17","25","43"),
+                    c("3","12","46"),
+                    c("6","10"),
+                    c("15","27","32","36"),
+                    c("28"),
+                    c("30"),
+                    c("31"),
+                    c("1","48","20"),
+                    c("26") )
+
+
+cName <- cNamesCCAA[7]
+cProvincias <- cProvinciasCCAA[7]
 
 
 ################################################################################
@@ -391,20 +404,198 @@ datosCCAA<-function(cProvincias,datos){
 }
 
 
-```
+resultMD <- read.csv('of_resultHeightPlurimodal.csv', row.names = 1)
+resultMDiamF<-read.csv('of_resultDiamPlurimodal.csv', row.names = 1)
+plotsPluriSP<-read.csv("of_plotsPluriSP.csv",row.names=1)
+plotsMonoSP <- read.csv('of_plotsMonoSP.csv', row.names = 1)
+
+resultMD<-datosCCAA(cProvincias,resultMD)
+resultMDiamF<-datosCCAA(cProvincias,resultMDiamF)
+plotsPluriSP<-datosCCAA(cProvincias,plotsPluriSP)
+plotsMonoSP <- datosCCAA(cProvincias,plotsMonoSP)
+
+################################################################################
+#        data read    /     Leemos los datos
+################################################################################
+
+## Plot coordinates from 3rd NFI edition
+PlotCoord <- read.csv("if_plot.coord.if3.csv")
+PlotCoord$PlotID <- paste0(PlotCoord$Provincia,".",PlotCoord$Estadillo)
+names(PlotCoord)[c(7,8)]<-c('lng','lat') ## change coordinate label to use leaflet pkg
+tail(PlotCoord); head(PlotCoord)
+
+## Monospecific plots
+plotsMonoSP$prov <- with( plotsMonoSP,
+                          as.numeric(substr( PlotID, 1, 1+str_locate(PlotID, '.') ) ) )
+provEst<-c()
+for(i in 1:dim(plotsMonoSP)[1]){
+  partes<-strsplit(plotsMonoSP$PlotID[i],split = "\\.")[[1]]
+  resultado<-paste0(partes[1],".",partes[2])
+  provEst<-c(provEst,resultado)
+}
+plotsMonoSP$provEst<-provEst
+tail(plotsMonoSP); table(plotsMonoSP$prov); dim(table(plotsMonoSP$prov) )
+
+## Pluriespecific plots
+plotsPluriSP$prov <- with( plotsPluriSP,
+                           as.numeric(substr( PlotID, 1, 1+str_locate(PlotID, '.') ) ) )
+provEst<-c()
+for(i in 1:dim(plotsPluriSP)[1]){
+  partes<-strsplit(plotsPluriSP$PlotID[i],split = "\\.")[[1]]
+  resultado<-paste0(partes[1],".",partes[2])
+  provEst<-c(provEst,resultado)
+}
+plotsPluriSP$provEst<-provEst
+tail(plotsPluriSP); table(plotsPluriSP$prov); dim(table(plotsPluriSP$prov) ) ## pluriespecific plots by province / Numero de parcelas mixtas que hay en cada provincia (hay alguna provincia sin datos)
 
 
-```{r read.data.map, include=FALSE}
+## Combination of both dataframes
+resultMModal <- merge( resultMD, resultMDiamF, by='PlotID', all=T)
+resultMModal$prov <- with(
+  resultMModal, as.numeric( substr( PlotID, 1, 1+str_locate(PlotID, '.') ) ) )
+provEst<-c()
+for(i in 1:dim(resultMModal)[1]){
+  partes<-strsplit(resultMModal$PlotID[i],split = "\\.")[[1]]
+  resultado<-paste0(partes[1],".",partes[2])
+  provEst<-c(provEst,resultado)
+}
+resultMModal$provEst<-provEst
+## help(merge)
+str(resultMModal); head(resultMModal, 20); table(resultMModal$prov) 
+
+## Select plot plurimodal for both variables / Seleccionamos los estadillos que coinciden en ambas variables
+positionPluri <- which( ( as.numeric(resultMModal$Pvalor.x) < 0.05 ) & ( as.numeric(resultMModal$Pvalor.y) < 0.05 ) )
+plotsPluriMod <- resultMModal[ positionPluri, ]
+head(plotsPluriMod); tail(plotsPluriMod); dim(plotsPluriMod); any(is.na(resultMModal$Pvalue.y))
+
+## Select complementary to plurimodal inside the original dataframe 
+plotsMonoMd <- resultMModal[ -positionPluri, ]
+dim(plotsMonoMd); dim(resultMModal)
+
+## plurimodal plots by province / Numero de especies que se estudian en cada provincia (hay alguna provincia sin datos)
+table(plotsPluriMod$prov) 
+table(plotsMonoMd$prov) 
+
+
+################################################################################
+#                               MAPS
+################################################################################
+
+## PARCELAS MIXTAS
+PlotsCoord_mix  <- PlotCoord[PlotCoord$PlotID %in% plotsPluriSP$provEst,]
+head(PlotsCoord_mix)
+
+## PARCELAS MONOESPECÍFICAS plurimodales
+PlotsCoord_plmo <- PlotCoord[PlotCoord$PlotID %in% plotsPluriMod$provEst, ]
+head(PlotsCoord_plmo)
+
+## rest of the plots
+PlotID_restofplots <- plotsMonoSP[ !(plotsMonoSP$provEst %in% plotsPluriMod$provEst) ,
+                                   'provEst']
+PlotsCoord_mono <- PlotCoord[PlotCoord$PlotID %in% PlotID_restofplots, ]
+
+## Limites de cada CCAA
+datos<-rbind(PlotsCoord_mono,PlotsCoord_plmo,PlotsCoord_mix)
+maxCoordX<-max(datos$lng) #Longitud
+minCoordX<-min(datos$lng)
+maxCoordY<-max(datos$lat) #Latitud
+minCoordY<-min(datos$lat) 
+
+## Interactive map / Mapa interactivo
+## In this map appears all NFI plots, not only complex forest plots, to allow comparison
+leaflet() %>%
+  addTiles() %>%
+  setView(lng = -3.7, lat = 40.4, zoom = 5) %>%
+  fitBounds(lng1 = maxCoordX , lat1 = maxCoordY , lng2 = minCoordX  , lat2 = minCoordY)%>%
+  addCircles(data = PlotsCoord_mono, radius = 10, color = "grey") %>%
+  addCircles(data = PlotsCoord_plmo, radius = 10, color = "green") %>%
+  addCircles(data = PlotsCoord_mix, radius = 10, color = "blue")
+
+
+
+# shape all Europe
+shp_0 <- get_eurostat_geospatial(resolution = 10, 
+                                 nuts_level = 2, # big regions
+                                 year = 2021,
+                                 crs = 4326) # WGS84
+# shape Spain
+shp_es <- shp_0[shp_0$CNTR_CODE == 'ES', ]
+
+shp_es %>% 
+  ggplot() +
+  geom_sf()
+
+# baseline map
+spainMap <- ggplot(shp_es) +
+  geom_sf(size = 0.2, color = "black", fill = 'lightgray') + 
+  geom_sf() + 
+  geom_point(data = PlotsCoord_mono, color="grey",aes(x=lng,y=lat,group=NULL),pch=16)+
+  geom_point(data = PlotsCoord_plmo, color="green",aes(x=lng,y=lat,group=NULL),pch=16)+
+  geom_point(data = PlotsCoord_mix, color="blue",aes(x=lng,y=lat,group=NULL),pch=16)+
+  coord_sf(xlim = c(minCoordX, maxCoordX), 
+           ylim = c(minCoordY, maxCoordY))+
+  theme(plot.title = element_text(hjust = 0.5))
+spainMap
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## print(cName)
+## print(cProvincias)
+
 ## read simulation data
+getwd()
 rm(list=ls())
 ## options(width=280)
 ## setwd('../data')
-dir <- '../data/'
+dir <- '../data/mixtures/'
 ## Leemos los datos
 ## setwd("C:/Users/Irene/Documents/INF COMFOR/Entrega/Combi")
 combiIFN2<-read.table(paste0(dir,"combinaciones.if2.txt"))
 combiIFN3<-read.table(paste0(dir,"combinaciones.if3.txt"))
 
-las distintas ediciones para cada comunidad autónomas 
+```
+
+## las distintas ediciones para cada comunidad autónomas 
 
 # Referencias

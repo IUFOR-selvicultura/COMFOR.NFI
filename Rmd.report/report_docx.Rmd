@@ -199,77 +199,70 @@ ggplot(datosT,aes(x=tipo,y=num,fill=factor(id)))+
 ```{r datos para mapa}
 
 ### Funciones
-wdir <- dir ## '../data/'
-## dir(path=dir)
-numPlotsIFCCAA <- function(wdir,id) {
-  plotsMonoSP <- read.csv(paste0(wdir,'of_if',as.character(id),'_plotsMonoSP.csv'), row.names = 1)
-  plotsPluri <- read.csv(paste0(wdir'of_if',as.character(id),'_plotsPluriSP.csv'),row.names=1)
-  resultMD <- read.csv(paste0(wdir,'of_if',as.character(id),'_resultHeightPlurimodal.csv'), row.names = 1)
-  resultMDiamF <- read.csv(paste0(wdir,'of_if',as.character(id),'_resultDiamPlurimodal.csv'), row.names = 1)
+## dir <- '../data/'
+## dir(path = dir)
+numPlotsIFCCAA <- function( wdir, id ) {
+  plotsMonoSP  <- read.csv( paste0(wdir, 'of_if', as.character(id), '_plotsMonoSP.csv'), row.names = 1)
+  plotsPluri   <- read.csv( paste0(wdir, 'of_if', as.character(id), '_plotsPluriSP.csv'), row.names = 1)
+  resultMD     <- read.csv( paste0(wdir, 'of_if', as.character(id), '_resultHeightPlurimodal.csv'), row.names = 1)
+  resultMDiamF <- read.csv( paste0(wdir, 'of_if', as.character(id), '_resultDiamPlurimodal.csv'), row.names = 1)
   comunidades <- function(datos) {
     origen <- c()
     for(i in 1:dim(datos)[1]) {
-      prov <- strsplit(as.character(datos$PlotID[i]),split = "\\.")[[1]][1]
+      prov <- strsplit( as.character( datos$PlotID[i] ), split = "\\." )[[1]][1]
       prov <- trimws(prov)
-      origen <- c(origen,prov)
-    }
+      origen <- c(origen,prov) }
     datos$Origen <- origen    
     datos$CCAA  <-  with( datos, case_when(
-                                   Origen=="4" |Origen=="11"|Origen=="14"|Origen=="18"|Origen=="21"|Origen=="23"|Origen=="29"|Origen=="41"                           ~ "Andalucía",
-                                   Origen=="22"|Origen=="44"|Origen=="50"                                                                                            ~ "Aragón",
-                                   Origen=="33"                                                                                                                      ~ "Asturias",
-                                   Origen=="7"                                                                                                                       ~ "Baleares",
-                                   Origen=="35"|Origen=="38"                                                                                                         ~ "Canarias",
-                                   Origen=="39"                                                                                                                      ~ "Cantabria",
-                                   Origen=="5" |Origen=="9" |Origen=="24"|Origen=="34"|Origen=="37"|Origen=="23"|Origen=="40"|Origen=="42"|Origen=="47"|Origen=="49" ~ "Cast-León",
-                                   Origen=="4" |Origen=="2" | Origen=="13"| Origen=="16"| Origen=="19"| Origen=="45"                                                 ~ "Cast-La Mancha",
-                                   Origen=="8" |Origen=="17" | Origen=="25"| Origen=="43"                                                                            ~ "Cataluña",
-                                   Origen=="3" |Origen=="12" | Origen=="46"                                                                                          ~ "C. Valenciana",
-                                   Origen=="6" |Origen=="10"                                                                                                         ~ "Extremadura",
-                                   Origen=="15"|Origen=="27"|Origen=="32"|Origen=="36"                                                                               ~ "Galicia",
-                                   Origen=="28"                                                                                                                      ~ "Madrid",
-                                   Origen=="30"                                                                                                                      ~ "Murcia",
-                                   Origen=="31"                                                                                                                      ~ "Navarra",
-                                   Origen=="1" |Origen=="48"|Origen=="20"                                                                                            ~ "Pais Vasco",
-                                   Origen=="26"                                                                                                                      ~ "La Rioja" ))
-    return(datos)
-  }
-
-  tipo <- c("Pluriespecifica", "Monoespecifica", "Plurimodal")
+                                   Origen=="4" |Origen=="11"|Origen=="14"|Origen=="18"|Origen=="21"|Origen=="23"|Origen=="29"|Origen=="41"                           ~ 1, # "Andalucía",
+                                   Origen=="22"|Origen=="44"|Origen=="50"                                                                                            ~ 2, # "Aragón",
+                                   Origen=="33"                                                                                                                      ~ 3, # "Asturias",
+                                   Origen=="7"                                                                                                                       ~ 4, # "Baleares",
+                                   Origen=="35"|Origen=="38"                                                                                                         ~ 5, # "Canarias",
+                                   Origen=="39"                                                                                                                      ~ 6, # "Cantabria",
+                                   Origen=="5" |Origen=="9" |Origen=="24"|Origen=="34"|Origen=="37"|Origen=="23"|Origen=="40"|Origen=="42"|Origen=="47"|Origen=="49" ~ 7, # "Cast-León",
+                                   Origen=="4" |Origen=="2" | Origen=="13"| Origen=="16"| Origen=="19"| Origen=="45"                                                 ~ 8, # "Cast-La Mancha",
+                                   Origen=="8" |Origen=="17" | Origen=="25"| Origen=="43"                                                                            ~ 9, # "Cataluña",
+                                   Origen=="3" |Origen=="12" | Origen=="46"                                                                                          ~ 10, # "C. Valenciana",
+                                   Origen=="6" |Origen=="10"                                                                                                         ~ 11, # "Extremadura",
+                                   Origen=="15"|Origen=="27"|Origen=="32"|Origen=="36"                                                                               ~ 12, # "Galicia",
+                                   Origen=="28"                                                                                                                      ~ 13, # "Madrid",
+                                   Origen=="30"                                                                                                                      ~ 14, # "Murcia",
+                                   Origen=="31"                                                                                                                      ~ 15, # "Navarra",
+                                   Origen=="1" |Origen=="48"|Origen=="20"                                                                                            ~ 16, # "Pais Vasco",
+                                   Origen=="26"                                                                                                                      ~ 17 ) ) # "La Rioja" 
+    return( datos )  }
+  tipo <- c( "Pluriespecifica", "Monoespecifica", "Plurimodal" )
   ## Monoespecificas
-  plotsMonoSP <- comunidades(plotsMonoSP)
-  nMonoCCAA <- as.data.frame(table(plotsMonoSP$CCAA))
-  colnames(nMonoCCAA) <- c("CCAA","Cont")
+  plotsMonoSP <- comunidades( plotsMonoSP )
+  nMonoCCAA <- as.data.frame( table( plotsMonoSP$CCAA ) )
+  colnames( nMonoCCAA ) <- c( "CCAA", "Cont" )
   nMonoCCAA$Tipo <- tipo[2]
-
   ## Pluriespecifica
-  plotsPluri <- comunidades(plotsPluri)
-  nPluriCCAA <- as.data.frame(table(plotsPluri$CCAA))
-  colnames(nPluriCCAA) <- c("CCAA","Cont")
-  nPluriCCAA$Tipo <- tipo[1]
-  
+  plotsPluri <- comunidades( plotsPluri )
+  nPluriCCAA <- as.data.frame( table( plotsPluri$CCAA ) )
+  colnames(nPluriCCAA) <- c( "CCAA", "Cont" )
+  nPluriCCAA$Tipo <- tipo[1]  
   ## Modalidad
   resultMModal <- merge( resultMD, resultMDiamF, by='PlotID', all=T)
-  positionPluri <- which( ( as.numeric(resultMModal$Pvalor.x) < 0.05 ) & ( as.numeric(resultMModal$Pvalor.y) < 0.05 ) )
+  positionPluri <- which( ( as.numeric( resultMModal$Pvalor.x ) < 0.05 ) & ( as.numeric( resultMModal$Pvalor.y ) < 0.05 ) )
   plotsPluriMod <- resultMModal[ positionPluri, ]
   plotsPluriMod <- comunidades(plotsPluriMod)
-  nPluriModCCAA <- as.data.frame(table(plotsPluriMod$CCAA))
-  colnames(nPluriModCCAA) <- c("CCAA","Cont")
-  nPluriModCCAA$Tipo <- tipo[3]
-  
-  datos <- rbind(nMonoCCAA,nPluriCCAA,nPluriModCCAA)
-  datos$id <- rep(id,dim(datos)[1])
+  nPluriModCCAA <- as.data.frame( table( plotsPluriMod$CCAA ) )
+  colnames(nPluriModCCAA) <- c( "CCAA", "Cont" )
+  nPluriModCCAA$Tipo <- tipo[3]  
+  datos <- rbind(nMonoCCAA, nPluriCCAA, nPluriModCCAA)
+  datos$id <- rep(id, dim(datos)[1])
   datosCCAA <- datos
-  return(datosCCAA)
-}
+  return(datosCCAA) }
 
 ### Representación
 ####################################IFN2########################################
-datosCCAA2 <- numPlotsIFCCAA(wdir=folder,2); ## datosCCAA2
+datosCCAA2 <- numPlotsIFCCAA(wdir=dir,2); ## datosCCAA2
 ####################################IFN3########################################
-datosCCAA3 <- numPlotsIFCCAA(wdir=folder,3); ## datosCCAA3
+datosCCAA3 <- numPlotsIFCCAA(wdir=dir,3); ## datosCCAA3
 ####################################IFN4########################################
-datosCCAA4 <- numPlotsIFCCAA(wdir=folder,4); ## datosCCAA4
+datosCCAA4 <- numPlotsIFCCAA(wdir=dir,4); ## datosCCAA4
 ###########################BARRAS MULTIPLES#####################################
 datosCCAA <- rbind(datosCCAA2,datosCCAA3,datosCCAA4)
 
@@ -369,8 +362,8 @@ plotsPluriSP <- read.csv(paste0(dir,'of_if',as.character(id), "_plotsPluriSP.csv
 plotsMonoSP  <- read.csv(paste0(dir,'of_if',as.character(id), '_plotsMonoSP.csv'), row.names = 1)
 
 ## Plot coordinates from 3rd NFI edition
-PlotCoord <- read.csv(paste0(dir,"if3_coordLT.csv"))
-PlotCoord$PlotID <- with(PlotCoord, paste0(Provincia,".",Estadillo))
+PlotCoord <- read.csv(paste0(dir,"if3_coordLT.csv") )#, importrow=FALSE)
+PlotCoord$PlotID <- PlotCoord$PlotID0
 names(PlotCoord)[c(8,9)] <- c('lng','lat') ## change coordinate label to use leaflet pkg
 ## head(PlotCoord)
 
@@ -454,13 +447,13 @@ minCoordY <- min(datos$lat)
 ## Interactive map / Mapa interactivo
 ## In this map appears all NFI plots, not only complex forest plots, to allow comparison
 
-leaflet() %>%
-  addTiles() %>%
-  setView(lng = -3.7, lat = 40.4, zoom = 5) %>%
-  fitBounds(lng1 = maxCoordX , lat1 = maxCoordY , lng2 = minCoordX  , lat2 = minCoordY)%>%
-  addCircles(data = PlotsCoord_mono, radius = 10, color = "grey") %>%
-  addCircles(data = PlotsCoord_plmo, radius = 10, color = "green") %>%
-  addCircles(data = PlotsCoord_mix, radius = 10, color = "blue")
+## leaflet() %>%
+##   addTiles() %>%
+##   setView(lng = -3.7, lat = 40.4, zoom = 5) %>%
+##   fitBounds(lng1 = maxCoordX , lat1 = maxCoordY , lng2 = minCoordX  , lat2 = minCoordY)%>%
+##   addCircles(data = PlotsCoord_mono, radius = 10, color = "grey") %>%
+##   addCircles(data = PlotsCoord_plmo, radius = 10, color = "green") %>%
+##   addCircles(data = PlotsCoord_mix, radius = 10, color = "blue")
 
 ## Ayuda en: https://luisdva.github.io/rstats/mapassf/
 ## mapa de Europa
@@ -484,12 +477,12 @@ mapa_antes
 #ggsave(antes,filename = "01_bfr.png",width = 6, height = 5,units = "in", dpi=300,device = "png")
 
 
-  geom_point(data = PlotsCoord_mono, color="grey",aes(x=lng,y=lat,group=NULL),pch=16)+
-  geom_point(data = PlotsCoord_plmo, color="green",aes(x=lng,y=lat,group=NULL),pch=16)+
-  geom_point(data = PlotsCoord_mix, color="blue",aes(x=lng,y=lat,group=NULL),pch=16)+
-  coord_sf(xlim = c(minCoordX, maxCoordX), 
-           ylim = c(minCoordY, maxCoordY))+
-  theme(plot.title = element_text(hjust = 0.5))
+  ## geom_point(data = PlotsCoord_mono, color="grey",aes(x=lng,y=lat,group=NULL),pch=16)+
+  ## geom_point(data = PlotsCoord_plmo, color="green",aes(x=lng,y=lat,group=NULL),pch=16)+
+  ## geom_point(data = PlotsCoord_mix, color="blue",aes(x=lng,y=lat,group=NULL),pch=16)+
+  ## coord_sf(xlim = c(minCoordX, maxCoordX), 
+  ##          ylim = c(minCoordY, maxCoordY))+
+  ## theme(plot.title = element_text(hjust = 0.5))
 
 
 
@@ -507,72 +500,8 @@ mapa_antes
 
 
 
-
-## shape all Europe
-shp_0 <- get_eurostat_geospatial(resolution = 10, nuts_level = 2, # big regions
-                                 year = 2021, crs = 4326) # WGS84
-
-## shape Spain
-shp_es <- shp_0[shp_0$CNTR_CODE == 'ES', ]
-
-shp_es %>% 
-  ggplot() +
-  geom_sf()
-
-# baseline map
-spainMap <- ggplot(shp_es) +
-  geom_sf(size = 0.2, color = "black", fill = 'lightgray') + 
-  geom_sf() + 
-  geom_point(data = PlotsCoord_mono, color="grey",aes(x=lng,y=lat,group=NULL),pch=16)+
-  geom_point(data = PlotsCoord_plmo, color="green",aes(x=lng,y=lat,group=NULL),pch=16)+
-  geom_point(data = PlotsCoord_mix, color="blue",aes(x=lng,y=lat,group=NULL),pch=16)+
-  coord_sf(xlim = c(minCoordX, maxCoordX), 
-           ylim = c(minCoordY, maxCoordY))+
-  theme(plot.title = element_text(hjust = 0.5))
-spainMap
 
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## las distintas ediciones para cada comunidad autónomas 

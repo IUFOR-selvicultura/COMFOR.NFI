@@ -330,180 +330,360 @@ cProvinciasCCAA <- list(c("4" ,"11","14","18","21","23","29","41"),
                     c("31"),
                     c("1","48","20"),
                     c("26") )
-## Función de selección de datos de cada provincia de la comunidad
-datosCCAA <- function(cProvincias, datos) {
-  #Obtenemos el origen a partir de el plotID
-  provincia <- c()
-  for(i in 1:dim(datos)[1]){
-    partes <- strsplit( as.character( datos$PlotID[i] ), "\\." )
-    provincia <- c( provincia, partes[[1]][1] )
-  }
-  datos$Origen <- provincia
-  #Nos quedamos solo con las provincias pertenecientes a la ccaa que queremos representar
-  dat <- c()
-  for(i in 1:length(cProvincias)){
-    dat <- rbind(dat, datos[datos$Origen == cProvincias[i], ]) 
-  }
-  return(dat)
-}
-
 ```
+
+### Leemos los datos necesario
 
 ```{r lectura de bbdd completas}
 
-id <- 2
-dir <- '../data/'
-## dir(path=dir)
-## dir(dir)
-## lectura de parcelas
-resultMD     <- read.csv(paste0(dir,'of_if',as.character(id), '_resultHeightPlurimodal.csv'), row.names = 1)
-resultMDiamF <- read.csv(paste0(dir,'of_if',as.character(id), '_resultDiamPlurimodal.csv'), row.names = 1)
-plotsPluriSP <- read.csv(paste0(dir,'of_if',as.character(id), "_plotsPluriSP.csv"),row.names=1)
-plotsMonoSP  <- read.csv(paste0(dir,'of_if',as.character(id), '_plotsMonoSP.csv'), row.names = 1)
+setwd("C:/Users/Irene/Documents/COMFOR.NFI2")
+## Inventario 
+id <- 4
+## Ruta de los datos
+dir <- './data/'
+
+lecturaDatos<-function(id){
+  ## lectura de parcelas
+  resultMD     <- read.csv(paste0(dir,'of_if',as.character(id), '_resultHeightPlurimodal.csv'), row.names = 1)
+  resultMDiamF <- read.csv(paste0(dir,'of_if',as.character(id), '_resultDiamPlurimodal.csv'), row.names = 1)
+  plotsPluriSP <- read.csv(paste0(dir,'of_if',as.character(id), "_plotsPluriSP.csv"),row.names=1)
+  plotsMonoSP  <- read.csv(paste0(dir,'of_if',as.character(id), '_plotsMonoSP.csv'), row.names = 1)
+  
+  return(list(resultMD,resultMDiamF,plotsPluriSP,plotsMonoSP))
+}
 
 ## Plot coordinates from 3rd NFI edition
-PlotCoord <- read.csv(paste0(dir,"if3_coordLT.csv") )#, importrow=FALSE)
+PlotCoord <- read.csv(paste0(dir,"if3_coordLT.csv"))
 PlotCoord$PlotID <- PlotCoord$PlotID0
 names(PlotCoord)[c(8,9)] <- c('lng','lat') ## change coordinate label to use leaflet pkg
-## head(PlotCoord)
+
+## Nos quedamos con las columnas que nos interesan
+PlotCoord<-PlotCoord[,c("PlotID","Provincia","lng","lat")]
 
 ```
 
-```{r selección de datos provincias en la comunidad autónoma}
+### Preparacion datos
 
-cName <- cNamesCCAA[7]
-cProvincias <- unlist(cProvinciasCCAA[7])
-
-resultMDi     <- datosCCAA(cProvincias, resultMD)
-resultMDiamFi <- datosCCAA(cProvincias, resultMDiamF)
-plotsPluriSPi <- datosCCAA(cProvincias, plotsPluriSP)
-plotsMonoSPi  <- datosCCAA(cProvincias, plotsMonoSP)
-## dim(resultMDi); dim(resultMDiamFi); dim(plotsPluriSPi); dim(plotsMonoSPi); 
-
-## Monospecific plots
-plotsMonoSPi$prov <- with( plotsMonoSPi, as.numeric(substr( PlotID, 1, 1+str_locate(PlotID, '.') ) ) )
-provEst <- c()
-for( i in 1 : dim(plotsMonoSPi )[1] ) {
-  partes <- strsplit( as.character( plotsMonoSPi$PlotID[i]), split = "\\.")[[1]]
-  resultado <- paste0(partes[1], ".", partes[2] )
-  provEst <- c(provEst, resultado)
+```{r Preparacion de datos}
+prepararDatos<-function(id){
+  
+  resultMD<-lecturaDatos(id)[[1]]
+  resultMDiamF<-lecturaDatos(id)[[2]]
+  plotsPluriSP<-lecturaDatos(id)[[3]]
+  plotsMonoSP<-lecturaDatos(id)[[4]]
+  
+  
+  ## PLURIESPECIFICAS
+  plotsPluriSPi<-plotsPluriSP[1]
+  plotsPluriSPi$Tipo<-"Pluriespecificas"
+  
+  ## PLURIMODALES
+  resultMModal<-merge(resultMD,resultMDiamF,by='PlotID',all=T)
+  positionPluri<-which((as.numeric(resultMModal$Pvalor.x)<0.05)&(as.numeric(resultMModal$Pvalor.y)<0.05))
+  plotsPluriMod<-resultMModal[positionPluri,]
+  plotsPluriMod<-plotsPluriMod[1]
+  plotsPluriMod$Tipo<-"Plurimodales"
+  
+  ## MONOESPECIFICAS
+  plotsMonoMd<-resultMModal[-positionPluri,]
+  plotsMonoMd<-plotsMonoMd[1]
+  plotsMonoSP<-plotsMonoSP[1]
+  plotsMonoSPi<-rbind(plotsMonoSP,plotsMonoMd)
+  plotsMonoSPi$Tipo<-"Monoespecificas"
+  
+  ## Unimos los datos
+  parcelas<-rbind(plotsPluriSPi,plotsPluriMod,plotsMonoSPi)
+  
+  ## Nos quedamos con un PLOTID que contenga solo parcela y estadillo
+  PlotID <- c()
+  Provincia<-c()
+  for(i in 1:dim(parcelas)[1]){
+    partes <- strsplit( as.character( parcelas$PlotID[i] ), split = "\\.")[[1]]
+    resultado <- paste0(partes[1],".",partes[2])
+    prov<-partes[1]
+    PlotID <- c(PlotID,resultado)
+    Provincia<-c(Provincia,prov)
+  }
+  parcelas$PlotID<-PlotID
+  parcelas$Provincia<-Provincia
+  
+  return(parcelas)
 }
-plotsMonoSPi$provEst <- provEst
-
-## Pluriespecific plots
-plotsPluriSPi$prov <- with( plotsPluriSPi, as.numeric(substr( PlotID, 1, 1+str_locate(PlotID, '.') ) ) )
-provEst <- c()
-for(i in 1:dim(plotsPluriSPi)[1]){
-  partes <- strsplit( as.character( plotsPluriSPi$PlotID[i] ), split = "\\.")[[1]]
-  resultado <- paste0(partes[1],".",partes[2])
-  provEst <- c(provEst,resultado)
-}
-plotsPluriSPi$provEst <- provEst
-
-## Combination of both dataframes
-resultMModal <- merge( resultMDi, resultMDiamFi, by='PlotID', all=T)
-resultMModal$prov <- with( resultMModal, as.numeric( substr( PlotID, 1, 1+str_locate(PlotID, '.') ) ) )
-provEst <- c()
-for(i in 1:dim(resultMModal)[1]){
-  partes <- strsplit(as.character( resultMModal$PlotID[i] ), split = "\\.")[[1]]
-  resultado <- paste0(partes[1],".",partes[2])
-  provEst <- c(provEst,resultado)
-}
-resultMModal$provEst <- provEst
-
-## Select plot plurimodal for both variables / Seleccionamos los estadillos que coinciden en ambas variables
-positionPluri <- which( ( as.numeric(resultMModal$Pvalor.x) < 0.05 ) & ( as.numeric(resultMModal$Pvalor.y) < 0.05 ) )
-plotsPluriMod <- resultMModal[ positionPluri, ]
-
-## Select complementary to plurimodal inside the original dataframe 
-plotsMonoMd <- resultMModal[ -positionPluri, ]
-
 ```
+
+### Selección datos de cada CCAA
+```{r}
+CCAA<-function(provincias){
+  datCCAA<-c()
+  for(i in 1:length(provincias)){
+    datCCAA <- rbind(datCCAA, parcelas[parcelas$Provincia == provincias[i],]) 
+  }
+  return(datCCAA)
+}
+```
+
 
 ```{r Mapas}
-
-##########
-## MAPS ##
-##########
-
-## PARCELAS MIXTAS
-PlotsCoord_mix  <- PlotCoord[PlotCoord$PlotID %in% plotsPluriSPi$provEst,]
-## head(PlotsCoord_mix)
-
-## PARCELAS MONOESPECÍFICAS plurimodales
-PlotsCoord_plmo <- PlotCoord[PlotCoord$PlotID %in% plotsPluriMod$provEst, ]
-## head(PlotsCoord_plmo)
-
-## rest of the plots
-PlotID_restofplots <- plotsMonoSP[ !(plotsMonoSP$provEst %in% plotsPluriMod$provEst), 'provEst']
-PlotsCoord_mono <- PlotCoord[PlotCoord$PlotID %in% PlotID_restofplots, ]
-
-## Limites de cada CCAA
-datos <- rbind(PlotsCoord_mono,PlotsCoord_plmo,PlotsCoord_mix)
-maxCoordX <- max(datos$lng) #Longitud
-minCoordX <- min(datos$lng)
-maxCoordY <- max(datos$lat) #Latitud
-minCoordY <- min(datos$lat) 
-## Interactive map / Mapa interactivo
-## In this map appears all NFI plots, not only complex forest plots, to allow comparison
-
-## leaflet() %>%
-##   addTiles() %>%
-##   setView(lng = -3.7, lat = 40.4, zoom = 5) %>%
-##   fitBounds(lng1 = maxCoordX , lat1 = maxCoordY , lng2 = minCoordX  , lat2 = minCoordY)%>%
-##   addCircles(data = PlotsCoord_mono, radius = 10, color = "grey") %>%
-##   addCircles(data = PlotsCoord_plmo, radius = 10, color = "green") %>%
-##   addCircles(data = PlotsCoord_mix, radius = 10, color = "blue")
-
-## Ayuda en: https://luisdva.github.io/rstats/mapassf/
-## mapa de Europa
-Europa <- ne_countries(continent = "Europe", returnclass = "sf", scale = "medium")
-## filtrar por país
-Espanna <- Europa %>% filter(sovereignt=="Spain")
-
-# figura 
-mapa_antes <- 
+representacionMapa<-function(datos){
+  
+  parcelasCoord<-merge(PlotCoord,datos,by="PlotID")
+  
+  ## Limites para representar la CCAA
+  maxCoordX <- max(parcelasCoord$lng) #Longitud
+  minCoordX <- min(parcelasCoord$lng)
+  maxCoordY <- max(parcelasCoord$lat) #Latitud
+  minCoordY <- min(parcelasCoord$lat) 
+  
+  ## Ordenamos las parcelas por tipo
+  parcelasCoord<-parcelasCoord[order(parcelasCoord$Tipo),]
+  
+  ## Representacion mapa
+  
+  ## Ayuda en: https://luisdva.github.io/rstats/mapassf/
+  ## mapa de Europa
+  Europa <- ne_countries(continent = "Europe", returnclass = "sf", scale = "medium")
+  ## filtrar por país
+  #Espanna <- Europa %>% filter(sovereignt=="Spain")
+  Espanna<-ne_states(country = "spain", returnclass = "sf")
+  
+  # figura 
+  colores<-c("Monoespecificas"="grey","Pluriespecificas"="blue","Plurimodales"="green")
+  mapa_CCAA <- 
     ggplot()+
     geom_sf(data=Espanna)+
-    geom_point(data = PlotsCoord_mono, color="grey",aes(x=lng,y=lat,group=NULL),pch=16)+
-    geom_point(data = PlotsCoord_plmo, color="green",aes(x=lng,y=lat,group=NULL),pch=16)+
-    geom_point(data = PlotsCoord_mix, color="blue",aes(x=lng,y=lat,group=NULL),pch=16)+
+    geom_point(data = parcelasCoord, aes(x=lng,y=lat,color=Tipo),pch=16)+
     coord_sf(xlim = c(minCoordX, maxCoordX), 
              ylim = c(minCoordY, maxCoordY))+
+    scale_color_manual(values = colores)+
     theme(plot.title = element_text(hjust = 0.5))
-
-mapa_antes
-# exportar al disco duro (opcional)
-#ggsave(antes,filename = "01_bfr.png",width = 6, height = 5,units = "in", dpi=300,device = "png")
-
-
-  ## geom_point(data = PlotsCoord_mono, color="grey",aes(x=lng,y=lat,group=NULL),pch=16)+
-  ## geom_point(data = PlotsCoord_plmo, color="green",aes(x=lng,y=lat,group=NULL),pch=16)+
-  ## geom_point(data = PlotsCoord_mix, color="blue",aes(x=lng,y=lat,group=NULL),pch=16)+
-  ## coord_sf(xlim = c(minCoordX, maxCoordX), 
-  ##          ylim = c(minCoordY, maxCoordY))+
-  ## theme(plot.title = element_text(hjust = 0.5))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
+  return(mapa_CCAA)
+}
 ```
 
+## Mapas para IFN2
 
-## las distintas ediciones para cada comunidad autónomas 
+```{r IFN2}
+
+parcelas<-prepararDatos(2)
+
+# Andalucia
+provincias<-unlist(cProvinciasCCAA[1])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Aragon  
+provincias<-unlist(cProvinciasCCAA[2])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Asturias
+provincias<-unlist(cProvinciasCCAA[3])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Baleares
+# provincias<-unlist(cProvinciasCCAA[4])
+# datCCAA<-CCAA(provincias)
+# representacionMapa(datCCAA)
+# Canarias
+provincias<-unlist(cProvinciasCCAA[5])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Cantabria     
+provincias<-unlist(cProvinciasCCAA[6])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Cast-León 
+provincias<-unlist(cProvinciasCCAA[7])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Cast-La Mancha
+provincias<-unlist(cProvinciasCCAA[8])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Cataluña
+provincias<-unlist(cProvinciasCCAA[9])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# C. Valenciana
+provincias<-unlist(cProvinciasCCAA[10])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Extremadura
+provincias<-unlist(cProvinciasCCAA[11])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Galicia
+provincias<-unlist(cProvinciasCCAA[12])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Madrid
+provincias<-unlist(cProvinciasCCAA[13])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Murcia 
+provincias<-unlist(cProvinciasCCAA[14])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Navarra
+provincias<-unlist(cProvinciasCCAA[15])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# País Vasco
+provincias<-unlist(cProvinciasCCAA[16])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# La Rioja 
+provincias<-unlist(cProvinciasCCAA[17])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+```
+## Mapas para IFN3
+```{r IFN3}
+
+parcelas<-prepararDatos(2)
+
+# Andalucia
+provincias<-unlist(cProvinciasCCAA[1])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Aragon  
+provincias<-unlist(cProvinciasCCAA[2])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Asturias
+provincias<-unlist(cProvinciasCCAA[3])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Baleares
+# provincias<-unlist(cProvinciasCCAA[4])
+# datCCAA<-CCAA(provincias)
+# representacionMapa(datCCAA)
+# Canarias
+provincias<-unlist(cProvinciasCCAA[5])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Cantabria     
+provincias<-unlist(cProvinciasCCAA[6])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Cast-León 
+provincias<-unlist(cProvinciasCCAA[7])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Cast-La Mancha
+provincias<-unlist(cProvinciasCCAA[8])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Cataluña
+provincias<-unlist(cProvinciasCCAA[9])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# C. Valenciana
+provincias<-unlist(cProvinciasCCAA[10])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Extremadura
+provincias<-unlist(cProvinciasCCAA[11])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Galicia
+provincias<-unlist(cProvinciasCCAA[12])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Madrid
+provincias<-unlist(cProvinciasCCAA[13])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Murcia 
+provincias<-unlist(cProvinciasCCAA[14])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Navarra
+provincias<-unlist(cProvinciasCCAA[15])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# País Vasco
+provincias<-unlist(cProvinciasCCAA[16])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# La Rioja 
+provincias<-unlist(cProvinciasCCAA[17])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+```
+
+## Mapas para IFN4
+```{r IFN4}
+
+parcelas<-prepararDatos(2)
+
+# Andalucia
+provincias<-unlist(cProvinciasCCAA[1])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Aragon  
+provincias<-unlist(cProvinciasCCAA[2])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Asturias
+provincias<-unlist(cProvinciasCCAA[3])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Baleares
+# provincias<-unlist(cProvinciasCCAA[4])
+# datCCAA<-CCAA(provincias)
+# representacionMapa(datCCAA)
+# Canarias
+provincias<-unlist(cProvinciasCCAA[5])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Cantabria     
+provincias<-unlist(cProvinciasCCAA[6])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Cast-León 
+provincias<-unlist(cProvinciasCCAA[7])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Cast-La Mancha
+provincias<-unlist(cProvinciasCCAA[8])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Cataluña
+provincias<-unlist(cProvinciasCCAA[9])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# C. Valenciana
+provincias<-unlist(cProvinciasCCAA[10])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Extremadura
+provincias<-unlist(cProvinciasCCAA[11])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Galicia
+provincias<-unlist(cProvinciasCCAA[12])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Madrid
+provincias<-unlist(cProvinciasCCAA[13])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Murcia 
+provincias<-unlist(cProvinciasCCAA[14])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# Navarra
+provincias<-unlist(cProvinciasCCAA[15])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# País Vasco
+provincias<-unlist(cProvinciasCCAA[16])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+# La Rioja 
+provincias<-unlist(cProvinciasCCAA[17])
+datCCAA<-CCAA(provincias)
+representacionMapa(datCCAA)
+```
 
 # Referencias

@@ -14,7 +14,7 @@ library(rmarkdown)
 ## browseURL(url = render( rep[1] ))
 ## help(render)
 getwd()
-setwd('../Rmd.report')
+setwd('./Rmd.report')
 dir()
 
 render( "report_docx.Rmd",

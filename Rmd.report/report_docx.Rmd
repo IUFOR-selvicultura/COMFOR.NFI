@@ -44,7 +44,9 @@ options(tinytex.verbose = TRUE)
 ## setup options and library loading
 knitr::opts_chunk$set(echo = FALSE, cache=FALSE)
 libraries <- c('pander', 'ggplot2', 'reshape2', 'ggforce', 'tidyr', 'viridis', 'plotly', 'stringr',
-               'tidyverse', 'sp', 'rnaturalearth', 'tmap', 'leaflet')
+               ##'tidyverse',
+               'dplyr',
+               'sp', 'rnaturalearth', 'tmap', 'leaflet')
 lapply(libraries, library, character.only=TRUE)
 panderOptions('table.alignment.default', 'right')
 panderOptions('table.alignment.rownames', 'left')
@@ -99,9 +101,9 @@ combiIFN2_100 <- combiIFN2[combiIFN2$Freq>100,]
 combiIFN3_100 <- combiIFN3[combiIFN3$Freq>100,]
 combiIFN4_30 <- combiIFN4[combiIFN4$Freq>30,]
 graficoIndividual <- function(datos,IFN){
-  ggplot(data=datos, aes( y=Freq, x=Var1 )) +
+  ggplot(data=datos, aes( y=Freq, x=Var1 )) + #coord_fixed(ratio=.040) +
     geom_bar(stat = "identity", color = "lightgreen") +
-    theme_grey()+
+    theme_grey()+ theme(aspect.ratio=3/4)+
     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     labs(title = paste0("Combinaciones mas frecuentes en el ",IFN),
        x = "Combinaciones",
@@ -129,14 +131,14 @@ A continuación se muestra la gráfica conjunta para las combinacines de especie
 ## combiIFN4_30 <- combiIFN4[combiIFN4$Freq>30,]
 combi <- rbind(combiIFN2_100,combiIFN3_100,combiIFN4_30)
 combi$IFN <- c(rep('IFN2',dim(combiIFN2_100)[1]),rep('IFN3',dim(combiIFN3_100)[1]),rep('IFN4',dim(combiIFN4_30)[1]))
-ggplot(combi,aes(x=Var1,y=Freq,fill=factor(IFN)))+
+ggplot(combi,aes(x=Var1,y=Freq,fill=factor(IFN)))+coord_fixed(ratio=.03) +
   geom_bar(stat="identity",position = "dodge")+
   #geom_text(aes(label = Cont), vjust = -0.5) +
   labs(title = "Combinaciones más frecuentes",
        x = "Combinaciones",
        y = "Repeticiones",
        fill="IFN") +
-  theme_minimal()+
+  theme_minimal()+theme(aspect.ratio=3/4.5)+
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
 ```
@@ -330,17 +332,19 @@ cProvinciasCCAA <- list(c("4" ,"11","14","18","21","23","29","41"),
                     c("31"),
                     c("1","48","20"),
                     c("26") )
+
 ```
 
-### Leemos los datos necesario
 
 ```{r lectura de bbdd completas}
 
-setwd("C:/Users/Irene/Documents/COMFOR.NFI2")
+### Leemos los datos necesario
+
+## setwd("C:/Users/Irene/Documents/COMFOR.NFI2")
 ## Inventario 
 id <- 4
 ## Ruta de los datos
-dir <- "C:/Users/Irene/Documents/COMFOR.NFI2/data/"
+## dir <- "C:/Users/Irene/Documents/COMFOR.NFI2/data/"
 
 lecturaDatos<-function(id){
   ## lectura de parcelas
@@ -362,9 +366,11 @@ PlotCoord<-PlotCoord[,c("PlotID","Provincia","lng","lat")]
 
 ```
 
-### Preparacion datos
 
 ```{r Preparacion de datos}
+
+### Preparacion datos
+
 prepararDatos<-function(id){
   
   resultMD<-lecturaDatos(id)[[1]]
@@ -409,10 +415,13 @@ prepararDatos<-function(id){
   
   return(parcelas)
 }
+
 ```
 
-### Selección datos de cada CCAA
 ```{r}
+
+### Selección datos de cada CCAA
+
 CCAA<-function(provincias){
   datCCAA<-c()
   for(i in 1:length(provincias)){
@@ -420,10 +429,12 @@ CCAA<-function(provincias){
   }
   return(datCCAA)
 }
+
 ```
 
 
 ```{r Mapas}
+
 representacionMapa<-function(datos){
   
   parcelasCoord<-merge(PlotCoord,datos,by="PlotID")
@@ -459,6 +470,7 @@ representacionMapa<-function(datos){
   
   return(mapa_CCAA)
 }
+
 ```
 
 ## Mapas para IFN2
@@ -467,148 +479,182 @@ representacionMapa<-function(datos){
 
 parcelas<-prepararDatos(2)
 
-# Andalucia
-provincias<-unlist(cProvinciasCCAA[1])
-datCCAA<-CCAA(provincias)
-representacionMapa(datCCAA)
-# Aragon  
+                                        # Andalucia
+provincias<-unlist(cProvinciasCCAA[1]); datCCAA<-CCAA(provincias); representacionMapa(datCCAA)
+
+                                        # Aragon  
 provincias<-unlist(cProvinciasCCAA[2])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# Asturias
+
+                                        # Asturias
 provincias<-unlist(cProvinciasCCAA[3])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# Baleares
+
+                                        # Baleares
 # provincias<-unlist(cProvinciasCCAA[4])
 # datCCAA<-CCAA(provincias)
 # representacionMapa(datCCAA)
-# Canarias
+
+                                        # Canarias
 provincias<-unlist(cProvinciasCCAA[5])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# Cantabria     
+
+                                        # Cantabria     
 provincias<-unlist(cProvinciasCCAA[6])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# Cast-León 
+
+                                        # Cast-León 
 provincias<-unlist(cProvinciasCCAA[7])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# Cast-La Mancha
+
+                                        # Cast-La Mancha
 provincias<-unlist(cProvinciasCCAA[8])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# Cataluña
+
+                                        # Cataluña
 provincias<-unlist(cProvinciasCCAA[9])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# C. Valenciana
+
+                                        # C. Valenciana
 provincias<-unlist(cProvinciasCCAA[10])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# Extremadura
+
+                                        # Extremadura
 provincias<-unlist(cProvinciasCCAA[11])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# Galicia
+
+                                        # Galicia
 provincias<-unlist(cProvinciasCCAA[12])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# Madrid
+
+                                        # Madrid
 provincias<-unlist(cProvinciasCCAA[13])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# Murcia 
+
+                                        # Murcia 
 provincias<-unlist(cProvinciasCCAA[14])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# Navarra
+
+                                        # Navarra
 provincias<-unlist(cProvinciasCCAA[15])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# País Vasco
+
+                                        # País Vasco
 provincias<-unlist(cProvinciasCCAA[16])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# La Rioja 
+
+                                        # La Rioja 
 provincias<-unlist(cProvinciasCCAA[17])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
+
 ```
-## Mapas para IFN3
+## Mapas para el IFN3
+
 ```{r IFN3}
 
 parcelas<-prepararDatos(3)
 
-# Andalucia
+
+                                        # Andalucia
 provincias<-unlist(cProvinciasCCAA[1])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# Aragon  
+
+                                        # Aragon  
 provincias<-unlist(cProvinciasCCAA[2])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# Asturias
+
+                                        # Asturias
 provincias<-unlist(cProvinciasCCAA[3])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# Baleares
+
+                                        # Baleares
 # provincias<-unlist(cProvinciasCCAA[4])
 # datCCAA<-CCAA(provincias)
 # representacionMapa(datCCAA)
-# Canarias
+
+                                        # Canarias
 provincias<-unlist(cProvinciasCCAA[5])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# Cantabria     
+
+                                        # Cantabria     
 provincias<-unlist(cProvinciasCCAA[6])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# Cast-León 
+
+                                        # Cast-León 
 provincias<-unlist(cProvinciasCCAA[7])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# Cast-La Mancha
+
+                                        # Cast-La Mancha
 provincias<-unlist(cProvinciasCCAA[8])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# Cataluña
+
+                                        # Cataluña
 provincias<-unlist(cProvinciasCCAA[9])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# C. Valenciana
+
+                                        # C. Valenciana
 provincias<-unlist(cProvinciasCCAA[10])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# Extremadura
+
+                                        # Extremadura
 provincias<-unlist(cProvinciasCCAA[11])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# Galicia
+
+                                        # Galicia
 provincias<-unlist(cProvinciasCCAA[12])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# Madrid
+
+                                        # Madrid
 provincias<-unlist(cProvinciasCCAA[13])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# Murcia 
+
+                                        # Murcia 
 provincias<-unlist(cProvinciasCCAA[14])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# Navarra
+
+                                        # Navarra
 provincias<-unlist(cProvinciasCCAA[15])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# País Vasco
+
+                                        # País Vasco
 provincias<-unlist(cProvinciasCCAA[16])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
-# La Rioja 
+
+                                        # La Rioja 
 provincias<-unlist(cProvinciasCCAA[17])
 datCCAA<-CCAA(provincias)
 representacionMapa(datCCAA)
+
 ```
 
 ## Mapas para IFN4
@@ -616,74 +662,59 @@ representacionMapa(datCCAA)
 
 parcelas<-prepararDatos(4)
 
-# # Andalucia
-# provincias<-unlist(cProvinciasCCAA[1])
-# datCCAA<-CCAA(provincias)
-# representacionMapa(datCCAA)
-# Aragon  
-provincias<-unlist(cProvinciasCCAA[2])
-datCCAA<-CCAA(provincias)
-representacionMapa(datCCAA)
-# Asturias
-provincias<-unlist(cProvinciasCCAA[3])
-datCCAA<-CCAA(provincias)
-representacionMapa(datCCAA)
-# Baleares
-# provincias<-unlist(cProvinciasCCAA[4])
-# datCCAA<-CCAA(provincias)
-# representacionMapa(datCCAA)
-# Canarias
-provincias<-unlist(cProvinciasCCAA[5])
-datCCAA<-CCAA(provincias)
-representacionMapa(datCCAA)
-# Cantabria     
-provincias<-unlist(cProvinciasCCAA[6])
-datCCAA<-CCAA(provincias)
-representacionMapa(datCCAA)
-# Cast-León 
-provincias<-unlist(cProvinciasCCAA[7])
-datCCAA<-CCAA(provincias)
-representacionMapa(datCCAA)
-# Cast-La Mancha
-provincias<-unlist(cProvinciasCCAA[8])
-datCCAA<-CCAA(provincias)
-representacionMapa(datCCAA)
-# Cataluña
-provincias<-unlist(cProvinciasCCAA[9])
-datCCAA<-CCAA(provincias)
-representacionMapa(datCCAA)
-# C. Valenciana
-provincias<-unlist(cProvinciasCCAA[10])
-datCCAA<-CCAA(provincias)
-representacionMapa(datCCAA)
-# Extremadura
-provincias<-unlist(cProvinciasCCAA[11])
-datCCAA<-CCAA(provincias)
-representacionMapa(datCCAA)
-# Galicia
-provincias<-unlist(cProvinciasCCAA[12])
-datCCAA<-CCAA(provincias)
-representacionMapa(datCCAA)
-# Madrid
-provincias<-unlist(cProvinciasCCAA[13])
-datCCAA<-CCAA(provincias)
-representacionMapa(datCCAA)
-# Murcia 
-provincias<-unlist(cProvinciasCCAA[14])
-datCCAA<-CCAA(provincias)
-representacionMapa(datCCAA)
-# Navarra
-provincias<-unlist(cProvinciasCCAA[15])
-datCCAA<-CCAA(provincias)
-representacionMapa(datCCAA)
-# País Vasco
-provincias<-unlist(cProvinciasCCAA[16])
-datCCAA<-CCAA(provincias)
-representacionMapa(datCCAA)
-# La Rioja 
-provincias<-unlist(cProvinciasCCAA[17])
-datCCAA<-CCAA(provincias)
-representacionMapa(datCCAA)
+
+                                        # 1 Andalucia
+## provincias<-unlist(cProvinciasCCAA[1]); datCCAA<-CCAA(provincias); representacionMapa(datCCAA)
+
+                                        # 2 Aragon  
+## provincias<-unlist(cProvinciasCCAA[2]); datCCAA<-CCAA(provincias); representacionMapa(datCCAA)
+
+                                        # 3 Asturias
+provincias<-unlist(cProvinciasCCAA[3]); datCCAA<-CCAA(provincias); representacionMapa(datCCAA)
+
+                                        # 4 Baleares
+provincias<-unlist(cProvinciasCCAA[4]); datCCAA<-CCAA(provincias); representacionMapa(datCCAA)
+
+                                        # 5 Canarias
+provincias<-unlist(cProvinciasCCAA[5]); datCCAA<-CCAA(provincias); representacionMapa(datCCAA)
+
+
+                                        # 6 Cantabria     
+provincias<-unlist(cProvinciasCCAA[6]); datCCAA<-CCAA(provincias); representacionMapa(datCCAA)
+
+                                        # 7 Cast-León
+provincias<-unlist(cProvinciasCCAA[7]) ;datCCAA<-CCAA(provincias); representacionMapa(datCCAA)
+
+                                        # 8 Cast-La Mancha
+## provincias<-unlist(cProvinciasCCAA[8]); datCCAA<-CCAA(provincias); representacionMapa(datCCAA)
+
+                                        # 9 Cataluña
+provincias<-unlist(cProvinciasCCAA[9]); datCCAA<-CCAA(provincias); representacionMapa(datCCAA)
+
+                                        # 10 C. Valenciana
+## provincias<-unlist(cProvinciasCCAA[10]); datCCAA<-CCAA(provincias); representacionMapa(datCCAA)
+
+                                        # Extremadura
+provincias<-unlist(cProvinciasCCAA[11]); datCCAA<-CCAA(provincias); representacionMapa(datCCAA)
+
+                                        # Galicia
+provincias<-unlist(cProvinciasCCAA[12]); datCCAA<-CCAA(provincias); representacionMapa(datCCAA)
+
+                                        # Madrid
+provincias<-unlist(cProvinciasCCAA[13]); datCCAA<-CCAA(provincias); representacionMapa(datCCAA)
+
+                                        # Murcia 
+provincias<-unlist(cProvinciasCCAA[14]); datCCAA<-CCAA(provincias); representacionMapa(datCCAA)
+
+                                        # Navarra
+provincias<-unlist(cProvinciasCCAA[15]); datCCAA<-CCAA(provincias); representacionMapa(datCCAA)
+
+                                        # País Vasco
+provincias<-unlist(cProvinciasCCAA[16]); datCCAA<-CCAA(provincias); representacionMapa(datCCAA)
+
+                                        # La Rioja 
+## provincias<-unlist(cProvinciasCCAA[17]); datCCAA<-CCAA(provincias); representacionMapa(datCCAA)
+
 ```
 
 # Referencias

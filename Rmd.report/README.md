@@ -2,7 +2,7 @@
 
 R-Markdown report for "Evaluación de las Masas complejas en España. Proyecto COMFOR SUDOE"
 
-This repository has been made with rmarkdown, which is able to mix markdown and R, the first one for writing the report (with latex for generating pdf, or pandoc for many other output format files such html, word,...), and the later for executing R code and generate graph and show data. 
+This repository has been made with RMarkdown, which is able to mix markdown and R, the first one for writing the report (with latex for generating pdf, or pandoc for many other output format files such html, word,...), and the later for executing R code and generate graph and show data. 
 
 ## Data used 
 Data are stored in folder ./data. All information has been processed with the scripts included in this repository

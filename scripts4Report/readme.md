@@ -1,6 +1,6 @@
 # Descripción de los scripts de esta carpeta
 
-A partir de los cálculos realizados con 'CalculosIFN.R' se presentan los scripts para elaborar mapas y gráficas con los resultados generados.
+A partir de los cálculos realizados con 'CalculosIFN.R' se presentan los scripts para elaborar mapas y gráficas con los resultados generados
 
 
 ## Mapa por una CCAA

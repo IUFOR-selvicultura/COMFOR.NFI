@@ -340,7 +340,7 @@ setwd("C:/Users/Irene/Documents/COMFOR.NFI2")
 ## Inventario 
 id <- 4
 ## Ruta de los datos
-dir <- './data/'
+dir <- "C:/Users/Irene/Documents/COMFOR.NFI2/data/"
 
 lecturaDatos<-function(id){
   ## lectura de parcelas

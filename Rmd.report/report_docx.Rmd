@@ -616,10 +616,10 @@ representacionMapa(datCCAA)
 
 parcelas<-prepararDatos(4)
 
-# Andalucia
-provincias<-unlist(cProvinciasCCAA[1])
-datCCAA<-CCAA(provincias)
-representacionMapa(datCCAA)
+# # Andalucia
+# provincias<-unlist(cProvinciasCCAA[1])
+# datCCAA<-CCAA(provincias)
+# representacionMapa(datCCAA)
 # Aragon  
 provincias<-unlist(cProvinciasCCAA[2])
 datCCAA<-CCAA(provincias)

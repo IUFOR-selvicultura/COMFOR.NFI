@@ -539,7 +539,7 @@ representacionMapa(datCCAA)
 ## Mapas para IFN3
 ```{r IFN3}
 
-parcelas<-prepararDatos(2)
+parcelas<-prepararDatos(3)
 
 # Andalucia
 provincias<-unlist(cProvinciasCCAA[1])
@@ -614,7 +614,7 @@ representacionMapa(datCCAA)
 ## Mapas para IFN4
 ```{r IFN4}
 
-parcelas<-prepararDatos(2)
+parcelas<-prepararDatos(4)
 
 # Andalucia
 provincias<-unlist(cProvinciasCCAA[1])

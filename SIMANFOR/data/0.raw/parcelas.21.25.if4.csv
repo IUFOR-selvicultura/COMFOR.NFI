@@ -1,0 +1,652 @@
+"","Provincia","Estadillo","Cla","Subclase","Tipo","Vuelo1","Pasada1","Foto1","Vuelo2","Pasada2","Foto2","Ano","Nivel1","Nivel2","Nivel3","FccTot","FccArb","DisEsp","ComEsp","Rocosidad","Textura","MatOrg","PhSuelo","TipSuelo1","TipSuelo2","TipSuelo3","MErosiva","ModComb","EspCMue","PresReg","EfecReg","CortaReg","MejVue1","MejVue2","MejSue1","MejSue2","Orienta1","Orienta2","MaxPend1","MaxPend2","Localiza","Acceso","Levanta","Obser","FechaIni","HoraIni","FechaFin","HoraFin","Origen","PlotID0","PlotID"
+"5880",5,444,"A","1",0,"1982","04","4740","1998","","4-3",2019,1,1,1,75,75,1,2,3,2,2,4,1,2,1,1,8,3,NA,NA,0,0,0,0,0,15,0,10,0,2,2,2,"Parcela localizada por referencias de fotos aereas, croquis y pies mayores
+[ClaEsp. Resto de especies=10%]He dejado el 10% para el resto de especies
+[Matorral]Fuera de 10M hay Cytisus y Cistus ladanifer
+[Pies Mayores]Pie 1 distancia comprobada
+Pie 2 distancia comprobada
+Pie 3 distancia comprobada
+Pie 4 distancia comprobada
+Pie 8 bifurcado a 9.8M
+A 110G y 18.3M un silvestre no entra justo por diametro(419/427)
+Pie 10 distancia comprobada
+Pie 11 distancia comprobada
+Pie 12 distancia comprobada
+Pie 13 distancia comprobada
+Pie 14 distancia comprobada
+Pie 18 distancia comprobada
+Pie 19 distancia comprobada
+Pie 20 distancia comprobada
+Pie 21 distancia comprobada
+Pie 23 distancia comprobada
+Pie 25 distancia comprobada
+A 322G y 21.4M un silvestre no entra justo por diametro(405/435)
+Pie 35 distancia comprobada
+Pie 36 distancia comprobada
+Pie 37 distancia comprobada
+Pie 38 distancia comprobada
+Pie 39 distancia comprobada",2019-08-20,2000-01-01,2019-08-20,2000-01-01,5,"5.444","5.444.A.1"
+"6039",5,697,"A","1",0,"1985","K","0012","1998","","2-4",2019,1,1,1,100,75,1,2,1,2,2,4,1,2,1,1,8,3,NA,NA,1,0,0,0,0,245,0,9.75,0,2,2,1,"Parcela localizada por fotos aereas, ortofotos y referencias de croquis y pies mayores.
+[ClaEsp. Resto de especies=10%] Dejo el 10% para el resto de especies.
+[Regeneración] Fuera de 5m hay regeneracion de P. sylvestris.
+[Pies Mayores]Pie 1 distancia comprobada
+Pie 2 distancia comprobada
+Pie 5 distancia comprobada
+Pie 6 distancia comprobada
+Pe 8 distancia comprobada
+Pie 9 distancia comprobada
+Pie 16 distancia comprobada
+Pie 17 distancia comprobada
+Pie 19 distancia comprobada
+Pie 20 distancia comprobada
+Pie 21 distancia comprobada
+Pie 30 distancia comprobada
+Pie 32 altura comprobada",2019-08-13,2000-01-01,2019-08-13,2000-01-01,5,"5.697","5.697.A.1"
+"6118",5,846,"A","1",0,"1985","M","0009","1997","","3-4",2019,1,1,2,95,85,1,2,2,2,2,4,1,2,1,1,8,3,NA,NA,0,0,0,1,0,170,0,10.5,0,2,2,2,"[Pies Mayores]A 167g hay un 25 que no entra por distancia:10.1 mtrs al lateral.
+a 221g y 13.4 mtrs hay un 26 que no entra por diametro:221-224.
+a 392g hay un 26 que no entra por distancia:15.1 mtrs al lateral.",2019-07-11,2000-01-01,2019-07-11,2000-01-01,5,"5.846","5.846.A.1"
+"6245",5,1055,"A","1",0,"1985","J","0010","1997","","2-1",2019,1,1,1,98,80,1,2,2,2,2,4,1,2,1,1,5,1,NA,NA,1,0,NA,0,NA,335,NA,7.75,NA,1,2,1,"PARCELA LOCALIZADA CON ORTOFOTO CROQUIS Y PIES IFN3.
+ORTOFOTO MARCA SOLAPE DE TESELAS PERO EN CAMPO SE COMRUEBA QUE LOS LIMITES DE LA TESELA ESTAN A MAS DE 25M.
+[ClaEsp]10% RESTO ESPECIES
+
+[Pies Mayores]
+PIE 019 DIAMETROS COMPROBADOS.",2019-07-15,2000-01-01,2019-07-15,2000-01-01,5,"5.1055","5.1055.A.1"
+"8168",9,355,"A","1",0,"1985","K","0008","1997","","2-3",2018,1,1,2,100,70,1,1,2,2,1,4,1,2,1,1,5,5,NA,NA,0,4,0,3,0,165,NA,5,NA,2,2,2,"PARCELA LOCALIZADA CON FOTOS AEREA, ORTOFOTO, CROQUIS Y PIES IFN3. 
+[Regeneración]
+[Matorral]
+GAYUBA A MAS DE 10M.
+[Pies Mayores]PIES 8-16 ALTURA COMPROBADA TIENEN LA COPA PARTIDA.
+PIES 14-15 MEDIDOS A 1.5 M PORQUE ESTAN FUSIONADOS.
+PIE 23 ALTURA Y FORMA COMPROBADA.",2018-09-06,2000-01-01,2018-09-06,2000-01-01,9,"9.355","9.355.A.1"
+"8229",9,107,"A","1",0,"1997","","4-4","","","",2018,1,1,1,90,80,1,2,2,3,1,4,1,2,1,1,8,10,NA,NA,0,0,0,0,0,398,0,5,0,2,3,2,"PARCELA LOCALIZADA CON CROQUIS Y PIES MAYORES IFN3.
+[Pies Mayores]
+ESPECIE COMPROBADA PIE 21
+A 157G Y 4.1M HAY UN 45 QUE NO ENTRA POR DIAMETROS (67;73)
+PIE 34 MEDIDO A 1M POR BIFURCACION.
+PAE COMPROBADO PIE 45
+PIE 50 MEDIDO A 1M POR BIFURCACION.
+PIE 57 MEDIDO A 1M POR BIFURCACION.
+PIE 50 A CAUSA DEL VIENTO SE ESTA ABRIENDO LA BIFURCACION Y TERMINARA ROMPIENDOSE.
+FORMA COMPROBADA PIE 53
+A 343G Y 14M HAY UN 25 QUE NO ENTRA POR DIAMETROS (222;209)
+A 345G Y 11.6M HAY UN 25 QUE NO ENTRA POR DIAMETROS (218;224)
+ALTURA COMPROBADA PIE 62
+CODIGO 311: PROCESIONARIA.",2018-06-04,2000-01-01,2018-06-04,2000-01-01,9,"9.107","9.107.A.1"
+"8230",9,108,"A","1",0,"1984","M","0005","1997","","3-4",2018,1,1,2,100,70,1,2,2,3,2,4,1,2,1,1,5,8,NA,NA,0,0,0,0,0,207,0,8,0,2,2,2,"[Pies Mayores]pie 6 paes comprobados.
+pie 17 altura comprobada y forma distinta.
+[Especies Presentes]en los alrededores de la parcela hay un pinaster.
+no he barrenado el rebollo por estar muy afectados por el ataque de insectos perforadores y hongos.",2018-04-18,2000-01-01,2018-04-18,2000-01-01,9,"9.108","9.108.A.1"
+"8395",9,959,"A","1",0,"1985","K","0006","1997","","1-2",2018,1,1,2,100,80,1,2,1,2,1,4,1,2,1,1,1,7,NA,NA,1,0,0,0,0,272,392,8.25,5.5,1,2,2,"[ClaEsp]EL 10% RESTANTE AL AVELLANO.
+[Matorral]ENCUENTRO CENTRO DE PARCELA. DEJO UN TROZO DE PLASTICO DENTRO DEL REJON.
+[Pies Mayores]N1 ALTURA COMP.N2 ALTURA COMP.N7 ALTURA COMP.N9 ALTURA COMP.N19 SP COMP.PINO SILVESTRE A 198G NO ENTRA POR DM.QUEJIGO A 202G NO ENTRA POR DM.LARICIO A 321G NO ENTRA POR DM.",2018-04-03,2000-01-01,2018-04-03,2000-01-01,9,"9.959","9.959.A.1"
+"8626",9,717,"A","1",0,"1985","M","0004","1997","","3-4",2018,1,1,1,100,95,1,2,2,2,2,4,1,2,1,1,6,4,NA,NA,0,0,0,0,0,220,NA,11.75,NA,2,2,2,"[ClaEsp. Resto de especies=10%]
+rejon encontrado por fotos y pies del ifn3[Pies Mayores]pie a 108g no entra por distancia 
+pie a 114g,290g no entra por diametro 
+rumbos, distancias, calidades y formas comprobadas (4, 5, 11, 26, 27, 31)
+pae 7 comprobada ",2018-06-15,2000-01-01,2018-06-15,2000-01-01,9,"9.717","9.717.A.1"
+"8758",9,919,"A","1",0,"1985","L","0003","1997","","3-1",2018,1,1,2,98,65,1,1,2,2,2,4,1,2,1,1,8,2,NA,NA,1,0,0,0,0,333,NA,5.5,NA,2,2,2,"[Pies Mayores] ARBOL N 16 ESPECIE COMPROBADA. AL DAR LAS OCUPACIONES HE RECORRIDO LA TESELA Y HE COMPROBADO QUE LA ABUNDANCIA DE PINUS NIGRA ES MAYOR QUE EN LA PARCELA. SUCEDIENDO LO MISMO CON Q SUBER Y Q ILEX. PARCELA LOCALIZADA Y LEVANTADA POR EL AUXILIAR Y HA ESTADO PRESENTE JUAN DEL VALLE",2018-05-04,2000-01-01,2018-05-04,2000-01-01,9,"9.919","9.919.A.1"
+"8759",9,920,"A","1",0,"1997","","3-2","1985","L","0004",2018,1,1,1,100,65,1,2,1,3,2,4,1,2,1,1,5,3,NA,NA,0,0,0,0,0,50,NA,5,NA,2,1,1,"[Pies Mayores] ARBOL N 10 FORMA COMPROBADA. P. NIGRA A 259 GRADOS NO ENTRA POR DIAMETRO .  PARCELA  LEVANTADA YLOCALIZADA POR EL AUXILIAR",2018-04-27,2000-01-01,2018-04-27,2000-01-01,9,"9.920","9.920.A.1"
+"8810",9,1041,"A","1",0,"1985","L ","0011","1997","","4-2",2018,1,1,2,100,80,1,2,2,2,2,4,1,2,1,1,8,4,NA,NA,0,0,0,0,0,170,NA,0.5,NA,1,2,1,"rejon encontrado por fotos y pies del ifn3[Pies Mayores]pie a 123g y 219g no entran por distancia. 
+pie a 35g, 104g y 318g no entran por diametro.
+pies 14, 15, 17 pae comprobado.
+pie 20 y 21 medidos a 1.6mts por bifurcacion y respetando criterio del ifn3.
+pie 31 medido a 1.1mt pr bifurcacion.
+Parcela localizada y levantada por el auxiliar Guillermo Sanchez ",2018-05-09,2000-01-01,2018-05-09,2000-01-01,9,"9.1041","9.1041.A.1"
+"9020",9,1393,"A","1",0,"1997","","2-4","1985","K","0009",2018,1,1,2,95,60,1,2,3,2,1,4,1,2,1,1,4,6,NA,NA,0,0,NA,1,NA,52,NA,16,NA,2,3,3,"LOCALIZADA A TRAVES DE CROQUIS (DESPLAZADA EN IFN3 6M A 349G) Y PIES MAYORES.
+10% DEMAS ESPECIES.
+PIE 3 MEDIDO A 1,15M POR ENGROSAMEINTO BIFURCACION.
+PIES 2 (PARTIDO), 3, 4 ALTURA COMPROBADA.
+COMPROBADA ESPECIE PIES 7, 8.
+COMPROBADO PAE PIES 11, 20, 22, 23 (ESTOS DOS ULTIMOS ESTAN PEGADOS).
+",2018-11-24,2000-01-01,2018-11-24,2000-01-01,9,"9.1393","9.1393.A.1"
+"9102",9,1544,"A","1",0,"1985","M","0010","1997","","4-4",2018,1,1,2,100,85,1,2,3,2,1,4,1,2,1,1,6,7,NA,NA,1,0,0,0,0,350,NA,10,NA,2,2,1,"[Pies Mayores]N1 PAE COMP.N2 ALTURA COMPROBADA.N9 ALTURA COMPROBADA N10 ALTURA COMPROBADA.025 A 88G NO ENTRA  POR DM.N20 ALTURA COMPROBADA N23 PAE COMP.N27 ALTURA COMPROBADA N35 ALTURA COMP.N32 ALTURA COMP
+[Regeneración]EDAD BASADA EN INFO ANTERIOR",2018-11-21,2000-01-01,2018-11-21,2000-01-01,9,"9.1544","9.1544.A.1"
+"9130",9,1596,"A","1",0,"1985","K","0005","1997","","1-4",2018,1,1,2,90,85,1,1,2,3,2,4,1,2,1,1,8,3,NA,NA,0,0,NA,0,NA,320,NA,7.5,NA,2,2,1,"PARCELA LOCALIZADA CON ORTOFOTO CROQUIS Y PIES IFN3.
+[Pies Mayores]
+PIE 001-012-032 ALTURA COMPROBADA 
+PIE 001-003-006-010 SENALADO PARA CORTAS 
+PIE 008 DISTANCIA COMPROBADA ",2018-11-19,2000-01-01,2018-11-19,2000-01-01,9,"9.1596","9.1596.A.1"
+"9195",9,1718,"A","1",0,"1984","L","0012","1997","","4-3",2018,1,1,2,95,80,1,2,3,2,2,4,1,2,1,1,7,3,NA,NA,1,4,0,0,0,155,NA,3,NA,2,1,1,"[Identificación] PARCELA LOCALIZADA POR FOTOGRAFIA AEREA Y PIES MAYORES IFN3.
+[ClaEsp. Resto de especies=10%]
+[Pies Mayores] 044 A 8 GR Y 9.1 MT NO POR DM 105-115.
+045 A 62 GR Y 7.3 MT NO POR DM 107-122.
+021 A 277 GR Y 10.1 MT NO POR DIST. DM 136-136.
+025 A 313 GR Y 8.9 MT NO POR DM 107-115.
+021 A 361 GR Y 12.8 MT NO POR DM 208-208.
+PIES 4, 8 PAE COMPROBADO.",2018-02-12,2000-01-01,2018-02-12,2000-01-01,9,"9.1718","9.1718.A.1"
+"9196",9,1719,"A","1",0,"1997","","4-2","1984","L","0012",2018,1,1,2,95,85,1,2,3,1,2,5,1,1,1,1,5,2,NA,NA,0,0,0,0,0,140,NA,4.5,NA,2,2,1,"[Identificación] PARCELA LOCALIZADA POR ORTOFOTO, CROQUIS IFN3 Y PIES MAYORES.
+PARCELA SITUADA EN UNA REPOLACION MIXTA DE PINO LARICIO Y SILVESTRE.
+BAJO EL ARBOLADO PREDOMINA EL MATORRAL BAJO COMPUESTO DE CISTUS LAURIFOLIOS PRINCIPALMENTE.
+COMO REFERENCIA INDICAR QUE HAY UN 025 A 344 GR Y 17.4 MT CON DM 259-251 BIF. POR ENCIMA DE 1.30 MT (ES EL UNICO POR LA ZONA).
+[ClaEsp] EL ESTO DE ESPECIES NO TIENEN ENTIDAD SUFICIENTE PARA DARLE OCUPACION.
+[Regeneración] FUERA DE 5 MT HAY REGENERACION DE ENEBRO, CATEGORIA 2.
+[Suelo] ROCOSIDAD COMPROBADA.
+[Selvicultura] PODAS Y CORTAS ANTIGUAS, INDICADAS EN IFN3, QUE NO TENGO EN CUENTA.
+[Pies Mayores] EN IFN3 SE INDICA CALIDAD 3 Y AGENTE 322 A TODOS LOS PIES, CONDICION QUE ACTUALMENTE NO SE CONTEMPLA, A EXCEPCION DE UNOS POCOS, PORQUE LOS PIES NO PRESENTAN DANOS. 
+PIES AFECTADOS POR PERFORADORES SON SILVESTRES, LOS PIES DE LARICIO AUN NO ESTAN AFECTADOS.
+PIE 17 IFN3 (888 IFN4) MUERTO POR PERFORADORES.
+PIE 18 DIST. LATERAL CINTA 9.99 MT.
+PIE 23 DANOS POR PERFORADORES.
+021 A 10 GR Y 11.1 MT NO POR DM 205-191. 
+021 A 9 GR Y 14.7 MT NO POR DM 205-205.
+025 A 45 GR Y 11 MT NO POR DM 206-201.
+025 A 60 GR Y 12.9 MT NO POR DM 210-216.
+021 A 60 GR Y 10.3 MT NO POR DIST. DM 202-186.
+021 A 77 GR Y 10.4 MT NO POR DM 198-208.
+025 A 160 GR Y 12.3 MT NO POR DM 221-221.
+025 A 183 GR Y 15.16 MT (LATERAL 15.30 MT), NO POR DIST. DM 253-251.
+025 A 187 GR Y 12.7 MT NO POR DM 205-210.
+025 A 201 GR Y 11.2 MT NO POR DM 221-204.
+021 A 218 GR Y 7.3 MT NO POR DM 103-106.
+021 A 237 GR Y 13.9 MT NO POR DM 213-213.
+021 GR Y 10.25 MT NO POR DIST. NI DM 219-216.
+025 A 268 GR Y 13 MT NO POR DM 217-219.
+025 A 271 GR Y 10.4 MT NO POR DIST. DM 154-157.
+021 MUERTO EN PIE (DESCOMPOSICION 1) A 317 GR Y 14.1 MT CON DM 185-182 (DANOS POR PERFORADORES).
+025  A 301 GR Y 15.25 MT NO POR DIST. DM 230-225.
+025 A 355 GR Y 14.5 MT NO POR DM 225-218.
+025 A 357 GR Y 12.7 MT NO POR DM 201-200.
+025 A 370 GR Y 12.8 MT NO POR DM 205-204.
+",2018-08-24,2000-01-01,2018-08-24,2000-01-01,9,"9.1719","9.1719.A.1"
+"9468",9,2234,"A","1",0,"1982","03","4815","1997","","3-3",2018,1,1,1,100,65,1,1,1,2,2,4,1,2,1,1,5,4,NA,NA,1,0,0,0,0,230,NA,0.75,NA,2,2,1,"PARCELA LOCALIZADA MEDIANTE ORTOFOTO Y PIES IFN3. HAY CORTAS. 10% RESTO SP. RUMBOS COMPROBADOS. FUERA DE 10M HAY PRUNUS. PARCELA LEVANTADA CON LLUVIA.",2018-04-04,2000-01-01,2018-04-04,2000-01-01,9,"9.2234","9.2234.A.1"
+"9611",9,2468,"A","1",0,"1985","M","0004","1997","","3-3",2018,1,1,1,90,70,1,2,1,2,2,4,1,2,1,1,6,2,NA,NA,1,0,0,0,0,235,NA,3.5,NA,1,1,2,"PARCELA LOCALIZADA MEDIANTE GPR, REFERENCIAS Y PIES MAYORES IFN3.
+[Pies Mayores]
+PIE 1,22 CALIDAD Y DIAMETROS COMPROBADOS
+PIE 4,17,23 CALIDAD COMPROBADA 
+PIE 7 ALTURA Y CALIDAD COMPROBADA 
+PIE 22 TIENE SU BIFURCACION MUERTA POR ESO NO SE CONSIDERA BIFURCADO (41)
+PIE 29 ESTA TUMBADO POR EL VIENTO Y APOYADO EN OTRO PIE PERO MEDIO CEPELLON ESTA EN LA TIERRA Y EL ARBOL VIVO, AUNQUE SU VIAVILIDAD ES CASI NULA
+021 A 19.5 MTS Y 343 GRS NO POR DIAMETRO (427-413)
+NO SE BARRENA EL P.SILVESTRE PROPUESTO POR TENER EL TRONCO DANADO.",2018-06-07,2000-01-01,2018-06-07,2000-01-01,9,"9.2468","9.2468.A.1"
+"9732",9,2674,"A","1",0,"1984","J","0005","1997","","1-2",2018,1,1,1,95,60,1,1,2,2,3,4,1,2,1,1,1,2,NA,NA,1,4,0,0,0,212,135,2,2.5,1,1,1,"PARCELA LOCALIZADA MEDIANTE ORTOFOTO, REFERENCIAS Y PIES MAYORES IFN3.
+[ClaEsp. Resto de especies=10%]
+[Pies Mayores]
+024 A 18.7 MTS Y 18 GRS NO POR DIAMETRO (402-425)
+REFERENCIA: CEPA DE ENCINA A 28.2 MTS Y 36 GRS.
+CALIDAD COMPROBADA EN TODOS LOS PINOS YA QUE ESTAN CASI MUERTOS DEBIDO A LA PROCESIONARIA Y AL MUERDAGO, SOLO CONSERVAN BROTES VERDES AISLADOS.
+NO SE BARRENA DEBIDO A SU CALIDAD 5.",2018-04-19,2000-01-01,2018-04-19,2000-01-01,9,"9.2674","9.2674.A.1"
+"9867",9,3219,"A","1",0,"1997","","1-3","","","",2018,1,1,2,100,90,1,2,2,2,2,4,1,2,1,1,7,4,NA,NA,0,0,0,0,0,350,NA,5.25,NA,2,2,2,"[ClaEsp. Resto de especies=10%]
+rejon encontrado por fotos y pies del ifn3[Pies Mayores]pie 1, 10, 18, 27, 51 pae comprobado
+.pie a 43g, 79g, 153g, 167g, 179g no entra por diametro.
+pie 49 distancia comprobada
+pie a 340 g no entra por distancia 
+[Riesgos]modelo combustible comprobado",2018-06-11,2000-01-01,2018-06-11,2000-01-01,9,"9.3219","9.3219.A.1"
+"10029",9,3533,"A","1",0,"1997","","2-4","","","",2018,1,1,1,90,45,1,1,2,1,3,4,1,2,1,1,5,2,NA,NA,0,4,0,0,0,85,0,4,0,1,2,1,"PARCELA LOCALIZADA CON CROQUIS Y PIES MAYORES IFN3.
+[ClaEsp. Resto de especies=10%]
+[Pies Mayores]
+PINOS HIBRIDADOS ENTRE ELLOS, ALGUNOS PIES DE DIFICIL IDENTIFICACION.
+A 5G Y 22.8M HAY UN 25 QUE NO ENTRA POR DIAMETROS (435;405)
+A 102G Y 9.8M HAY UN 21 QUE NO ENTRA POR DIAMETROS (120;119)
+ESPECIE COMPROBADA PIE 5
+PIE 7 MEDIDO A 1.20M POR ENGROSAMIENTO DEL FUSTE.
+CODIGO 311: PROCESIONARIA.
+FUERA LOS 5M HAY REGENERACION DE ENCINA. 
+[Selvicultura]
+LAS PODAS SON ANTIGUAS.",2018-07-11,2000-01-01,2018-07-11,2000-01-01,9,"9.3533","9.3533.A.1"
+"10047",9,3563,"N","N",0,"2013","","1-4","","","",2018,1,1,2,100,70,1,2,1,2,2,4,1,2,1,1,5,3,NA,NA,0,0,0,0,0,240,0,1.25,0,1,2,2,"[Pies Mayores]no saco crecimientos por estar la masa muy afectada por la procesionaria.
+[Regeneración]no hay.
+[Especies Presentes]en los alrededores de la parcela hay juniperus comunis.",2018-11-30,2000-01-01,2018-11-30,2000-01-01,9,"9.3563","9.3563.N.N"
+"10086",9,3602,"N","N",0,"2013","","3-2","","","",2018,1,1,2,85,80,1,2,2,2,2,4,1,2,1,1,8,3,NA,NA,0,0,0,0,0,270,0,13.75,0,2,2,2,"[Identificación]parcela desplazada 20 mtrs con r:70g para introducirla en su tesela.
+[ClaEsp. Resto de especies=10%]
+[Pies Mayores]a 11g y 11.2 mtrs hay un 25 que no entra por diametro:216-220.
+a 147g hay un 25 que no entra por distancia:5.1 mtrs al lateral,ni diametro:117-131.
+a 220g hay un 21 que no entra por distancia:15.2 mtrs al lateral.
+a 246g hay un 21 que no entra por distancia:15.1 mtrs al lateral.
+[Matorral]122:ramnus alpinus.
+fuera de los 10 mtrs hay viburnum lantana.",2018-06-20,2000-01-01,2018-06-20,2000-01-01,9,"9.3602","9.3602.N.N"
+"10088",9,3604,"N","N",0,"2013","","1-2","","","",2018,1,1,2,100,80,1,2,1,2,2,4,1,2,1,1,11,3,NA,NA,1,4,9,0,0,340,NA,0.75,NA,2,2,1,"rejon pinchado en cruce de coordenadas [Pies Mayores]pie a 105g no entre por distancia 
+[Selvicultura]leve clareo
+procesionaria en pinos mayormente en silvestres",2018-06-08,2000-01-01,2018-06-08,2000-01-01,9,"9.3604","9.3604.N.N"
+"23906",24,212,"A","4C",0,"1997","","4-4","1985","M","012",2019,1,1,2,95,60,1,2,1,2,2,4,1,2,1,1,7,5,NA,NA,1,4,0,0,0,260,NA,1.5,NA,2,2,2,"REJON NO LOCAIZADO POR NO TENER REFERENCIAS EXACTAS.
+CRUCE DE COORDENADAS LOCALIZADO POR ORTOFOTO Y GPS.
+[Identificación]
+[Pies Mayores]
+PIE N 23 DN A 1.4M POR NUDO
+[Regeneración]
+COMPROBADO
+[Riesgos]
+TAMBIEN HAY MODELO DE COMBUSTIBLE DE RESIDUOS EN CALLES POR CORTA DE PROCESADORA.",2019-09-13,2000-01-01,2019-09-13,2000-01-01,24,"24.212","24.212.A.4C"
+"24190",24,732,"A","4",0,"2013","","2-4","1984","K","0008",2019,1,1,2,90,80,1,2,2,2,2,4,1,2,1,1,5,3,NA,NA,1,0,NA,5,NA,245,NA,6.5,NA,3,1,1,"[Identificación]PARCELA NO LOCALIZADA, NO SE ENCUENTRAN LAS REFERENCIAS Y HAN HECHO UNA ENTRESACA CORTANDO BASTANTES PIES, POR LO TANTO, SE IMPLANTA EN CRUCE DE COORDENADAS Y SE CLASIFICA COMO A4.
+[Pies Mayores]PIE 28 BIFURCADO A MAS DE 4M.
+A RUMBO 324 Y 13M NO 025 POR DIAMETROS.
+A RUMBO 327 Y 15.1M(LATERAL) NO 025 POR DISTANCIA.
+A RUMBO 378 Y 15.1M(LATERAL) NO 025 POR DISTANCIA NI POR DIAMETROS.",2019-09-11,2000-01-01,2019-09-11,2000-01-01,24,"24.732","24.732.A.4"
+"24233",24,795,"A","1",0,"1997","","1-3","1984","K","0003",2019,1,1,2,95,80,1,2,2,2,1,4,1,2,1,1,8,6,NA,NA,1,0,0,5,0,65,NA,6.75,NA,1,2,2,"[Pies Mayores]N2 COMP.SILVESTRE A 189G NO ENTRA POR DM.",2019-08-26,2000-01-01,2019-08-26,2000-01-01,24,"24.795","24.795.A.1"
+"24240",24,803,"A","4",0,"1997","","2-4","1984","K","0011",2019,1,1,2,100,90,1,2,2,3,1,4,1,2,1,1,6,5,NA,NA,1,4,NA,5,NA,283,NA,5,NA,3,3,1,"[Identificación]rejon ifn3 no localizado, ya que se han hecho abundantes cortas tanto de pino como de rebollo,no hay referencias.
+parcela pinchada en cruce de coordenadas con gps.
+[Pies Mayores]
+25-r.374 a 12.2m no por diametro.
+[Localización]levantamiento dificil por lluvia.",2019-11-01,2000-01-01,2019-11-01,2000-01-01,24,"24.803","24.803.A.4"
+"24262",24,836,"A","1",0,"1997","","4-1","1984","L","0009",2019,1,1,2,90,75,1,1,2,1,1,3,1,2,1,1,7,2,NA,NA,1,0,0,4,0,302,NA,1.5,NA,2,2,2,"PARCELA LOCALIZADA POR ORTOFOTO, REFERENCIA Y PIES IFN3.DIFICIL LOCALIZACION, HAN CORTADO MUCHO Y LA REFERENCIA NO ERA CLARA.ESTA A UNOS 70M AL OESTE DEL CRUCE. 
+[Pies Mayores]PIES 6 Y 18 DISTANCIA COMPROBADA CON CINTA METRICA. ",2019-10-04,2000-01-01,2019-10-04,2000-01-01,24,"24.836","24.836.A.1"
+"24317",24,919,"A","1",0,"1985","K","0008","1997","","2-3",2019,1,1,2,95,80,1,2,1,3,2,4,1,2,1,1,6,2,NA,NA,1,0,NA,4,NA,86,NA,3,NA,2,2,2,"Rejon localizado por ortofoto y pies y tocones de Ifn3. Modifico la composicion especifica a heterogenea. Cambio el rumbo de las fotos para mejor identificacion. Cambio el modelo de combustible al haberse retirado los restos de corta. La genista sp es la tridantata.
+
+[Pies Mayores]
+Pie 015, 016 y 020 Ifn4 rumbo comprobado.",2019-10-29,2000-01-01,2019-10-29,2000-01-01,24,"24.919","24.919.A.1"
+"24325",24,931,"A","1",0,"1984","L","0003","1997","","3-1",2019,1,1,2,90,65,1,2,2,2,2,4,1,2,1,1,6,2,NA,NA,1,0,0,0,0,20,0,3,0,1,2,2,"Parcela localizada por referencias de fotos aereas, croquis y pies mayores.
+[ClaEsp. Resto de especies=10%] Dejo el 10% para el resto de especies.
+Fuera de la parcela hay roble en estados 3 y 4, pero es mas representativo el estado 2.
+[Regeneración] Fuera de 5m hay regeneracion de Crataegus y Pyrus.
+Parcela localizada y levantada por auxiliar Ines Rodriguez.",2019-10-04,2000-01-01,2019-10-04,2000-01-01,24,"24.931","24.931.A.1"
+"24327",24,935,"A","1",0,"1984","L","0005","1997","","3-2",2019,1,1,2,95,85,1,2,1,1,2,4,1,2,1,1,6,2,NA,NA,1,0,NA,4,NA,110,NA,1.25,NA,3,2,2,"Rejon localizado mediante pies de Ifn3 y los tocones dejados por estos pies y ortofoto. Se observan abundantes cortas. Le quito ocupacion al pinaster al estar gran parte de sus pies cortados. Cambio rumbo de las fotos para mejor identificacion. La genista que hay es la tridantata.
+[Pies Mayores]
+Pie 014 Ifn3 especie comprobada. Pie 020 Ifn3 diametro comprbado.",2019-10-21,2000-01-01,2019-10-21,2000-01-01,24,"24.935","24.935.A.1"
+"24331",24,943,"A","1",0,"1984","L","0005","1997","","3-2",2019,1,1,2,75,70,1,2,1,2,1,4,1,2,1,1,8,2,NA,NA,1,0,NA,4,NA,215,NA,1,NA,2,2,2,"Rejon localizado por pies de Ifn3 y ortofoto. Ha habido cortas. Fuera de los 10m hay 0102, 0106.
+
+[Pies Mayores]
+Pie 006 y 011 de Ifn4 especie comprobada. Pie 013 Pae comprobado. Pie 025 distancia comprobada. Vertex calibrado. Pie 030 Ifn4 trifurcado por encima de los 6M.",2019-10-24,2000-01-01,2019-10-24,2000-01-01,24,"24.943","24.943.A.1"
+"24349",24,970,"A","1",0,"1997","","3-4","1984","M","0005",2019,1,1,2,100,80,1,2,1,1,2,4,1,2,1,1,8,4,NA,NA,1,0,0,4,0,290,NA,2,NA,3,1,1,"N10 DIST.COMP.N11 PAE COMP.",2019-10-31,2000-01-01,2019-10-31,2000-01-01,24,"24.970","24.970.A.1"
+"24350",24,971,"A","1",0,"1984","M","0008","1997","","4-3",2019,1,1,2,75,60,1,2,1,2,2,4,1,2,1,1,11,2,NA,NA,1,4,NA,5,NA,196,NA,6.5,NA,3,1,1,"Parcela localizada, rejon no encontrado. El rejon estaba en una calle de corta que ha sido levantada por maquinaria y todos los pies cortados. El resto de los pies de Ifn3 coinciden y los tocones tambien. Las fotos tambien coinciden con la masa.
+He cambiado el modelo de combustible de matorral a restos selvicolas. Tambien he cambiado foto 1 para mejor localizacion. Pie 025 a 189G y 12.1M no entra por diametro.
+
+[Pies Mayores] Pie 025 a 159G y 10M no entra por distancia.",2019-10-30,2000-01-01,2019-10-30,2000-01-01,24,"24.971","24.971.A.1"
+"24356",24,1577,"A","1",0,"1985","L","0007","1997","","4-1",2019,1,1,2,90,45,1,1,2,2,1,4,1,2,1,1,7,2,NA,NA,0,0,0,0,0,352,NA,4.25,NA,1,2,2,"PARCELA LOCALIZADA POR ORTOFOTO Y PIES MAYORES IFN3. EL REJON APARECE PERO SE HA MOVIDO DE SU LUGAR ORIGINAL POR LA ESCORRENTIA. SE TRIANGULA CON LOS PIES EXISTENTES Y SE PONE DE NUEVO.
+[Pies Mayores]A 0 G Y 15M 021 NO ENTRA POR DISTANCIA LATERAL COMPROBADO CON CINTA METRICA. 
+PIE 9 ESTA CAIDO DE AHI LA VARIACION DE RUMBO Y DISTANCIA.
+[Localización]SE CAMBIA RUMBO DE LAS FOTOS PARA FACILITAR LOCALIZACION.
+[Regeneración] NO HAY.",2019-10-16,2000-01-01,2019-10-16,2000-01-01,24,"24.1577","24.1577.A.1"
+"24394",24,988,"A","4",0,"1984","M","0009","1997","","4-3",2019,1,1,2,100,85,1,2,1,2,1,4,1,2,1,1,7,3,NA,NA,1,0,0,0,0,265,NA,7.5,NA,2,2,2,"parcela pinchada en cruce de coordenadas por falta de indicaciones claras, cambios en la masa y no estar pinchada en fotos aereas[Pies Mayores]pie a 197g. 354g. 380g. no entran por diametro 
+pie a 293g no entra por distancia ",2019-10-31,2000-01-01,2019-10-31,2000-01-01,24,"24.988","24.988.A.4"
+"24395",24,989,"A","4",0,"1984","M","0010","1997","","4-4",2019,1,1,2,100,85,1,2,1,2,2,4,1,2,1,1,8,3,NA,NA,1,4,0,4,0,40,NA,1.25,NA,3,2,2,"parcela pinchada en cruce de coordenadas por fuerte cambio en la masa y falta de indicaciones claras[Pies Mayores]pie a 140g. 172g no entran por distancia 
+pie a 325g n entra por diametro 
+[Selvicultura]entresaca nuevas, poda y acabALLONADOS antiguas ",2019-11-11,2000-01-01,2019-11-11,2000-01-01,24,"24.989","24.989.A.4"
+"24485",24,1142,"A","1",0,"1984","L","0009","1997","","4-1",2019,1,1,2,95,70,1,1,1,2,2,4,1,2,1,1,11,7,NA,NA,1,4,NA,5,NA,160,NA,6.5,NA,2,2,1,"[Identificación] Parcela localizada con foto aerea, croquis y pies ifn3.
+[ClaEsp]Ocupaciones comprobadas.
+[Pies Mayores]
+025-r.164g a 22.4m no por diametro (40cm).
+025-r.188g a 22m no por diametro  (416-400).
+025-r.193g a 10.9m no por diametro (206-216).
+021-r.221g a 13.7m no por diametro (219-214)
+021-r.276g no a 15.2m.
+021-r.307g a 10.6m no por diametro (225-220).
+[Selvicultura]Terrazas deterioradas.
+[PiesMay 10-21]Param. especial comprobado, bifurcacion cortada.
+[Localización]Se cambian los rumbos para que las fotos sean mas significativas.",2019-09-23,2000-01-01,2019-09-23,2000-01-01,24,"24.1142","24.1142.A.1"
+"24494",24,1159,"A","1",0,"1984","J","0008","1997","","2-1",2019,1,1,2,90,85,1,2,1,2,2,4,1,2,1,1,6,3,NA,NA,0,0,0,4,0,120,NA,0.25,NA,1,2,1,"[Identificación] REJON ENCONTRADO CON PIES IFN3.
+[ClaEsp] COMPROBADA OCUPACION, PINO PINASTER MUY ESCASO EN LA TESELA.
+[Pies Mayores]
+COMPROBADA DISTANCIA PIE 1.
+021 A 22G Y 14.0M NO ENTRA POR DIAMETRO 216-223MM.
+COMPROBADO DIAMETRO PIE 30.
+PIE 33 MEDIDO A 1.40M.
+025 A 325G Y 15.0M NO ENTRA POR DISTANCIA LATERAL.
+COMPROBADO PAE PIE 38.
+021 BIFURCADO POR ENCIMA A 375G Y 16.4M NO ENTRA POR DIAMETRO 397-397MM.
+[Selvicultura]
+CORTAS Y PODAS ANTERIORES AL IFN3.",2019-10-11,2000-01-01,2019-10-11,2000-01-01,24,"24.1159","24.1159.A.1"
+"24563",24,1274,"A","1",0,"1984","J","0008","1997","","2-2",2019,1,1,2,95,90,1,3,2,3,2,4,1,2,1,1,4,2,NA,NA,1,4,0,0,0,260,0,0.25,0,2,2,1,"[Identificación]Parcela localizada mediante croquis y pies del ifn3.Pinar de plantacion con subpiso de rebollo. Fcc comprobadas.
+Muchos pies cortados. zona de gran actividad maderera.
+[Pies Mayores]Pie a 100g y 11.3m no entra por dm.Pie 11 forma comprobada.Pie 25 calidad comprobada.Pie 28 forma comprobada.Pie 32 forma comprobada.
+Rumbos comprobados.
+[Riesgos]Modelo combustible comprobado.",2019-10-15,2000-01-01,2019-10-15,2000-01-01,24,"24.1274","24.1274.A.1"
+"24564",24,1275,"A","1",0,"1984","J","0009","1997","","2-2",2019,1,1,2,95,85,1,3,2,3,2,4,1,2,1,1,6,3,NA,NA,1,0,0,0,0,60,195,3.75,4.25,2,2,2,"[Identificación]Parcela localizada mediante fotos y croquis del ifn3.Plantacion de pino con subpiso de rebollo. Se observan muchas cortas. y restos de la misma en el suelo.
+[ClaEsp]
+[Pies Mayores]Pie a 97g y 14.1m no entra por dm.Pie 6 rumbo y dist comprobadas.",2019-10-28,2000-01-01,2019-10-28,2000-01-01,24,"24.1275","24.1275.A.1"
+"24566",24,1279,"A","1",0,"1984","J","0008","1997","","2-2",2019,1,1,2,90,80,1,3,2,1,3,4,1,2,1,1,5,2,NA,NA,1,0,0,0,0,320,0,4.5,0,2,2,1,"[Identificación]PArcela localizada mediante croquis y pies dal ifn3.Plantacion antigua de pino con subpiso de rebllo.Fcc comprobadas.Composicion especifica comprobada.
+[ClaEsp25-4]Ocupacion comprobada. Hay tambien pinaster en los 25 m.
+[Pies Mayores]Pie 6 bifurcacion comprobada.Pie 9 dm comprobados y medidoa 1.20 por rama.
+Rumbos comprobados.Pie 17 bifurcacion desgajada desde su base.Pie 24 dist comprobada.Pie 26 dist comprobada.Pie 27 altura comprobada.
+[Riesgos]Modelo de combustible comprobado.
+[Selvicultura]Se observan ramas por el suelo pero no de podas.",2019-10-11,2000-01-01,2019-10-11,2000-01-01,24,"24.1279","24.1279.A.1"
+"24572",24,1289,"A","1",0,"1984","J","0009","1997","","2-2",2019,1,1,2,100,90,1,3,2,2,3,4,1,2,1,1,7,2,NA,NA,1,0,0,5,0,320,0,3,0,3,2,2,"[Identificación]Parcela localizada mediente pies del ifn3.Plantacion de pino con subpiso de rebollo.
+[Pies Mayores]Pie a 73g y 5.1 no entra por dist.Pie 43 calidad comprobada.
+Rumbos comprobados.
+[Selvicultura]LAs cortas son antiguas.Aterrazados anntiguos bastante desgastados.",2019-10-29,2000-01-01,2019-10-29,2000-01-01,24,"24.1289","24.1289.A.1"
+"24573",24,1290,"A","4",0,"1984","J","0009","1997","","2-2",2019,1,1,2,90,85,1,3,2,2,2,4,1,2,1,1,5,2,NA,NA,1,0,0,4,0,95,0,0.5,0,3,2,2,"[Identificación]Parcela clasificada como A4 por no encontrar el rejon por falta de referencias claras y gran numero de cortas.Zona de intensa actividad maderera. Pinar de plantacion con subpiso de rebollo .
+[Pies Mayores]Pie a 10.1 y 215g no entra por dm.
+[Riesgos]Modelo combustible comprobado.
+[Selvicultura]Restos de ramas procedentes del apeo por el suelo.",2019-10-31,2000-01-01,2019-10-31,2000-01-01,24,"24.1290","24.1290.A.4"
+"24575",24,1292,"A","4",0,"1984","K","0010","1997","","2-4",2019,1,1,2,90,85,1,2,2,2,3,4,1,2,1,1,5,3,NA,NA,1,0,0,0,0,230,0,0.25,0,3,2,1,"[Identificación]Parcela clasificada como A4 por no encontrar el rejon ni la parcela.Es plantacion donde han cortado la mitad de los pies y las referencias del croquis del ifn3 han deseparecido.Situamos el rejon en el cruce de coordenadas.
+[Pies Mayores]Pie a 13.1 y 169g no entra por dm.Pie a 13.9 y 248g no entra por dm.
+[Riesgos]Modelo de combustible comprobado.
+[Selvicultura]Se observan gran cantidad de cortas.
+Ha llovido durante el levantamiento.",2019-10-24,2000-01-01,2019-10-24,2000-01-01,24,"24.1292","24.1292.A.4"
+"24601",24,1336,"A","1",0,"1984","J","0010","1997","","2-2",2019,1,1,1,95,80,1,1,2,2,2,4,1,2,1,1,8,5,NA,NA,1,4,NA,0,NA,210,NA,2.25,NA,1,2,2,"[Identificación] Parcela localizada con referencia croquis y pies mayores. Actualmente la marca de pintura de la roca ha desaparecido. Se han realizado cortas y abierto calles.
+[PiesMay 12-25] Especie comprobada, pie bifurcado a mas de 6 m.
+[Pies Mayores]
+021-r.245g no por distancia lateral a 15.11m comprobado con cinta (pendiente 2 no hay correccion)
+025-r.289g no por diametro a 11.6 (225-216).
+021-r.320g a 7.7m no por diametro (130-115).
+021-r.357g a 13.3m no por diametro (222-215).
+[PiesMay 25-21]Diametros comprobados.
+[Regeneración]Fuera hay 045 y 021 categoria 1.
+[Matorral]Fuera hay E. arborea.",2019-10-21,2000-01-01,2019-10-21,2000-01-01,24,"24.1336","24.1336.A.1"
+"24607",24,1348,"A","4",0,"1997","","2-2","1985","J","0010",2019,1,1,2,100,80,1,1,2,2,2,4,1,2,1,1,8,4,NA,NA,1,4,NA,4,NA,210,NA,2,NA,3,2,1,"[Identificación]Parcela no localizada por haber realizado cortas y abierto vias de saca. Se va al cruce de coordenadas y se clasifca la parcela como A4. Ha llovido durante el levantamiento.
+[Pies Mayores]
+025-r.2g a 12m  no por diametro.
+021-r.47g a 14.9m no por diametro.
+025-r.96g a 10.7m no por diametro (222-219).
+Pie referencia 021-r.347g a 15.6m (280-Bifurcado por arriba).
+[Matorral]Fuera hay E. cinerea.",2019-10-14,2000-01-01,2019-10-14,2000-01-01,24,"24.1348","24.1348.A.4"
+"24608",24,1349,"A","1",0,"1997","","2-2","1984","J","0011",2019,1,1,2,85,55,1,2,2,2,2,4,1,2,1,1,6,4,NA,NA,1,4,NA,5,NA,40,NA,4.5,NA,2,2,1,"[Identificación]Parcela localizada con ortofoto, croquis y pies mayores. Parcela desplazada en el ifn3 y que no se desplaza en el ifn4val ser un solape de menos de 10m con un matorral-improductivo teselado (punto mas cercano solape a 26g y 18.3m) y menos de 5m con tesela forestal y pies <425 (punto mas cercano solape a 234g y 21.3m).
+[Pies Mayores] Distancias y formas comprobadas. Pies con grandes crecimientos diametricos.
+021-r.63g no por distancia lateral a 10.55m y pendiente 5.25 comprobado con cinta e hipsometro.
+021-r.70g a 11.7m no por diametro (219-222).
+021-r.311g no por distancia lateral a 15.23m comprobado con cinta.
+021-r.336g a 14.6m no por diametro.
+021-r.352g no por distancia lateral a 10.17m.
+021-r.372g a 6.1m no por diametro.
+[Riesgos]Tambien se da el modelo 8.
+[Matorral]Fuera hay cistus clusii y cistus sp
+[Regeneración]Fuera hay 215.",2019-10-23,2000-01-01,2019-10-23,2000-01-01,24,"24.1349","24.1349.A.1"
+"24634",24,1399,"A","1",0,"1984","J","0002","1997","","1-1",2019,1,1,2,95,75,1,2,2,3,2,4,1,2,1,1,11,2,NA,NA,1,0,NA,0,NA,399,NA,4.5,NA,2,2,1,"[ClaEsp] Ocupaciones comprobadas.
+[Regeneración 43-1]Q.pyrenaica hibridado con Q.faginea. Predominan caracteres 043.
+[Regeneración] Fuera de 5 hay reg. 045.
+[Localización] En las fotos se mantienen los rumbos, la foto con vista panoramica (a 10m) corresponde a la segunda y no a la primera (ifn3 al reves).
+[Pies Mayores]
+021-r.44 no a 15.4m
+021-r.301 a 12.9m no por diametro 
+[PiesMay 15-25]pie comprobado con metodo cinta-hipsometro (entra por correccion pendiente)
+[Identificación]parcela localizada con pies ifn3 y croquis.",2019-08-05,2000-01-01,2019-08-05,2000-01-01,24,"24.1399","24.1399.A.1"
+"35500",34,213,"A","1",0,"1984","M","0011","1997","","4-4",2019,1,1,2,85,55,1,2,2,3,3,4,1,2,1,1,11,3,NA,NA,1,0,0,4,0,250,205,5.5,4.75,2,2,1,"PARCELA LOCALIZADA MEDIANTE FOTO AEREA, PIES DEL IFN3 Y TOCONES. SE HA TRIANGULO PARA PONER UN NUEVO REJON, YA QUE EL ANTERIOR NO ESTA PORQUE HAN DESTOCONADO Y DONDE DEBERIA ESTAR HAY RODADAS DE MAQUINAS.
+[Especies Presentes] FUERA DE 25 MTS HAY PINASTER
+[Riesgos] MOD COMBUSTIBLE MIXTO 11 Y 7.
+[Pies Mayores]
+021 A 15.1 MTS Y 107 GRS NO POR DISTANCIA (225-230) 
+021 A 13.2 MTS Y 112 GRS NO POR DIAMETRO (220-225)
+021 A 13.8 MTS Y 254 GRS NO POR DIAMETRO (218-220)",2019-05-09,2000-01-01,2019-05-09,2000-01-01,34,"34.213","34.213.A.1"
+"35501",34,215,"A","1",0,"1984","M","0011","1997","","4-4",2019,1,1,2,95,75,1,2,2,2,3,4,1,2,1,1,11,3,NA,NA,1,0,0,4,0,325,NA,1,NA,2,1,1,"PARCELA LOCALIZADA MEDIANTE ORTOFOTO, REFERENCIAS Y PIES MAYORES IFN3.
+BARRENA ESTROPEADA.
+[Pies Mayores]
+PIE 13 BIFURCA POR ENCIMA DE 6 MTS.
+025 A 14.1 MTS Y 190 GRS NO POR DIAMETRO (227-220)
+025 A 15.1 MTS Y 316 GRS NO POR DISTANCIA (310-310)
+025 A 18.9 MTS Y 386 GRS NO POR DIAMETRO (417-416)",2019-04-04,2000-01-01,2019-04-04,2000-01-01,34,"34.215","34.215.A.1"
+"35521",34,258,"A","1",0,"1985","L","0004","1997","","3-1",2019,1,1,2,100,65,1,2,2,2,3,4,1,2,1,1,11,3,NA,NA,1,4,NA,4,NA,90,NA,1.25,NA,1,2,1,"- REJON LOCALIZADO POR REFERENCIAS EN CROQUIS Y PIES MAYORES IFN3.
+[Pies Mayores]- PIE 1 IFN4 BIFURCADO A 8.3 M.
+- PIE 17 IFN4 BIFURCADO A 11.8 M.
+- PIE 19 IFN4 CALIDAD COMPROBADA.
+- PIE 24 IFN4 DIAMETROS Y CALIDAD COMPROBADOS.
+- PIE 27 IFN4 CALIDAD COMPROBADA.
+- PIE 28 IFN4 CALIDAD COMPROBADA.
+- SP 021 A 368 G. Y 10.5 M. NO ENTRA POR DIAMETRO. (214 - 226 MM)
+- PIE 32 IFN4 CALIDAD COMPROBADA.
+- LOS DANOS POR INSECTOS SON POR BOLSONES DE PROCESIONARIA.
+- POR EL SUELO DE LA PARCELA SE ENCUENTRAN ESPARCIDOS RESTOS LIGEROS DE PODAS Y CORTAS.
+[Coor. gps]- ETRS 89",2019-07-05,2000-01-01,2019-07-05,2000-01-01,34,"34.258","34.258.A.1"
+"35522",34,259,"A","1",0,"1984","L","0004","1997","","3-1",2019,1,1,2,100,75,1,2,2,2,3,4,1,2,1,1,7,4,NA,NA,1,0,NA,4,NA,220,NA,0.25,NA,2,2,1,"- REJON LOCALIZADO POR REFERENCIAS EN CROQUIS Y PIES MAYORES IFN3.
+[ClaEsp]
+[Pies Mayores]- PIE 8 IFN4 CALIDAD COMPROBADA.
+- PIE 23 IFN4 CALIDAD COMPROBADA.
+- PIE 25 IFN4 ALTURA COMPROBADA. 
+- PIE 31 IFN4 DISTANCIA COMPROBADA CON CINTA.
+- PIE 33 IFN4 CALIDAD COMPROBADA.
+[Selvicultura]- POR EL SUELO DE LA PARCELA HAY ESPARCIDOS RESTOS FINOS PROCEDENTES DE LAS CORTAS.
+- EL MODELO DE COMBUSTIBLE ESTA ENTRE EL 07 Y EL 11 PERO PREDOMINA EL 07.
+[Coor. gps]- ETRS 89",2019-07-08,2000-01-01,2019-07-08,2000-01-01,34,"34.259","34.259.A.1"
+"35530",34,277,"A","1",0,"1985","M","0013","1997","","4-2",2019,1,1,2,95,90,1,2,2,2,2,4,1,2,1,1,5,3,NA,NA,1,4,0,0,0,50,NA,6.5,NA,2,2,1,"PARCELA LOCALIZADA POR ORTOFOTO, CROQUIS Y PIES IFN3.
+ESTA A 23M DE UN CORTAFUEGOS TESELADO, NO SE DESPLAZA AL NO HABER PIES DE >42.5. 
+[Pies Mayores]A 77G 025 NO ENTRA POR DISTANCIA.
+PIE 28 ESPECIE COMPROBADA.
+A 307G 021 NO ENTRA POR DISTANCIA, ESTA CASI MUERTO.
+PARCELA LEVANTADA POR EL AUXILIAR ADRIAN BERNAL.",2019-06-11,2000-01-01,2019-06-11,2000-01-01,34,"34.277","34.277.A.1"
+"35534",34,286,"A","1",0,"1985","M","0008","1997","","3-4",2019,1,1,2,100,70,1,2,2,2,3,4,1,2,1,1,8,2,NA,NA,1,0,NA,4,NA,325,NA,0.25,NA,3,2,1,"- REJON LOCALIZADO POR REFERENCIAS EN CROQUIS, FOTOS DE LA PARCELA Y PIES MAYORES IFN3.
+[Pies Mayores]- PIE 1 IFN4 BIFURCADO A 9.3 M.
+- SP 021 A 35 G. NO ENTRA POR DISTANCIA ESTA A 15.1 M. COMPROBADO CON CINTA.
+- PIE 7 IFN4 CALIDAD COMPROBADA.
+- PIE 8 IFN4 CALIDAD COMPROBADA.
+- PIE 13 IFN4 DN MEDIDO A 1.40 M. POR DANOS EN LA CORTEZA. CALIDAD COMPROBADA.
+- PIE 17 IFN4 RUMBO COMPROBADO.
+- PIE 26 IFN4 BIFURCADO A 9.6 M.
+- PIE 38 IFN4 INCLINACION COMPROBADA.
+- SP 025 A 390 G NO ENTRA POR DISTANCIA ESTA A 15.1 M. COMPROBADO CON CINTA.
+[Matorral]- FUERA DE 10 M. HAY ROSA SPP.
+[Localización]- LOCALIZACION 3 POR LAS CORTAS.
+[Coor. gps]- ETRS 89",2019-07-09,2000-01-01,2019-07-09,2000-01-01,34,"34.286","34.286.A.1"
+"35537",34,293,"A","1",0,"1985","M","0007","1997","","3-4",2019,1,1,2,100,90,1,2,2,1,3,4,1,2,1,1,7,2,NA,NA,0,4,NA,4,NA,240,NA,5.5,NA,2,2,2,"- REJON LOCALIZADO POR REFERENCIAS EN CROQUIS, PENDIENTE DE LA PARCELA Y PIES MAYORES IFN3.
+[ClaEsp]- EN LA TESELA ABUNDA MAS EL PINUS SYLVESTRIS.
+[Pies Mayores]- PIE 4 IFN4 CALIDAD COMPROBADA.
+- PIE 5 IFN4 FORMA COMPROBADA.
+- SP 025 A 87 G Y 10.1 M NO ENTRA POR DIAMETRO (214 - 216 MM)
+- SP 025 A 171 G Y 15.2 M BIFURCADO POR ENCIMA NO ENTRA POR DISTANCIA AL LATERAL.
+- PIE 21 IFN4 RUMBO COMPROBADO.
+- PIE 22 IFN4 RUMBO COMPROBADO.
+- PIE 23 IFN4 RUMBO Y DISTANCIA COMPROBADOS. PIE BIFURCADO A 6.5 M.
+- PIES 26 Y 27 IFN4 SALEN JUNTOS PERO NO SON BIFURCADOS POR DEBAJO. PAE COMPROBADO.
+- PIE 29 IFN4 SON DOS PIES QUE SALEN JUNTOS PERO NO ES BIFURCADO POR DEBAJO. PAE COMPROBADO.
+- PIE 31 IFN4 FORMA COMPROBADA.
+- PIE 38 IFN4 CALIDAD COMPROBADA.
+- SP 021 A 388 G 12.6 M. NO ENTRA POR DIAMETRO (222 - 212 MM)
+- SP 025 A 397 G Y 15.1 M. NO ENTRA POR DISTANCIA AL LATERAL.
+[Coor. gps]- ETRS 89",2019-07-23,2000-01-01,2019-07-23,2000-01-01,34,"34.293","34.293.A.1"
+"35548",34,312,"A","1",0,"1985","M","0013","1997","","4-4",2019,1,1,2,75,60,1,1,1,2,2,4,1,2,1,1,5,2,NA,NA,1,0,NA,0,NA,329,NA,0.25,NA,2,1,1,"PARCELA LOCALIZADA MEDIANTE ORTOFOTO Y PIES MAYORES IFN3.
+LAS ESPECIES 021 Y 025 TIENEN PIES EN ESTADO 3 PERO PREDOMINA EL 4.
+ESPESOR DE CAPA MUERTA COMPROBADO.
+PIE 9 ALTURA COMPROBADA.
+021 A 29G Y 13,7M NO POR DIAMETRO (227-215).
+021 A 58G Y 10,2M NO POR DIAMETRO (238-209).
+
+LEVANTADA A ESTADILLO.",2019-03-11,2000-01-01,2019-03-11,2000-01-01,34,"34.312","34.312.A.1"
+"35566",34,354,"A","1",0,"1985","L","0010","1997","","4-2",2019,1,1,2,100,85,1,1,1,3,2,4,1,1,1,1,5,3,NA,NA,0,0,NA,0,NA,355,NA,4.75,NA,2,2,1,"PARCELA LOCALIZADA POR CROQUIS Y PIES IFN3.
+[ClaEsp]NO DEJO OCUPACION PARA RESTO DE ESPECIES.
+FRACCIONES COMPROBADAS.
+CLARAS Y CLAREOS ANTIGUOS.
+[Pies Mayores]PINO A 85G Y 11.1M NO ENTRA POR DM.
+PINO A 90G Y 15.2 DIS LATERAL, NO ENTRA POR DISTANCIA.
+PINO A 360G Y 15.3M SE VA POR DISTANCIA LATERAL. 
+BARRENA ATASCADA.
+PRESENCIA DE PROCESIONARIA EN LA PARCELA.",2019-05-30,2000-01-01,2019-05-30,2000-01-01,34,"34.354","34.354.A.1"
+"35581",34,384,"A","1",0,"1984","J","0010","1997","","2-2",2019,1,1,2,95,70,1,2,2,1,3,4,1,2,1,1,11,5,NA,NA,1,4,0,4,0,170,NA,1,NA,1,2,2,"PARCELA LOCALIZADA MEDIANTE ORTOFOTO Y PIES MAYORES IFN3. EL DANO POR INSECTO SE REFIERE A PROCESIONARIA.
+[Riesgos] MOD COMBUSTIBLE MIXTO 11 Y 7.
+[Pies Mayores]
+PIE 23 ESPECIE COMPROBADA 
+021 A 10.6 Y 216 GRS NO POR DIAMETRO (222-221)
+025 A 13.7 MTS Y 332 GRS NO POR DIAMETRO  (207-223)",2019-05-22,2000-01-01,2019-05-22,2000-01-01,34,"34.384","34.384.A.1"
+"35582",34,385,"A","4",0,"2019","","","1997","","2-2",2019,1,1,2,100,70,1,2,2,2,3,4,1,2,1,1,11,3,NA,NA,1,1,0,4,0,240,NA,0.25,NA,3,2,1,"PARCELA A4 YA QUE DEBIDO A LAS ABUNDANTES CORTAS HA SIDO IMPOSIBLE ENCONTRAR LA PARCELA. DIFIERE LA REFERENCIA DE IFN3 Y EL PINCHAZO AUN PROBANDO TOCONES EN EL LUGAR DE REFERENCIA Y EN EL DEL PINCHAZO HA SIDO IMPOSIBLE. BARRENA ESTROPEADA.
+[Pies Mayores]
+021 A 12 MTS Y 50 GRS NO POR DIAMETRO (228-217)
+025 A 392 GRS Y 12.7 MTS NO POR DIAMETRO (220-223)
+HA LLOVIDO DURANTE EL LEVANTAMIENTO ",2019-04-22,2000-01-01,2019-04-22,2000-01-01,34,"34.385","34.385.A.4"
+"35584",34,388,"A","4",0,"1997","","2-2",NA,"","",2019,1,1,2,100,75,1,3,2,1,3,4,1,2,1,1,11,3,NA,NA,1,0,0,4,0,160,NA,0.25,NA,3,2,2,"NO SE HA ENCONTRADO EL REJON, SE HAN INTENTADO CUADRAR PIES Y TOCONES DE IFN3. HAN CORTADO MUCHOS PIES Y DESTOCONADO CALLES PARA HACER POSIBLES VIAS DE SACA DE MADERA. EL REBOLLO HACE SUBPISO.
+[Selvicultura] PODAS MUY ANTIGUAS YA CERRADAS. EL DANO POR INSECTO SE DEBE A LA PROCESIONARIA.
+[Pies Mayores]
+025 A 10.2 MTS Y 330 GRS O POR DIAMETRO (225-219)",2019-05-23,2000-01-01,2019-05-23,2000-01-01,34,"34.388","34.388.A.4"
+"35585",34,391,"A","1",0,"1997","","2-2",NA,"","",2019,1,1,2,100,80,1,2,2,2,3,4,1,2,1,1,11,2,NA,NA,1,4,0,4,0,385,NA,0.25,NA,2,2,2,"PARCELA LOCALIZADA MEDIANTE ORTOFOTO, REFERENCIAS IFN3 Y BARRIENDO CON EL DETECTOR.EL DANO POR INSECTO ES DEBIDO A LA PROCESIONARIA 
+[Pies Mayores]
+025 A 10.1 MTS (CINTA LATERAL) Y 35 GRS NO POR DISTANCIA (155-153)
+025 A 7.4 MTS Y 292 GRS NO POR DIAMETRO (123-125)
+025 A 10.13 MTS (CINTA LATERAL) Y 355 GRS NO POR DISTANCIA (184-180)
+[Regeneración] FUERA DE 5 MTS HAY REGENERACION MAS ABUNDANTE DE REBOLLO EN TODAS LAS CATEGORIAS.
+[Riesgos]
+MOD COMBUSTIBLE Y ESP CAPA MUERTA COMPROBADO.",2019-05-22,2000-01-01,2019-05-22,2000-01-01,34,"34.391","34.391.A.1"
+"35586",34,392,"A","1",0,"1997","","2-4",NA,"","",2019,1,1,2,100,85,1,2,2,1,3,4,1,2,1,1,11,2,NA,NA,1,4,0,4,0,0,NA,0.25,NA,2,2,2,"PARCLA LOCALIZADA MEDIANTE ORTOFOTO, REFERENCIAS IFN3 Y BARRIENDO CON EL DETECTOR. ESTAN TODOS LOS RESTOS DE PODA POR EL SUELO, EL DANO POR INSECTO ES DEBIDO A LA PROCESIONARIA.
+[Riesgos] MOD COMBUSTIBLE MIXTO 11 Y 7. ESP CAPA MUERTA COMPROBADO.
+",2019-05-24,2000-01-01,2019-05-24,2000-01-01,34,"34.392","34.392.A.1"
+"35587",34,398,"A","1",0,"1984","K","0012","1997","","2-4",2019,1,1,2,95,80,1,2,2,2,3,4,1,2,1,1,11,3,NA,NA,1,0,0,4,0,175,NA,0.25,NA,2,2,1,"PARCELA LOCALIZADA MEDIANTE ORTOFOTO Y PIES MAYORES IFN3. NO SE CONSIDERA SUBPISO DE REBOLLO YA QUE SUTALLA ES BAJA. LAS ESPECIES 021 Y 025 ESTAN EN ESTADO 3 Y 4, POR LO QUE SE PONE LA PREDOMINANTE EN AMBAS. HAN HECHO CORTAS EN LA MASA.
+[Riesgos] MOD COMBUSTIBLE COMPROBADO.
+[Selvicultura] LAS PODAS YA NO SE APRECIAN.
+[Pies Mayores]
+PIE 5,27 BIFURCACION COMPROBADA 
+PIES 7,24 BIFURCACION CORTADA.
+PIE 22 MEDIDO A 1.20 POR BIFURCACION CORTADA.
+021 A 43 GRS Y 13 MTS NO POR DIAMETRO (218-223)
+021 A 136 GRS Y 13.8 MTS NO POR DIAMETRO (208-221)",2019-05-24,2000-01-01,2019-05-24,2000-01-01,34,"34.398","34.398.A.1"
+"35589",34,402,"A","1",0,"1984","K","0012","1997","","2-4",2019,1,1,2,100,95,1,3,2,2,3,4,1,2,1,1,11,3,NA,NA,1,0,0,4,0,165,NA,0.5,NA,1,2,2,"PARCELA LOCALIZADA MEDIANTE ORTOFOTO, REFERENCIAS Y PIES MAYORES IFN3. EN LAS ESPECIES 021 Y 025 HAY PIES EN ESTADO 3 PERO PREDOMINA EL 4. EL REBOLLO HACE SUBPISO. EL DANO POR INSECTO SE REFIERE A LA PROCESIONARIA.
+[Riesgos] MOD COMBUSTIBLE MIXTO 11 Y 8.
+[Pies Mayores]
+PIE 20 MEDIDO A 1.15 POR BIFURCACION 
+021 A 149 GRS Y 15.1 MTS NO POR DISTANCIA (251-251)
+025 A 12 MTS Y 379 GRS NO POR DIAMETRO (221-226)
+021 A 12.6 MTS Y 398 GRS NO POR DIAMETRO  (227-208)",2019-05-29,2000-01-01,2019-05-29,2000-01-01,34,"34.402","34.402.A.1"
+"35591",34,407,"A","1",0,"1984","L","0010","1997","","4-2",2019,1,1,2,95,70,1,2,2,2,3,4,1,2,1,1,8,2,NA,NA,1,0,NA,4,NA,165,NA,0.5,NA,2,1,1,"PARCELA LOCALIZADA MEDIANTE FOTO AEREA, ORTOFOTO, PIES Y TOCONES IFN3.
+MODELO COMBUSTIBLE MIXTO 8 Y 11.
+LA ESPECIE 043 LA HAY EN ESTADO 2 Y 3.
+PIE 9 MEDIDO A 1,10M POR BIFURCACION Y DIAMETRO COMPROBADO.
+021 A 375G Y 11,5M NO POR DIAMETRO 214-231. 
+BARRENA ATASCADA, NO SE HA PODIDO BARRENAR.
+
+LEVANTADA A ESTADILLO
+",2019-03-12,2000-01-01,2019-03-12,2000-01-01,34,"34.407","34.407.A.1"
+"35594",34,411,"A","1",0,"1984","M","0012","1997","","4-4",2019,1,1,2,100,60,1,3,2,2,2,4,1,2,1,1,5,1,NA,NA,0,0,0,4,0,190,NA,0.25,NA,2,1,2,"PARCELA LOCALIZADA MEDIANTE FOTO AEREA Y PIES MAYORES IFN3. LA MASA ESTA MUY AFECTADA POR LA PROCESIONARIA. BARRENA ESTROPEADA.
+[Selvicultura] NO HAY NI PODAS NI CORTAS RECIENTES
+[Localización] EL ACCESO SE DIFICULTA POR EL MAL ESTADO DE LAS PISTAS QUE OBLIGA SU APROXIMACION A PIE.
+[Pies Mayores]
+PIE 4 BIFURCACION ROTA Y EN EL SUELO POSIBLEMENTE DEBIDO AL VIENTO 
+021 A 18.1 MTS Y 317 GRS NO POR DIAMETRO (442-382)",2019-03-18,2000-01-01,2019-03-18,2000-01-01,34,"34.411","34.411.A.1"
+"35605",34,444,"A","1",0,"1997","","1-2",NA,"","",2019,1,1,2,100,80,1,3,2,1,3,4,1,2,1,1,7,3,NA,NA,1,0,0,4,0,184,NA,0.25,NA,3,3,1,"PARCELA LOCALIZADA MEDIANTE ORTOFOTO Y PIES MAYORES IFN. SE HA COMPLICADO LA LOCALIZACION DEBIDO A QUE LAS REFERENCIAS HAN SIDO MODIFICADAS, HAN CORTADO Y LA METEREOLOGIA HA SIDO MUY ADVERSA.
+BARRENA ESTROPEADA.
+[Pies Mayores]
+021 A 12.2 MTS Y 47 GRS NO POR DIAMETRO (226-215)
+025 A 11 MTS Y 67 GRS NO POR DIAMETRO (220-211)
+025 A 13.4 MTS Y 134 GRS NO POR DIAMETRO (215-220)
+025 A 13.9 MTS Y 229 GRS NO POR DIAMETRO (224-220)
+021 A 10.1 MTS Y 274 GRS NO POR DISTANCIA (151-158)
+025 A 10.8 MTS Y 301 GRS NO POR DIAMETRO (207-220)
+DIFICULTAD ALTA DEBIDO A LA METEREOLOGIA YA QUE HA LLOVIDO Y NEVADO CON FUERTE VIENTO.",2019-04-05,2000-01-01,2019-04-05,2000-01-01,34,"34.444","34.444.A.1"
+"35613",34,456,"A","1",0,"1997","","2-2",NA,"","",2019,1,1,2,95,80,1,2,2,2,1,4,1,2,1,1,5,2,NA,NA,1,0,0,0,0,290,NA,1.5,NA,2,2,2,"PARCELA LOCALIZADA MEDIANTE ORTOFOTO Y PIES MAYORES IFN3.
+[Riesgos] MOD COMBUSTIBLE 05 PORQUE ES EL PREDOMINANTE EN LA PARCELA HABIENDO TAMBIEN ZONAS DE  MOD 11.
+[Pies Mayores]
+PIE 11 FORMA COMPROBADA 
+PIE 12 FORMA Y BIFURCACION COMPROBADA 
+PIE 27 DISTACIA COMPROBADA 
+BARRENA ESTROPEADA.",2019-04-02,2000-01-01,2019-04-02,2000-01-01,34,"34.456","34.456.A.1"
+"35624",34,476,"A","4",0,"2019","","","1997","","1-4",2019,1,1,2,90,70,1,2,2,2,3,4,1,2,1,1,11,4,NA,NA,1,4,0,4,0,110,NA,4.75,NA,3,2,2,"PARCELA A4 YA QUE NO SE HA ENCONTRADO EL REJON, HA HABIDO MUCHAS CORTAS Y LA FALTA DE REFERENIAS HAN HACHO IMPOSIBL SU LOCALIZACION. TRAS CONSULTAR CON OFICINA TECNICA Y POR INTERPRETACION EN CAMPO SE DECIDE DESPLAZAR LA PARCELA 10 MTS A 70 GRADOS PARA EVITAR SOLAPES CON LA OTRA TESELA. 
+[ClaEsp. Resto de especies=10%]
+[Especies Presentes]
+FUERA DE 25 MTS HAY CHOPO
+[Matorral] FUERA DE 10 MTS HAY ZARZA Y CALLUNA.
+[Pies Mayores]
+021 A 10.1 MTS Y 164 GRS NO POR DISTANCIA (171-174)
+021 A 10.7 MTS Y 383 GRS NO POR DIAMETRO (219-220)
+HA LLOVIDO ABUNDANTEMENTE DURANTE EL LEVANTAMIENTO.",2019-05-10,2000-01-01,2019-05-10,2000-01-01,34,"34.476","34.476.A.4"
+"35627",34,486,"A","1",0,"1985","J","0012","1997","","4-2",2019,1,1,2,80,70,1,1,2,1,2,4,1,2,1,1,11,2,NA,NA,1,4,0,4,0,120,NA,1.5,NA,1,2,1,"PARCELA LOCALIZADA MEDIANTE ORTOFOTO Y PIES MAYORES IFN3.
+[ClaEsp. Resto de especies=10%]
+[Pies Mayores]
+PIE 7,23 DISTANCIA COMPROBADA 
+PIE 14 FORMA Y ESPECIE COMPROBADA
+PIE 35 BIFURCACION COMPROBADA   
+LOS SIGUIENTES PIES ESTAN MARCADOS PARA SU CORTA: 5,9,13,20,23,28,32,35
+021 A 13 MTS Y 35 GRS NO POR DIAMETRO  (218-227)
+025 A 16.6 MTS Y 36 GRS NO POR DIAMETRO (423-423)
+021 A 10.3 MTS Y 58 GRS NO POR DIAMETRO (231-199) 
+025 A 19.6 MTS Y 201 GRS NO POR DIAMETRO (414-423)
+[Matorral] FUERA DE 10 MTS HAY ZARZA.
+[Riesgos] MOD COMBUSTIBLE MIXTO, HAY ZONAS DE 11 Y DE 5.
+HA LLOVIDO Y GRANIZADO DURANTE EL LEVANTAMIENTO.",2019-04-25,2000-01-01,2019-04-25,2000-01-01,34,"34.486","34.486.A.1"
+"35635",34,499,"A","1",0,"1984","L","0010","1997","","4-1",2019,1,1,2,85,80,1,2,2,2,3,4,1,2,1,1,11,2,NA,NA,1,1,0,4,0,220,NA,0.5,NA,3,2,1,"PARCELA LOCALIZADA MEDIANTE FOTO AEREA, ORTOFOTO Y PIES MAYORES IFN3. HAN CORTADO Y DESBROZADO RECIENTEMENTE. EL MARCO DE PLANTACION ES 2X5 (UNA FILA DE SILVESTRE Y OTRA DE LARICIO ALTERNAS)
+[Riesgos] ESP CAPA MUERTA COMPROBADA 
+[Pies Mayores]PIE 7 ALTURA COMPROBADA Y BIFURCACION CORTADA
+PIE 9 DIAMETRO COMPROBADO Y BIFURCACION CORTADA.
+PIE 22 BIFURCACION COMPROBADA 
+021 A 99 GRS Y 13.6 MTS NO POR DIAMETRO (222-219)
+025 A 207 GRS Y 23 MTS NO POR DIAMETRO (219-223)
+ BARRENA ESTROPEADA ",2019-03-15,2000-01-01,2019-03-15,2000-01-01,34,"34.499","34.499.A.1"
+"35677",34,581,"A","1",0,"1984","J","0001","1997","","1-1",2019,1,1,2,95,70,1,2,2,2,3,4,1,2,1,1,11,2,NA,NA,1,0,0,4,0,100,NA,0.5,NA,1,2,1,"PARCELA LOCALIZADA MEDIANTE ORTOFOTO Y PIES MAYORES IFN3. BARRENA ESTROPEADA.
+[Regeneración] NO HAY REGENERACION EN 5 MTS.
+[Pies Mayores]
+LOS SIGUIENTES PIES TIENEN LA BIFURCACION CORTADA: 3,4,9,15,20,21,36,37.
+PIES MARCADOS CON PINTURA PARA SU POSIBLE CORTA: 2,10,12,22,24,26,28,31,32.
+PIE 6 ESPECIE COMPROBADA 
+PIES 9,19 FORMA COMPROBADA 
+PIE 19 ALTURA COMPROBADA.
+EL DANO POR INSECTO ES DEBIDO A LA PROCESIONARIA.",2019-04-23,2000-01-01,2019-04-23,2000-01-01,34,"34.581","34.581.A.1"
+"40996",40,1079,"A","1",0,"1984","J","0010","2002","","2-2",2018,1,1,2,100,95,1,2,3,2,2,4,1,2,1,1,8,4,NA,NA,1,0,0,3,0,90,200,6,5.75,2,2,2,"REJON LOCALIZADO MEDIANTE ORTOFOTO Y PIES IFN 3 
+[Pies Mayores]
+PIE 11 DISTANCIA COMPROBADA
+PIES 16, 24 ALTURA COMPROBADA
+PIE 43 FORMA COMPROBADA
+PIE A 344 G Y 13.3 M, 357 G Y 12.8 M NO ENTRAN POR DIAMETRO ",2018-12-03,2000-01-01,2018-12-03,2000-01-01,40,"40.1079","40.1079.A.1"
+"41005",40,1089,"A","4",0,"1984","K","0010","2002","","2-3",2018,1,1,2,100,70,1,2,1,2,2,4,1,2,1,1,8,1,NA,NA,1,0,NA,0,NA,320,NA,1.75,NA,3,2,1,"PARCELA A4 POR NO ENCONTRARSE NI EL REJON NI LOS PIES DEL IFN 3 DEBIDO A CORTAS
+[Pies Mayores]
+PIES A 19.8 M  54 G,  12.4 M  76 G NO ENTRAN POR DIAMETRO ",2018-11-30,2000-01-01,2018-11-30,2000-01-01,40,"40.1089","40.1089.A.4"
+"41567",40,3096,"N","N",0,"2013","","",NA,"","",2018,1,1,2,90,90,1,2,2,2,1,4,1,2,1,1,11,4,NA,NA,0,4,0,5,3,35,0,6,0,1,2,1,"PALRCELA DE NUEVA IMPLANTACION.
+PARCELA DESPLAZADA 263G Y 10.7M PARA METERLA EN LA TESELA.
+EN A ESPECIE 21 HAY MAS DEL 90% DE LOS PIES EN LATIZAL QUE EN FUSTAL AUNQUE EN PARCELA A MAYORIA SEAN FUSTALES.
+[Pies Mayores]
+A 137G HAY UN 25 QUE NO ENTRA POR DISTANCIA LATERAL.
+A 291G TY 14.6M HAY UN 21 QUE NO ENTRA POR DIAMETROS (224;205)
+CODIGO 311: PROCESIONARIA.
+[Selvicultura]
+PARTE DE LA PARCELA ESTA ATERRAZADO Y EN OTRA ESTA SUBSOLADO.",2018-11-28,2000-01-01,2018-11-28,2000-01-01,40,"40.3096","40.3096.N.N"
+"41716",42,142,"A","4",0,"2000","","4-2","2000","","4-2",2019,1,1,2,100,75,1,1,3,2,2,4,1,2,1,1,5,2,NA,NA,1,4,0,0,0,60,NA,9.25,NA,2,2,2,"[Pies Mayores]parcela encontrada por pie ifn3.en ifn3 se ubico a4.la desplazo 20m a 37 grados por tocar claramente otra tesela.ocupacion comprobada,hay una franja de la parcela que tiene pino silvestre pero la tesela es de pino laricio.10% para resto de especies.pie 4 dm comprobado.pie 18 medido a 1.25m.silvestre a 272g y 14.5m se va por dm.edad de la masa segun ifn3.",2019-05-22,2000-01-01,2019-05-22,2000-01-01,42,"42.142","42.142.A.4"
+"42161",42,827,"A","1",0,"1984","M","3828","2000","","3-3",2019,1,1,2,90,85,1,1,2,2,2,4,1,2,1,1,8,2,NA,NA,1,4,1,5,0,195,NA,5.75,NA,1,2,1,"[Identificación]parcela localizada con fotos aereas croquis y pies ifn3.
+[ClaEsp]ocupaciones comprobadas, no le doy ocupacion al resto de especies debido a su escasa presencia.
+[Matorral]fuera de 10m (en el claro) hay mayor abondancia de matorral.
+[Localización]se cambia el rumbo de la segunda foto para que sea mas significativa.
+[Pies Mayores]
+21-r.4 a 6.3m no por diametro.
+21-r.97 a 11.2m no por diametro.
+25-r.105 no por distancia a mas de 10m.
+[PiesMay 8-21]parametro especial comprobado.
+[PiesMay 27-21]distancia comprobada.",2019-02-20,2000-01-01,2019-02-20,2000-01-01,42,"42.827","42.827.A.1"
+"42249",42,972,"A","1",0,"1984","K","0004","2000","","1-3",2019,1,1,1,100,80,1,1,2,3,2,4,1,2,1,1,8,4,NA,NA,0,0,0,0,0,141,NA,4.25,NA,1,1,2,"[Selvicultura]HAY CORTAS VIEJAS
+[Pies Mayores]025 A 103G NO ENTRA POR DIST.(COMP)N12 DMS COMP.N19 INFO3 COMP.(PROBABILIDAD DE PERDIDA DE CORTEZA)N33 ALTURA COMP.",2019-04-01,2000-01-01,2019-04-01,2000-01-01,42,"42.972","42.972.A.1"
+"42251",42,976,"A","1",0,"1984","K","0006","2000","","1-4",2019,1,1,1,100,90,1,1,1,3,2,4,1,2,1,1,8,3,NA,NA,0,0,0,0,0,150,NA,1.5,NA,1,2,1,"[Pies Mayores]N22 MEDIDO A 1.35MTS.N23 DMS COMP.N30 DMS COMP.N31 DMS COMP.N30 Y N31 FORMAS COMP.",2019-06-10,2000-01-01,2019-06-10,2000-01-01,42,"42.976","42.976.A.1"
+"42278",42,1013,"A","1",0,"1984","K","0004","2000","","1-3",2019,1,1,1,100,80,1,3,1,3,2,4,1,2,1,1,5,4,NA,NA,0,0,0,0,0,338,NA,2.75,NA,1,2,2,"[ClaEsp]EL 10% RESTANTE A LA SABINA 
+[Pies Mayores] ARBOL A 5 GRADOS SA E VA POR DISTANCIA  ARBOL N12 ALTURA COMPROBADA ARBOL N14 ALTURA COMPROBADA .DENDROMETRIA HECHA POR EL AUXILIAR ",2019-05-20,2000-01-01,2019-05-20,2000-01-01,42,"42.1013","42.1013.A.1"
+"42574",42,1494,"A","1",0,"2000","","4-1","1984","L","1400",2019,1,1,2,95,75,1,2,2,2,2,4,1,2,1,1,7,2,NA,NA,1,4,NA,5,NA,45,NA,4.25,NA,2,2,1,"[Identificación]parcela localizada con gps y pies ifn3.
+[ClaEsp]parcela pinchada en una repoblacion de P.nigra y P. sylvestre y entre las calles y los claros abundante regeneracion de rebollo. 
+[Pies Mayores]
+25-r.88 no por distancia a mas de 15m.
+[PiesMay 19-21]diametros comprobados.
+[PiesMay 21-25]parametro especial comprobado, tiene cortada la bifurcacion.
+[PiesMay 25-25]parametro especial comprobado, es bifulcado por encima.",2019-03-21,2000-01-01,2019-03-21,2000-01-01,42,"42.1494","42.1494.A.1"
+"42820",42,1864,"A","1",0,"1984","K","0003","2013","","",2019,1,1,2,95,80,1,2,1,3,1,4,1,2,1,1,6,4,NA,NA,1,0,0,0,0,300,NA,0.5,NA,3,2,1,"PARCELA LOCALIZADA POR FOTOS DE CAMPO Y PIES MAYORES IFN3.
+[Pies Mayores]
+A 180G Y 11.6M HAY UN 25 QUE NO ENTRA POR DIAMETROS (221-224).",2019-04-10,2000-01-01,2019-04-10,2000-01-01,42,"42.1864","42.1864.A.1"
+"43242",42,3041,"A","1",0,"2000","","4-2","2000","","4-2",2019,1,1,2,100,80,1,1,3,2,2,4,1,2,1,1,6,3,NA,NA,1,1,4,0,5,230,NA,5,NA,2,2,2,"[Pies Mayores]encontrada por pies ifn3.ocupacion comjorobada 10% para resto de especies.el rejon ha desaparecido.pie 2dm comprobado.laricio a 67g y 15m se va.pino a 139g y 13.2m se va por dm.pie 16 dm comprobado.pie 22 dm comprobado.pino a 227g y 11m se va por dm.
+[ClaEsp]edad de la masa segun ifn3.",2019-07-05,2000-01-01,2019-07-05,2000-01-01,42,"42.3041","42.3041.A.1"
+"43278",42,3092,"A","1",0,"0","0","0","2000","","2-2",2019,1,1,2,95,80,1,1,1,2,2,4,1,2,1,1,8,3,NA,NA,0,0,0,5,0,189,NA,6.75,NA,1,1,2,"[ClaEsp. Resto de especies=10%]
+[Pies Mayores] N17 FORMA COMPROBADA 
+[Regeneración]PARCELA LEVANTADA POR EL AUXILIAR ",2019-06-24,2000-01-01,2019-06-24,2000-01-01,42,"42.3092","42.3092.A.1"
+"44230",49,6,"A","1",0,"1985","M","0014","1998","","4-4",2019,1,1,2,100,50,1,2,3,2,2,4,1,2,1,1,6,3,NA,NA,1,4,0,0,0,45,0,4.5,0,2,2,1,"[Identificación]Parcela localizada mediante fotos, croquis y pies del IFN3.
+[Pies Mayores]A 250 y 10.4m nigra no entra por Dn.
+[Regeneración]NO hay en 5m.",2019-07-24,2000-01-01,2019-07-24,2000-01-01,49,"49.6","49.6.A.1"
+"44239",49,21,"A","1",0,"1998","","3-4","1985","M","0007",2019,1,1,2,95,95,1,1,3,2,2,4,1,2,1,1,8,4,NA,NA,0,0,0,5,0,240,0,6.5,0,2,2,1,"[Identificación] Rejon localizado mediante croquis y estadillo del anterior jefe de equipo.
+[Regeneración] No hay regeneracion en 5m.
+[Matorral] No hay matorral en la parcela.
+[Pies Mayores] Pie 012 altura comprobada.
+[Selvicultura] Se observan podas antiguas.",2019-09-30,2000-01-01,2019-09-30,2000-01-01,49,"49.21","49.21.A.1"
+"44246",49,29,"A","1",0,"1985","M","0008","1998","","4-3",2019,1,1,2,85,75,1,2,2,2,2,4,1,2,1,1,7,2,NA,NA,1,4,0,0,0,45,0,3.25,0,1,2,1,"[Identificación] Rejon localizado mediante croquis y estadilo del anterior jefe de equipo.
+[ClaEsp] No le doy ocupacion a la especie 026 por ser escasa y poco representativa en la parcela.
+[Selvicultura] Las terrazas se han perdido.
+[Pies Mayores] A 75g un 021 se va de 10m. A 147gy 13.9m un 021 no entra por diametros.",2019-07-31,2000-01-01,2019-07-31,2000-01-01,49,"49.29","49.29.A.1"
+"44264",49,60,"A","1",0,"1985","K","0013","1997","","2-4",2019,1,1,2,80,75,1,2,2,2,2,4,1,2,1,1,8,3,NA,NA,1,0,0,4,0,200,0,0.25,0,2,2,1,"[Identificación]Parcela localizada mediante croquis y pies del IFN3.
+[Selvicultura]Podas muy antiguas, no las considero como tal, ahora existe poda natural.",2019-08-02,2000-01-01,2019-08-02,2000-01-01,49,"49.60","49.60.A.1"
+"44278",49,82,"A","4",0,"1985","M","0012","1997","","4-4",2019,1,1,1,80,70,1,1,2,2,2,4,1,2,1,1,11,5,NA,NA,1,4,0,5,0,10,0,3.75,0,1,2,1,"[Identificación]Parcela no localizada por falta de referencias y cortas donde han abierto calles y una pista nueva. La clasifico como A4 y pinchamos el rejon en el centro de coordenadas.
+[PiesMay 3-25]Pie trifurcado.
+[Pies Mayores]A 14.9m y 356g nigra no entra por distancia lateral de 15.1m.
+[Selvicultura]Hay algunos pies con podas y otros sin ellas.",2019-10-17,2000-01-01,2019-10-17,2000-01-01,49,"49.82","49.82.A.4"
+"44279",49,89,"A","4",0,"1997","","4-4","1985","M","0013",2019,1,1,2,100,90,1,1,2,2,2,4,1,2,1,1,7,2,NA,NA,0,0,0,5,0,45,0,3,0,3,2,3,"[Identificación] No se encuentra el rejon, se localiza A4 en cruce de coordenadas. La parcela esta pinchada en una repoblacion de pino silvestre y pino nigra.
+[Pies Mayores] A 389g y 11.6m un 21 no entra por diametros (223-224 mm).
+[Regeneración] No hay regeneracion en 5m.",2019-08-28,2000-01-01,2019-08-28,2000-01-01,49,"49.89","49.89.A.4"
+"44284",49,97,"A","4",0,"1997","","4-4","1985","M","0013",2019,1,1,1,100,55,1,1,2,2,2,4,1,2,1,1,6,2,NA,NA,1,1,4,0,0,125,0,2,0,3,2,3,"[Identificación] No se localiza el rejon, se clasifica A4 en cruce de coordenadas.
+[Regeneración] No hay regeneracion en 5m.",2019-08-28,2000-01-01,2019-08-28,2000-01-01,49,"49.97","49.97.A.4"
+"44308",49,134,"A","1",0,"1985","K","0008","1997","","2-3",2019,1,1,2,90,75,1,1,3,2,2,4,1,2,1,1,7,3,NA,NA,0,0,0,4,0,200,0,3,0,2,1,1,"[Identificación] Rejon localizado mediante croquis y estadillo del anterior jefe de equipo.
+[ClaEsp] Aunque hay algunos pies de 021 en estado fustal el estado que predomina es el latizal.
+[Pies Mayores] A 19g un 025 no entra por distancia: 10.2m al lateral. A 27g y 12.8m un 021 no entra por diametros. A 120g y 9.5m un 021 no entra por diametros.",2019-09-10,2000-01-01,2019-09-10,2000-01-01,49,"49.134","49.134.A.1"
+"44311",49,139,"A","1",0,"1997","","1-3","1985","K","0003",2019,1,1,2,90,55,1,2,3,1,2,4,1,2,1,1,7,2,NA,NA,0,4,0,0,0,340,0,3,0,1,2,1,"[Identificación] Rejon localizado mediante croquis y estadill del anterior jefe de equipo.
+[ClaEsp] Aunque hay algun pie en estado fustal el estado que predomina es el latizal.
+[Selvicultura] Las terrazas estan perdidas.
+[Pies Mayores] Pie 019 especie comprobada. A 265g un 021 se va por distancia: 10.1m al lateral. A 12.6m y 399g un 021 no entra por diametros.",2019-08-21,2000-01-01,2019-08-21,2000-01-01,49,"49.139","49.139.A.1"
+"44319",49,151,"A","1",0,"1985","K","0012","1997","","2-4",2019,1,1,2,95,65,1,1,2,2,2,4,1,2,1,1,5,2,NA,NA,0,0,0,4,0,235,0,0.5,0,2,2,1,"Parcela localizada por ortofoto,croquis de referencias y pies mayores del IFn3.
+Es una plantacion en la que los pinos quedan dispersos,no conservando el marco de plantacion original.
+En el terreno  se observan acaballonados.
+Dejo referencia con rumbo y distancia al vertice geodesico, como se indica en croquis.
+[Identificación]
+[Pies Mayores]
+Pie 14 altura comprobada.
+Pie a 231g y 13.1 no entra por diametro (219/221).
+Pie a 332g y 12.2m no entra por diametro (211/231).
+[Localización]
+distancia 5m por abundancia de matorral.",2019-07-15,2000-01-01,2019-07-15,2000-01-01,49,"49.151","49.151.A.1"
+"44320",49,152,"A","1",0,"1997","","1-3","1985","K","0001",2019,1,1,2,80,70,1,2,2,2,2,4,1,2,1,1,7,4,NA,NA,1,4,0,3,0,260,0,1,0,3,3,1,"[Identificación]Parcela localizada por croquis y pies mayores del IFN3, por el tecnico Paco Bernal que ha estado presente durante el levantamiento.
+[Localización]Levantamiento dificil por lluvia.",2019-08-08,2000-01-01,2019-08-08,2000-01-01,49,"49.152","49.152.A.1"
+"44434",49,352,"A","4",0,"1985","J","0012","1997","","2-2",2019,1,1,2,100,70,1,1,2,2,2,4,1,2,1,1,7,2,NA,NA,1,1,4,5,0,85,0,2,0,3,2,1,"[Identificación] No se localiza el rejon, se clasifica A4 en cruce de coordenadas. Parcela pinchada en una repoblacion de pino silvestre y nigra.
+[Regeneración] No hay regeneracion en 5 metros.
+[Matorral] Hay Chamaespartium tridentatum un 5%.",2019-07-22,2000-01-01,2019-07-22,2000-01-01,49,"49.352","49.352.A.4"
+"44443",49,362,"A","1",0,"1985","J","0009","1997","","2-1",2019,1,1,2,95,70,1,1,4,2,3,4,1,2,1,1,7,2,NA,NA,0,4,0,0,0,110,0,6.5,0,2,3,2,"[Identificación]Parcela localizada mediante croquis y pies del IFN3.
+[Pies Mayores]A 8.4m y 67g nigra no entra por Dn.
+[Selvicultura]Las terrazas practicamente estan perdidas, por lo que no las considero.",2019-08-20,2000-01-01,2019-08-20,2000-01-01,49,"49.362","49.362.A.1"
+"44587",49,582,"A","1",0,"1984","L","0003","1977","","3-1",2019,1,1,1,90,90,1,2,2,2,2,4,1,2,1,1,6,3,NA,NA,1,0,0,0,0,20,NA,0.75,NA,3,1,2,"rejon encontrada por fotos y pies del ifn3[Pies Mayores]pie 12y 14 medido a 1.1m
+pie 5 medido a 1.2m
+pie a 277g no entra por distancia 
+pie 31 bifurcacion por encima de los 6m
+[Selvicultura]entresaca ",2019-08-28,2000-01-01,2019-08-28,2000-01-01,49,"49.582","49.582.A.1"
+"44632",49,673,"A","1",0,"1984","J","0003","197","","1-1",2019,1,1,1,95,85,1,2,1,2,3,4,1,2,1,1,11,2,NA,NA,1,0,0,0,0,245,NA,5.5,NA,2,2,2,"PARCELA LO MEDIANTE FOTOGRAFIAS AEREAS Y PIES MAYORES IFN3. EN IFN3 SE DIO LA MASA COO NATURALIZADA PERO LOS TRABAJOS SELVICOLAS QUE SUFRIO SE VE CLARO QUE ES PLANTACION.
+[Regeneración] LAS ESPECIES 021 Y 025 EN REGENERACION SON TAN PEQUENAS QUE SON DIFICILES DE IDENTIFICAR.
+[Riesgos] MOD COMBUSTIBLEMIXTO 11 Y 8.
+[Pies Mayores]
+021 A 14.8 MTS Y 50 GRS NO POR DIAMETRO (221-217)
+025 A 15.1 MTS Y 305 GRS NO POR DISTAN
+(254-261)
+NO SE BARRENA PIE PROPUESTO POR TENER UN NIDO DE AVISPAS EN LA BASE.",2019-07-26,2000-01-01,2019-07-26,2000-01-01,49,"49.673","49.673.A.1"

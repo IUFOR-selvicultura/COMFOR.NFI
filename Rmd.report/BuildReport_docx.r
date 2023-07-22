@@ -6,8 +6,6 @@ library(rmarkdown)
 ## wes_palette(name, n, type = c("discrete", "continuous"))
 ## names(wes_palettes)
 
-
-## dir()
 ## getwd()
 ## (rep <- dir(pattern='*.Rmd'))
 ## help(browseURL)
@@ -23,7 +21,6 @@ render( "report_docx.Rmd",
        # output_file='./config/template.docx'
        output_file='./output/COMFOR_D1_1_1_RegionalReport_ComplexForests.docx'
        )
-
 
 q()
 y
